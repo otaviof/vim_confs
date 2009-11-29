@@ -1,0 +1,37 @@
+Vim Erlang plugin
+
+The indentation plugin is provided by Csaba Hoch and disttributed with his
+permission.
+
+Installation:
+The tarball root is vim_erlang-REL/. To remove this part of the package
+(e.g., to extract the contents to you .vim dir) use tar --strip-components 1
+-xjf vim_erlang-X.X.tar.bz2
+
+* Unix
+	- For local installation (one user only) extract the tarball to your
+	  ~/.vim directory
+	- For global installation extract the tarball to your vim runtime
+	  directory (e.g. /usr/share/vim/vimX/)
+
+* Win
+	- For local installation (one user only) extract the tarball to your
+	  directory
+
+Settings:
+You can set various variables in your vimrc file to make the plugin behave
+differently.
+
+Syntax options:
+The options expect a 0 value for disabling and a non-zero (e.g. 1) for enabling.
+
+* Highlight all Erlang bifs as keywords: (default: 0)
+	g:erlangHighlightBif 
+
+Folding options:
+The options expect a 0 value for disabling and a non-zero (e.g. 1) for enabling.
+
+* Enable/disable folding: (default: 1)
+	g:erlangFold
+* Splitting functions if a new function head appears: (default: 0)
+	g:erlangFoldSplitFunction

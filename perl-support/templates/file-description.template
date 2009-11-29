@@ -1,0 +1,56 @@
+§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.file-description-pl == start ==
+#!/usr/bin/env perl
+
+#
+#  Author: |AUTHOR| <|EMAIL|>
+# Created: |DATE| |TIME|
+#
+
+use strict;
+use warnings;
+
+<CURSOR>
+
+__END__
+§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.file-description-pm == start ==
+package <CURSOR>;
+
+#
+#  Author: |AUTHOR| <|EMAIL|>
+# Created: |DATE| |TIME|
+#
+
+use strict;
+use warnings;
+
+1;
+
+__END__
+§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.file-description-t == start ==
+#
+#  Author: |AUTHOR| <|EMAIL|>
+# Created: |DATE| |TIME|
+#
+
+use strict;
+use warnings;
+
+use Test::More tests => 1;                      # last test to print
+
+<CURSOR>
+
+__END__
+§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+== comment.file-description-pod == start ==
+#
+#  Author: |AUTHOR| <|EMAIL|>
+# Created: |DATE| |TIME|
+#
+
+<CURSOR>
+
+__END__
+§%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

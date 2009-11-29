@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/otaviof/Desktop/LW Scripts/mobimail-jhelpers'
+let g:netrw_dirhist_2='/Users/otaviof/.vim/perl-support/templates'
+let g:netrw_dirhist_3='/Users/otaviof/Desktop/Programming/Open_Source/passenger-2.2.5/lib/phusion_passenger'

@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+#
+# @file         |FILENAME|
+# @mainpage     |FILENAME|
+#
+# @section      Resumo
+#
+# @author       |AUTHOR| <|EMAIL|>
+# @date         |DATE|
+#
+# @version      $Id:$
+#
+# @TODO         
+#
+
+use strict;
+use warnings;
+
+|CURSOR|
+
+__END__

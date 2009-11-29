@@ -1,0 +1,115 @@
+README for doxygen-support.vim (Version 2.0.2) / March 22 2008
+
+  *  INSTALLATION
+  *  RELEASE NOTES 
+  *  FILES
+
+This plugin generates Ex commands and a menu (or a menu tree) from a template
+file containing user defined comment templates to be used for source code
+documentation with Doxygen. The template file can have user defined macros and
+can include other files.
+
+Beside the name this plugin has nothing which is really Doxygen specific. It
+can be used as a versatile general purpose tool to conveniently manage text
+snippets. 
+
+=======================================================================================
+  INSTALLATION
+=======================================================================================
+
+The subdirectories in the zip archive  doxygen-support.zip  mirror the directory
+structure which is needed below the local installation directory $HOME/.vim/
+or $VIM\vimfiles (on the Windows platforms).
+
+(1) Copy the zip archive  doxygen-support.zip to $HOME/.vim/ or $VIM/vimfiles
+    (on the Windows platforms) and run
+
+      unzip doxygen-support.zip
+
+    If you have already an older version of doxygen-support and you have modified
+    the template files you may want to save your templates first or copy the 
+    files from the archive by hand.
+
+(2) Loading of plugin files must be enabled. If not use
+      :filetype plugin on
+    This is the minimal content of the file '$HOME/.vimrc'. Create one if there
+    is none. 
+
+(3) Set at least some personal details in the main file 
+    'doxygen-support/templates/doxygen.templates'. 
+    Use my settings ther as an example.
+
+(4) Restart gVim/Vim generate the help tags 
+
+      :helptags ~/.vim/doc
+
+    and look at the doxygensupport help with
+
+      :h doxygensupport
+
+  For a system-wide installation please see the help file 'doc/doxygensupport.txt'.
+
+=======================================================================================
+  RELEASE NOTES 
+=======================================================================================
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 2.0.2
+---------------------------------------------------------------------------------------
+- Windows: Missing variable from 2.0.1 was still wrong.
+- Bugfix: variable g:Doxy_LoadMenus had no effect.
+- Documentation corrected.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 2.0.1
+---------------------------------------------------------------------------------------
+- Windows: Missing variable prevents correct plugin loading (thanks to Martin Banszel)
+- Documentation corrected.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 2.0
+---------------------------------------------------------------------------------------
+- Systemwide installation now possible.
+- Visual mode insert (surround a marked region).
+- Dialog to ask for parameters possible.
+- Automatic generation of submenu titles.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 1.4
+---------------------------------------------------------------------------------------
+- Templates can contain preprocessor statements.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 1.3
+---------------------------------------------------------------------------------------
+- Include mechanism for template files.
+- Menu items can be sorted/unsorted.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 1.2
+---------------------------------------------------------------------------------------
+- New 'insert' attribute for templates.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 1.1
+---------------------------------------------------------------------------------------
+- New template attributes allow insertion above and below the current line and
+  appending to the current line.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 1.0
+---------------------------------------------------------------------------------------
+- Initial upload
+
+=======================================================================================
+  FILES
+=======================================================================================
+
+doc/doxygensupport.txt              The help file for the local online help. 
+
+doxygen-support/templates/*         The template files (examples).
+                                
+plugin/doxygen-support.vim          The doxygen plugin for Vim/gVim.
+
+README.doxygensupport               This file.
+=======================================================================================
