@@ -299,22 +299,23 @@ nmap ,utf8 !recode -q ISO-8859-1..utf-8
 
 
 "
-" Atalhos para os Tabs
+" Shortcuts for Tabs (Command)
 "
 
 map <c-t> :tabnew<cr>
 map <c-h> :tabprevious<cr>
 map <c-l> :tabnext<cr>
 
-map ,1 1gt
-map ,2 2gt
-map ,3 3gt
-map ,4 4gt
-map ,5 5gt
-map ,6 6gt
-map ,7 7gt
-map ,8 8gt
-map ,9 9gt
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> 10g
 
 "
 " Perl
