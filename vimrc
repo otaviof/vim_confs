@@ -87,6 +87,7 @@ if has("gui_running")
                                 " sao setadas no tema (colorscheme)
     set invnumber               " exibindo o numero nas linhas
 
+    set guitablabel=(%N%M)\ %f
 endif
 
 " Only do this part when compiled with support for autocommands.
