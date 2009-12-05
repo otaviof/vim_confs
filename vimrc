@@ -365,7 +365,8 @@ let b:html_mode = 1
 " NERDTree
 "
 
-nnoremap <F8> <Esc>:NERDTree<CR>
+map ,n <ESC>:NERDTree<CR>
+nnoremap <silent> ,f :call FindInNERDTree()<CR> 
 
 
 "
