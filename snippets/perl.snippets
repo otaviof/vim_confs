@@ -92,4 +92,7 @@ snippet slurp
 # Debug
 snippet debug
 	use Data::Dumper; # Debug
-	print "Debug -> ${1:var} #", Dumper $$1${2}, "#\n";
+	print "Debug -> ${1:var} #", ( Dumper $$1${2} ), "#\n";
+# Self Declartion
+snippet mys
+	my ( $self, ${1:var}${2} ) = @_;

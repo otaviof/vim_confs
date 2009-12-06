@@ -38,10 +38,9 @@ set ts=4                        " setando o tamanho do tab
 set wildignore=*.bak,*.o,*.e,*~
 set wildmenu                    " mostra os menus em cima da linha de comando
 set wrap                        " quebra a linha automaticamente
-" set hidden
 set textwidth=72                " quantos caracteres vamos ter por linha
 set nomodeline                  " opção de segurança
-set t_vb=                       " no bells
+set vb t_vb=''                  " no bell sound
 set confirm                     " to get a dialog when a command fails
 set complete+=k                 " scan the files given with the 'dictionary' option
 set autoread                    " read open files again when changed outside Vim

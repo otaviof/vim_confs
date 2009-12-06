@@ -1768,6 +1768,7 @@ crvdoc-licGPL	crefvimdoc.txt	/*crvdoc-licGPL*
 crvdoc-licLGPL	crefvimdoc.txt	/*crvdoc-licLGPL*
 crvdoc-limbugs	crefvimdoc.txt	/*crvdoc-limbugs*
 crvdoc-usage	crefvimdoc.txt	/*crvdoc-usage*
+cs	surround.txt	/*cs*
 csupport	csupport.txt	/*csupport*
 csupport-c++	csupport.txt	/*csupport-c++*
 csupport-c++-method-impl	csupport.txt	/*csupport-c++-method-impl*
@@ -1866,6 +1867,7 @@ doxygentemplates-date	doxygensupport.txt	/*doxygentemplates-date*
 draft	latexhelp.txt	/*draft*
 drv-dtArrayInit	crefvim.txt	/*drv-dtArrayInit*
 drv-dtIncompleteArrayDecl	crefvim.txt	/*drv-dtIncompleteArrayDecl*
+ds	surround.txt	/*ds*
 editing-folding	latex-suite.txt	/*editing-folding*
 empty	latexhelp.txt	/*empty*
 enabling-searching	latex-suite.txt	/*enabling-searching*
@@ -2030,6 +2032,8 @@ g:snips_author	snipMate.txt	/*g:snips_author*
 greek-letter-mappings	latex-suite.txt	/*greek-letter-mappings*
 headings	latexhelp.txt	/*headings*
 hyph-	latexhelp.txt	/*hyph-*
+i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
+i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 i_CTRL-R_<Tab>	snipMate.txt	/*i_CTRL-R_<Tab>*
 im_1	imaps.txt	/*im_1*
 imaps-usage	imaps.txt	/*imaps-usage*
@@ -2874,6 +2878,14 @@ sub-sup	latexhelp.txt	/*sub-sup*
 subscripts	latexhelp.txt	/*subscripts*
 superscripts	latexhelp.txt	/*superscripts*
 supporting-packages	latex-suite.txt	/*supporting-packages*
+surround	surround.txt	/*surround*
+surround-author	surround.txt	/*surround-author*
+surround-customizing	surround.txt	/*surround-customizing*
+surround-issues	surround.txt	/*surround-issues*
+surround-mappings	surround.txt	/*surround-mappings*
+surround-replacements	surround.txt	/*surround-replacements*
+surround-targets	surround.txt	/*surround-targets*
+surround.txt	surround.txt	/*surround.txt*
 tab'	latexhelp.txt	/*tab'*
 tab+	latexhelp.txt	/*tab+*
 tab-	latexhelp.txt	/*tab-*
@@ -2926,9 +2938,14 @@ vimspell-requirements	vimspell.txt	/*vimspell-requirements*
 vimspell-todo	vimspell.txt	/*vimspell-todo*
 vimspell.txt	vimspell.txt	/*vimspell.txt*
 vimspell_default_language	vimspell.txt	/*vimspell_default_language*
+vs	surround.txt	/*vs*
 why-IMAP	latex-suite.txt	/*why-IMAP*
 xml-plugin-callbacks	xml-plugin.txt	/*xml-plugin-callbacks*
 xml-plugin-html	xml-plugin.txt	/*xml-plugin-html*
 xml-plugin-mappings	xml-plugin.txt	/*xml-plugin-mappings*
 xml-plugin-settings	xml-plugin.txt	/*xml-plugin-settings*
 xml-plugin.txt	xml-plugin.txt	/*xml-plugin.txt*
+yS	surround.txt	/*yS*
+ySS	surround.txt	/*ySS*
+ys	surround.txt	/*ys*
+yss	surround.txt	/*yss*
