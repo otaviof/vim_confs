@@ -96,3 +96,6 @@ snippet debug
 # Self Declartion
 snippet mys
 	my ( $self, ${1:var}${2} ) = @_;
+# Moose Attribute
+snippet has
+	has '${1:attr}' => ( is => '${2}', isa => '${3}' );
