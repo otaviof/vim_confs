@@ -87,6 +87,7 @@ if has("gui_running")
     set invnumber               " exibindo o numero nas linhas
 
     set guitablabel=(%N%M)\ %f
+
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -107,9 +108,6 @@ if has("autocmd")
         endif
     augroup END
 
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=100
-
     " carregando o plugin de xml/html
     autocmd FileType {xml,xhtml,html,htm,erb,tt2.html} runtime ftplugin/xml.vim
 
@@ -120,7 +118,6 @@ if has("autocmd")
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
-
     augroup END
 
 endif
@@ -169,6 +166,12 @@ inoremap <F9> {<CR><BS>}<ESC>ko
 "
 
 map <F7> :set invnumber<CR>
+
+"
+" Spell checking for pt_BR and en_US
+"
+
+map ,g :runtime spell/<CR>:set spl=pt,en spell<CR>
 
 "
 " Perltidy ( Luis Motta Campos )
