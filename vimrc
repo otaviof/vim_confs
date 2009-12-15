@@ -174,15 +174,21 @@ map <F7> :set invnumber<CR>
 map ,g :runtime spell/<CR>:set spl=pt,en spell<CR>
 
 "
-" Perltidy ( Luis Motta Campos )
+" Tidy-up coding style
 "
 
-map ,t :call Perltidy()<Cr>
+map ,t :call Tidy()<Cr>
 
-function! Perltidy()
+function! Tidy()
     let current_line = line('.')
-    let perltidy     = 'perltidy'
-    execute ":0,$!" . perltidy
+    if &filetype == "perl"
+        let tidy = 'perltidy -pbp -ce'
+    elseif &filetype == "php"
+        let tidy = 'php_beautifier -s4 --filters "NewLines(after=T_DOC_COMMENT,before=if:switch)"'
+    elseif &filetype == "c"
+        let tidy = 'indent -orig -i4 -l78 -fca -lc78 -ts4 -br -cdw -nbad -di8 -bap'
+    endif
+    execute ":0,$!" . tidy
     execute ":" . current_line
 endfunction
 
@@ -203,45 +209,6 @@ endf
 let g:acp_behavior = {}
 cal extend(g:acp_behavior, PerlCompletionBehavior(), 'keep')
 
-
-"
-" Indent (ANSI C)
-"
-
-map ,c :call CIndent()<Cr>
-
-function! CIndent()
-    let current_line = line('.')
-    let indent       = 'indent -orig -i4 -l78 -fca -lc78 -ts4 -br -cdw -nbad -di8 -bap'
-    execute ":0,$!" .indent 
-    execute ":" . current_line
-endfunction
-
-"
-" Formatador para mais linguagens de programacao
-"
-
-let IndentStyle = "C"
-
-fun Indent()
-    let oldLine=line('.')
-    " our text (whole file) is passed via STDIN (%) to script name, and the output is
-    " placed in current buffer (STDOUT)
-    if g:IndentStyle == "C"
-        :%!indent --gnu-style --no-tabs --indent-level 8 --case-indentation 0 --brace-indent 0 --comment-delimiters-on-blank-lines --start-left-side-of-comments --format-all-comments --format-first-column-comments
-    elseif g:IndentStyle == "perl"
-        :%!perltidy -pbp -ce
-    elseif g:IndentStyle == "html"
-        :%!tidy -quiet -utf8 -indent -clean -asxhtml
-    elseif g:IndentStyle == "php"
-        :%!tidy -quiet -utf8 -indent -clean 
-    elseif g:IndentStyle == "ruby"
-        :%!~/.vim/rubybeautifier.rb
-    endif
-    exe ':' . oldLine
-endfun
-
-" map ,t :call Indent()<CR>
 
 "
 " Nos leva ate a funcao a declaracao de uma funcao (Perl)
