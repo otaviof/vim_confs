@@ -186,7 +186,7 @@ function! Tidy()
     if &filetype == "perl"
         let tidy = 'perltidy -pbp -ce'
     elseif &filetype == "php"
-        let tidy = 'php_beautifier -s4 --filters "NewLines(after=T_DOC_COMMENT,before=if:switch)"'
+        let tidy = 'php_beautifier -s4 --filters "NewLines(after=T_COMMENT:T_DOC_COMMENT,before=if:switch)"'
     elseif &filetype == "c"
         let tidy = 'indent -orig -i4 -l78 -fca -lc78 -ts4 -br -cdw -nbad -di8 -bap'
     endif
