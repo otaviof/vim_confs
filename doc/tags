@@ -100,6 +100,16 @@ C-Reference	crefvim.txt	/*C-Reference*
 ExtractSnips()	snipMate.txt	/*ExtractSnips()*
 ExtractSnipsFile()	snipMate.txt	/*ExtractSnipsFile()*
 Filename()	snipMate.txt	/*Filename()*
+FindMate	FindMate.txt	/*FindMate*
+FindMate-about	FindMate.txt	/*FindMate-about*
+FindMate-author	FindMate.txt	/*FindMate-author*
+FindMate-changelog	FindMate.txt	/*FindMate-changelog*
+FindMate-contact	FindMate.txt	/*FindMate-contact*
+FindMate-installation	FindMate.txt	/*FindMate-installation*
+FindMate-introduction	FindMate.txt	/*FindMate-introduction*
+FindMate-options	FindMate.txt	/*FindMate-options*
+FindMate-usage	FindMate.txt	/*FindMate-usage*
+FindMate.txt	FindMate.txt	/*FindMate.txt*
 IMAP_PutTextWithMovement	latex-suite.txt	/*IMAP_PutTextWithMovement*
 Imap_DeleteEmptyPlaceHolders	latex-suite.txt	/*Imap_DeleteEmptyPlaceHolders*
 Imap_FreezeImap	latex-suite.txt	/*Imap_FreezeImap*
@@ -1874,6 +1884,7 @@ eqnarray	latexhelp.txt	/*eqnarray*
 equation	latexhelp.txt	/*equation*
 figure	latexhelp.txt	/*figure*
 final	latexhelp.txt	/*final*
+findmate	FindMate.txt	/*findmate*
 fleqn	latexhelp.txt	/*fleqn*
 flushleft	latexhelp.txt	/*flushleft*
 flushright	latexhelp.txt	/*flushright*
@@ -1942,6 +1953,9 @@ fuf-usage	fuf.txt	/*fuf-usage*
 fuf-vimrc-example	fuf.txt	/*fuf-vimrc-example*
 fuf.txt	fuf.txt	/*fuf.txt*
 fuzzyfinder	fuf.txt	/*fuzzyfinder*
+g:FindMate_firstSearch	FindMate.txt	/*g:FindMate_firstSearch*
+g:FindMate_totalResults	FindMate.txt	/*g:FindMate_totalResults*
+g:FindMate_verbose	FindMate.txt	/*g:FindMate_verbose*
 g:fuf_abbrevMap	fuf.txt	/*g:fuf_abbrevMap*
 g:fuf_bookmark_keyDelete	fuf.txt	/*g:fuf_bookmark_keyDelete*
 g:fuf_bookmark_prompt	fuf.txt	/*g:fuf_bookmark_prompt*
@@ -2005,6 +2019,7 @@ g:fuf_taggedfile_prompt	fuf.txt	/*g:fuf_taggedfile_prompt*
 g:fuf_taggedfile_switchOrder	fuf.txt	/*g:fuf_taggedfile_switchOrder*
 g:fuf_timeFormat	fuf.txt	/*g:fuf_timeFormat*
 g:fuf_useMigemo	fuf.txt	/*g:fuf_useMigemo*
+g:loaded_findMate	FindMate.txt	/*g:loaded_findMate*
 g:loaded_rails	rails.txt	/*g:loaded_rails*
 g:rails_abbreviations	rails.txt	/*g:rails_abbreviations*
 g:rails_dbext	rails.txt	/*g:rails_dbext*
