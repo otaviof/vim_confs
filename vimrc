@@ -120,6 +120,8 @@ if has("autocmd")
       \ endif
     augroup END
 
+    autocmd Filetype {java,scala} setlocal omnifunc=javacomplete#Complete 
+
 endif
 
 "
@@ -191,6 +193,13 @@ function! Tidy()
     execute ":0,$!" . tidy
     execute ":" . current_line
 endfunction
+
+"
+" Java Completion
+"
+
+inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
 
 "
 " Perl Completion Behavior
