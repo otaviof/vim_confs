@@ -9,17 +9,18 @@ set autowrite                   " deixa gravar arquivos simultaneamente
 set autowriteall                " deixa gravar muitos arquivos ao mesmo
                                 " tempo, subentende-se que o autowrite
                                 " esta ligado
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set backspace=indent,eol,start  " allow backspacing over everything in insert
+                                " mode
 set browsedir=current           " diretorio onde primeiro vamos procurar
                                 " arquivos para abrir
 set cinoptions=(0               " set the cinoptions. Use the default
                                 " for everything except the ( option.
-" set gdefault                  " set 'g' substitute flag on.
 set history=50                  " keep 50 lines of command line history
 set incsearch                   " do incremental searching
-set joinspaces                  " insert two spaces after a period with every joining of lines.
-set nobackup                    " do not keep a backup file, use versions instead
-" set backupdir=/var/tmp/vim_bkps " diretorio de backups do vim
+set joinspaces                  " insert two spaces after a period with every
+                                " joining of lines.
+set nobackup                    " do not keep a backup file, use versions
+                                " instead
 set nocompatible                " changes other options as a side effect.
 set ruler                       " show the cursor position all the time
 set shiftwidth=4                " numero de espacos utilizado para
@@ -27,25 +28,27 @@ set shiftwidth=4                " numero de espacos utilizado para
 set expandtab                   " sempre vamos usar espacos, no lugar
                                 " dos tabs
 set showcmd                     " display incomplete commands
-set showmatch                   " showmatch: Show the matching bracket for the last ')'?
+set showmatch                   " showmatch: Show the matching bracket for the
+"                               " last ')'?
 set smartindent                 " adiciona itens de indentacao nos
                                 " fontes editados pelo Vim
 set smarttab                    " identação para os tabs
-set tabstop=4                   " melhora a identação, principalmente de ANSI C
+set tabstop=4                   " melhora a identação, principalmente de C
 set softtabstop=4               
-set tildeop                     " allow tilde (~) to act as an operator -- ~w, etc.
+set tildeop                     " allow tilde (~) to act as an operator -- ~w
 set ts=4                        " setando o tamanho do tab
 set wildignore=*.bak,*.o,*.e,*~
 set wildmenu                    " mostra os menus em cima da linha de comando
 set wrap                        " quebra a linha automaticamente
-set textwidth=72                " quantos caracteres vamos ter por linha
+set textwidth=78                " quantos caraceres vamos ter por linha
 set nomodeline                  " opção de segurança
 set vb t_vb=''                  " no bell sound
 set confirm                     " to get a dialog when a command fails
-set complete+=k                 " scan the files given with the 'dictionary' option
+set complete+=k                 " scan the files given with the 'dictionary'
 set autoread                    " read open files again when changed outside Vim
 set showmode                    " show mode (Visual, Insert, Select, etc)
 set selectmode=mouse	        " select mode will be started by shift keys
+set guioptions=egmLtihvF        " options for Gvim/MacVim
 
 " sempre havera plugins ligados
 filetype on
