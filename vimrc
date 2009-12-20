@@ -29,7 +29,7 @@ set expandtab                   " sempre vamos usar espacos, no lugar
                                 " dos tabs
 set showcmd                     " display incomplete commands
 set showmatch                   " showmatch: Show the matching bracket for the
-"                               " last ')'?
+                                " last ')'?
 set smartindent                 " adiciona itens de indentacao nos
                                 " fontes editados pelo Vim
 set smarttab                    " identação para os tabs
@@ -140,7 +140,7 @@ map ,cr :call RmCR()<CR>
 
 
 "
-" Funcao de completar palavras
+" Completing words
 "
 
 function! Mosh_Tab_Or_Complete()
@@ -150,13 +150,12 @@ function! Mosh_Tab_Or_Complete()
         return "\<Tab>"
 endfunction
 
-" alt-/ para completar as palavras...
 " inoremap <M-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 " inoremap <m-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
 "
-" Fechando parenteses automaticamente e criando blocos
+" Open and close
 "
 
 inoremap ( ()<ESC>i
@@ -167,7 +166,7 @@ inoremap [ []<ESC>i
 inoremap <F9> {<CR><BS>}<ESC>ko
 
 "
-" mostrando o numero a cada linha
+" Show line number
 "
 
 map <F7> :set invnumber<CR>
@@ -211,7 +210,7 @@ inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 fun! PerlCompletionBehavior()
     let behavs = {'perl':[]}
     call add(behavs.perl, {
-        \ 'command' : "\<C-x>\<C-o>",
+        \ 'command' : "\<D-/>",
         \ 'pattern' : printf('\w->\k\{%d,}$',1),
         \ 'repeat' : 0,
         \ })
@@ -223,7 +222,7 @@ cal extend(g:acp_behavior, PerlCompletionBehavior(), 'keep')
 
 
 "
-" Nos leva ate a funcao a declaracao de uma funcao (Perl)
+" Perl function declaration
 " 
 
 function! GotoSub(subname)
@@ -262,7 +261,6 @@ function! PickFromList( name, list, ... )
     return a:list[choice]
 endfunction
 
-" se a palavra em que estivermos em cima eh uma funcao, vamos ate ela...
 noremap  ,gs  :call GotoSub(expand('<cword>'))<cr>
 
 " 
@@ -281,7 +279,7 @@ nmap ,utf8 !recode -q ISO-8859-1..utf-8
 
 
 "
-" Shortcuts for Tabs (Command)
+" Shortcuts for Tabs (Command on OS X)
 "
 
 map <c-t> :tabnew<cr>
@@ -333,7 +331,6 @@ let Tlist_Process_File_Always       = 1
 let tlist_perl_settings             = 'perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
 let Tlist_Ctags_Cmd                 = '/opt/local/bin/ctags' " OSX
 
-" maps para chamar o tag list com F6 e F5 (refresh)
 nnoremap <silent>  <F6> :Tlist<CR>
 nnoremap <silent>  <F5> :TlistUpdate<CR>
 nnoremap <silent> <tab> :bn<CR
@@ -361,7 +358,7 @@ hi PmenuSel     ctermfg=darkyellow  ctermbg=black   cterm=inverse
 " Helptags para o latexSuite
 "
 
-helptags ~/.vim/doc
+" helptags ~/.vim/doc
 
 "
 " Fuzzy Finder
@@ -383,6 +380,6 @@ nnoremap <silent> <C-]>      :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
 "
 
 noremap  <silent> <s-F8>       :silent browse confirm e<CR>
-inoremap  <silent> <s-F8>  <Esc>:silent browse confirm e<CR>
+inoremap <silent> <s-F8> <Esc> :silent browse confirm e<CR>
           
 " EOF
