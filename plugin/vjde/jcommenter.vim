@@ -17,7 +17,7 @@
 
 " map the commenter:
 map <M-c> :call JCommentWriter()<CR>
-imap <M-c> <esc>:call JCommentWriter()<CR>
+" imap <M-c> <esc>:call JCommentWriter()<CR>
 
 " map searching for invalid comments. meta-n for next invalid comment, meta-p
 " for previous. "Invalid" in this case means that the "main" comments are missing
