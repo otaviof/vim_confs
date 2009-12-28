@@ -128,7 +128,7 @@ if has("autocmd")
 endif
 
 "
-" Removendo os maltidos ^M's do DOS
+" Deleting Win/Dos CR/LF
 "
 "
 fun RmCR()
@@ -346,7 +346,6 @@ let b:html_mode = 1
 map ,n <ESC>:NERDTree<CR>
 nnoremap <silent> ,f :call FindInNERDTree()<CR> 
 
-
 "
 " Omni Completion colors
 "
@@ -355,31 +354,17 @@ hi Pmenu        ctermfg=black       ctermbg=grey    cterm=NONE
 hi PmenuSel     ctermfg=darkyellow  ctermbg=black   cterm=inverse
 
 "
-" Helptags para o latexSuite
-"
-
-" helptags ~/.vim/doc
-
-"
-" Fuzzy Finder
-"
-
-nnoremap <silent> <C-f><C-t> :FuzzyFinderTag!<CR>
-nnoremap <silent> <C-]>      :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
-
-" let g:FuzzyFinderOptions.Base.abbrev_map = {
-"           \   "^WORK" : [
-"           \     "~/Desktop/",
-"           \     "~/Desktop/Workspace/",
-"           \     "~/.vim/plugin/",
-"           \   ],
-"           \ } 
-
-"
 " Call gvim file browser
 "
 
 noremap  <silent> <s-F8>       :silent browse confirm e<CR>
 inoremap <silent> <s-F8> <Esc> :silent browse confirm e<CR>
+
+"
+" Display margin
+"
+
+map ,m <ESC>:match rightMargin /.\%>79v/<CR>
+map ,M <ESC>:match rightMargin <CR>
           
 " EOF
