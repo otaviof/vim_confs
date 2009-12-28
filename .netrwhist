@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/otaviof/Desktop/Programming/Gitorious/lw_gitorious'
 let g:netrw_dirhist_2='/Users/otaviof/Desktop/Programming/Locaweb/mobimail-controlador-e-painel'
+let g:netrw_dirhist_3='/Users/otaviof/Desktop/Programming/RaidBR/proxyacl/.backup'
+let g:netrw_dirhist_4='/Users/otaviof/Desktop/Programming/Open_Source/Plack-0.9024/lib'

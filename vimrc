@@ -81,7 +81,7 @@ if has("gui_running")
     set mousehide               " hide mouse while typing
     set termencoding=utf-8    	" codificacao padrao do Mac OS X e
                                 " qualquer outro SO hoje
-    set transparency=7          " o MacVim tem suporte a transparencia
+    set transparency=10         " o MacVim tem suporte a transparencia
     set linespace=-5            " economizando um pouco de espaco entre
                                 " as linhas, para codificar, ente -1 e -3
     set lines=40 columns=96     " standard window size we were used to
@@ -174,7 +174,7 @@ map <F7> :set invnumber<CR>
 "
 " Spell checking for pt_BR and en_US
 "
-
+e
 map ,g :runtime spell/<CR>:set spl=pt,en spell<CR>
 
 "
