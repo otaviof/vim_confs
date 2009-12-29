@@ -158,12 +158,12 @@ inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 " Open and close
 "
 
+imap     _* <ESC>bi*<ESC>ea*<Space>
 inoremap ( ()<ESC>i
-vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>))
-imap _* <Esc>bi*<Esc>ea*<Space>
-inoremap { {}<ESC>i
-inoremap [ []<ESC>i
 inoremap <F9> {<CR><BS>}<ESC>ko
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>))
 
 "
 " Show line number
@@ -174,8 +174,8 @@ map <F7> :set invnumber<CR>
 "
 " Spell checking for pt_BR and en_US
 "
-e
-map ,g :runtime spell/<CR>:set spl=pt,en spell<CR>
+
+map ,g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 
 "
 " Tidy-up coding style
@@ -358,7 +358,7 @@ hi PmenuSel     ctermfg=darkyellow  ctermbg=black   cterm=inverse
 "
 
 noremap  <silent> <s-F8>       :silent browse confirm e<CR>
-inoremap <silent> <s-F8> <Esc> :silent browse confirm e<CR>
+inoremap <silent> <s-F8> <ESC> :silent browse confirm e<CR>
 
 "
 " Display margin
