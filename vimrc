@@ -369,4 +369,16 @@ let g:fastgit_statusline = 'f'
 " append git branch info to current statusline (if you have enough space)
 let g:fastgit_statusline = 'a'
 
+"
+" Delimate options
+"
+
+let delimitMate = "(:),[:],{:},<:>"
+let delimitMate_matchpairs = "(:),[:],{:},<:>"
+let delimitMate_quotes = "\" ' ` *"
+let delimitMate_visual_leader = "f"
+let b:delimitMate_expand_cr = "\<CR>\<CR>\<Up>"
+let delimitMate_expand_space = "\<Space>\<Space>\<Left>"
+let delimitMate_excluded_ft = ""
+
 " EOF
