@@ -155,17 +155,6 @@ endfunction
 inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
 "
-" Open and close
-"
-
-" imap     _* <ESC>bi*<ESC>ea*<Space>
-" inoremap ( ()<ESC>i
-" inoremap <F9> {<CR><BS>}<ESC>ko
-" inoremap [ []<ESC>i
-" inoremap { {}<ESC>i
-" vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>))
-
-"
 " Show line number
 "
 
