@@ -158,12 +158,12 @@ inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 " Open and close
 "
 
-imap     _* <ESC>bi*<ESC>ea*<Space>
-inoremap ( ()<ESC>i
-inoremap <F9> {<CR><BS>}<ESC>ko
-inoremap [ []<ESC>i
-inoremap { {}<ESC>i
-vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>))
+" imap     _* <ESC>bi*<ESC>ea*<Space>
+" inoremap ( ()<ESC>i
+" inoremap <F9> {<CR><BS>}<ESC>ko
+" inoremap [ []<ESC>i
+" inoremap { {}<ESC>i
+" vnoremap _( <ESC>`>a)<ESC>`<i(<ESC>))
 
 "
 " Show line number
@@ -366,5 +366,18 @@ inoremap <silent> <s-F8> <ESC> :silent browse confirm e<CR>
 
 map ,m <ESC>:match rightMargin /.\%>79v/<CR>
 map ,M <ESC>:match rightMargin <CR>
-          
+
+"
+" FastGit ( http://github.com/c9s/fastgit.vim )
+"
+
+" enable default mapping:
+let g:fastgit_default_mapping = 1
+" setup default remote for git pull and push
+let g:fastgit_default_remote = 'origin'
+" use fastgit statusline:
+let g:fastgit_statusline = 'f'
+" append git branch info to current statusline (if you have enough space)
+let g:fastgit_statusline = 'a'
+
 " EOF
