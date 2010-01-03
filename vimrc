@@ -125,6 +125,11 @@ if has("autocmd")
 
     autocmd Filetype {java,scala} setlocal omnifunc=javacomplete#Complete 
 
+    " language definition for plain text
+    let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
+    " syntax highlight for txt.vim 
+    au BufRead,BufNewFile *.txt setlocal ft=txt
+
 endif
 
 "
@@ -377,8 +382,15 @@ let delimitMate = "(:),[:],{:},<:>"
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
 let delimitMate_quotes = "\" ' ` *"
 let delimitMate_visual_leader = "f"
-let b:delimitMate_expand_cr = "\<CR>\<CR>\<Up>"
+let delimitMate_expand_cr = "\<CR>\<CR>\<Up>"
 let delimitMate_expand_space = "\<Space>\<Space>\<Left>"
 let delimitMate_excluded_ft = ""
+
+"
+" Mail.App
+"
+
+let MailApp_bundle = "~/.vim/MailApp.bundle/"
+let MailApp_from = "Otávio Fernandes <otavio.fernandes@locaweb.com.br>"
 
 " EOF
