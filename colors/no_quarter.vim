@@ -17,49 +17,50 @@ let colors_name = "no_quarter"
 " Vim Colors (( Default Options ))
 "
 
-hi Normal				guifg=grey90	                guibg=#303030
+hi Normal				guifg=grey90                        guibg=#303030
 
-hi Comment				gui=NONE		guifg=#647bcf   guibg=NONE
-hi Constant				gui=NONE		guifg=#b07050	guibg=NONE
-hi Cursor				gui=NONE		guifg=#424242	guibg=green
-hi CursorIM				gui=NONE		guifg=#ffffff	guibg=#8800ff
-hi CursorLine           gui=NONE                        guibg=gray25
-hi DiffAdd				gui=NONE		guifg=#a0d0ff	guibg=#0020a0
-hi DiffChange			gui=NONE		guifg=#e03870	guibg=#601830
-hi DiffDelete			gui=NONE		guifg=#a0d0ff	guibg=#0020a0
-hi DiffText				gui=NONE		guifg=#ff78f0	guibg=#a02860
-hi Directory			gui=NONE		guifg=red		guibg=NONE
-hi Error				gui=BOLD		guifg=#ffffff	guibg=#8000ff
-hi ErrorMsg				gui=BOLD		guifg=#ffa0ff	guibg=NONE
-hi FoldColumn			gui=NONE		guifg=#40c0ff	guibg=#404040
-hi Folded				gui=NONE		guifg=#40f0f0	guibg=#006090
-hi Identifier			gui=NONE		guifg=#90c0c0	guibg=NONE
-hi Ignore				gui=NONE		guifg=bg		guibg=NONE
-hi IncSearch			gui=UNDERLINE	guifg=#80ffff	guibg=#0060c0
-hi LineNr				gui=NONE		guifg=#707070	guibg=NONE
-hi ModeMsg				gui=BOLD		guifg=#a0d0ff	guibg=NONE
-hi MoreMsg				gui=BOLD		guifg=#70ffc0	guibg=#8040ff
-hi NonText				gui=BOLD		guifg=#707070	guibg=#383838
-hi OverLength           gui=NONE        guifg=fg        guibg=#353535
-hi PreProc				gui=NONE		guifg=#c090c0	guibg=NONE
-hi Question				gui=BOLD		guifg=#e8e800	guibg=NONE
-hi Search				gui=NONE		guifg=bg		guibg=grey60
-hi Special				gui=NONE		guifg=#c090c0	guibg=NONE
-hi SpecialKey			gui=BOLD		guifg=green		guibg=NONE
-hi Statement			gui=NONE		guifg=#c0c090	guibg=NONE
-hi StatusLine			gui=NONE		guifg=#000000	guibg=#909090
-hi StatusLineNC			gui=NONE		guifg=#abac84	guibg=#404040
-hi Title				gui=BOLD		guifg=#707070	guibg=NONE
-hi Todo					gui=BOLD		guifg=#ff80d0	guibg=NONE
-hi Type					gui=NONE		guifg=#60f0a8	guibg=NONE
-hi Underlined			gui=UNDERLINE	guifg=#707070	guibg=NONE
-hi VertSplit			gui=NONE		guifg=#abac84	guibg=#404040
-hi Visual				gui=NONE		guifg=#b0ffb0	guibg=#008000
-hi VisualNOS			gui=NONE		guifg=#ffe8c8	guibg=#c06800
-hi WarningMsg			gui=BOLD		guifg=#ffa0ff	guibg=NONE
-hi WildMenu				gui=NONE		guifg=#000000	guibg=#abac84
-hi htmlTagName			gui=NONE 		guifg=grey70 	guibg=bg
-hi lCursor				gui=NONE		guifg=#ffffff	guibg=#8800ff
+hi Comment				gui=NONE		guifg=#647bcf       guibg=NONE
+hi Constant				gui=NONE		guifg=#b07050       guibg=NONE
+hi Cursor				gui=NONE		guifg=#424242       guibg=green
+hi CursorIM				gui=NONE		guifg=#ffffff       guibg=#8800ff
+hi CursorLine           gui=NONE                            guibg=gray25
+hi DiffAdd				gui=NONE		guifg=#a0d0ff       guibg=#0020a0
+hi DiffChange			gui=NONE		guifg=#e03870       guibg=#601830
+hi DiffDelete			gui=NONE		guifg=#a0d0ff       guibg=#0020a0
+hi DiffText				gui=NONE		guifg=#ff78f0       guibg=#a02860
+hi Directory			gui=NONE		guifg=lightmagenta  guibg=NONE
+hi Error				gui=BOLD		guifg=#ffffff       guibg=#8000ff
+hi ErrorMsg				gui=BOLD		guifg=#ffa0ff       guibg=NONE
+hi FoldColumn			gui=NONE		guifg=#40c0ff       guibg=#404040
+hi Folded				gui=NONE		guifg=#40f0f0       guibg=#006090
+hi Identifier			gui=NONE		guifg=#90c0c0       guibg=NONE
+hi Ignore				gui=NONE		guifg=bg            guibg=NONE
+hi IncSearch			gui=UNDERLINE	guifg=#80ffff       guibg=#0060c0
+hi LineNr				gui=NONE		guifg=#707070       guibg=NONE
+hi ModeMsg				gui=BOLD		guifg=#a0d0ff       guibg=NONE
+hi MoreMsg				gui=NONE        guifg=lightred      guibg=bg
+hi NonText				gui=BOLD		guifg=#707070       guibg=#383838
+hi OverLength           gui=NONE        guifg=fg            guibg=#353535
+hi PreProc				gui=NONE		guifg=#c090c0       guibg=NONE
+hi Question				gui=BOLD		guifg=#e8e800       guibg=NONE
+hi Search				gui=NONE		guifg=bg            guibg=grey60
+hi SignColumn           gui=NONE        guifg=darkyellow    guibg=bg
+hi Special				gui=NONE		guifg=#c090c0       guibg=NONE
+hi SpecialKey			gui=BOLD		guifg=green         guibg=NONE
+hi Statement			gui=NONE		guifg=#c0c090       guibg=NONE
+hi StatusLine			gui=NONE		guifg=#000000       guibg=#909090
+hi StatusLineNC			gui=NONE		guifg=#abac84       guibg=#404040
+hi Title				gui=NONE        guifg=darkcyan      guibg=bg
+hi Todo					gui=BOLD		guifg=#ff80d0       guibg=NONE
+hi Type					gui=NONE		guifg=#60f0a8       guibg=NONE
+hi Underlined			gui=UNDERLINE	guifg=#707070       guibg=NONE
+hi VertSplit			gui=NONE		guifg=#abac84       guibg=#404040
+hi Visual				gui=NONE		guifg=#b0ffb0       guibg=#008000
+hi VisualNOS			gui=NONE		guifg=#ffe8c8       guibg=#c06800
+hi WarningMsg			gui=BOLD		guifg=#ffa0ff       guibg=NONE
+hi WildMenu				gui=NONE		guifg=#000000       guibg=#abac84
+hi htmlTagName			gui=NONE 		guifg=grey70        guibg=bg
+hi lCursor				gui=NONE		guifg=#ffffff       guibg=#8800ff
 
 "
 " Tag List
