@@ -1,7 +1,7 @@
 " Vim color file
-"  Maintainer: Otavio Fernandes
-" Last Change: 2009/12/27 Mon 00:35
-"     Version: 1.0.5
+"  Maintainer: Otavio Fernandes <otaviof@gmail.com>
+" Last Change: 2010/01/03 Sun 22:56
+"     Version: 1.0.6
 "
 " ts=4
 "
