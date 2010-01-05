@@ -369,8 +369,6 @@ map ,M <ESC>:match rightMargin <CR>
 let g:fastgit_default_mapping = 1
 " setup default remote for git pull and push
 let g:fastgit_default_remote = 'origin'
-" use fastgit statusline:
-let g:fastgit_statusline = 'f'
 " append git branch info to current statusline (if you have enough space)
 let g:fastgit_statusline = 'a'
 
