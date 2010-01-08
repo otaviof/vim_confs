@@ -133,9 +133,18 @@ if has("autocmd")
 endif
 
 "
+" Gui Cursor
+"
+
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0-Cursor
+set guicursor+=i:blinkwait20-iCursor
+
+"
 " Deleting Win/Dos CR/LF
 "
-"
+
 fun RmCR()
     let oldLine=line('.')
     exe ":%s/\r//g"
