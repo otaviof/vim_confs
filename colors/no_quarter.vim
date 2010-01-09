@@ -21,7 +21,7 @@ hi Normal				guifg=grey90                        guibg=#303030
 
 hi Comment				gui=NONE		guifg=#647bcf       guibg=NONE
 hi Constant				gui=NONE		guifg=#b07050       guibg=NONE
-hi Cursor				gui=NONE		guifg=#424242       guibg=green
+hi Cursor				gui=NONE		guifg=#424242       guibg=yellow
 hi CursorIM				gui=NONE		guifg=#ffffff       guibg=#8800ff
 hi CursorLine           gui=NONE                            guibg=gray25
 hi DiffAdd				gui=NONE		guifg=#a0d0ff       guibg=#0020a0
@@ -33,6 +33,7 @@ hi Error				gui=BOLD		guifg=#ffffff       guibg=#8000ff
 hi ErrorMsg				gui=BOLD		guifg=#ffa0ff       guibg=NONE
 hi FoldColumn			gui=NONE		guifg=#40c0ff       guibg=#404040
 hi Folded				gui=NONE		guifg=#40f0f0       guibg=#006090
+hi iCursor              gui=NONE        guifg=white         guibg=green
 hi Identifier			gui=NONE		guifg=#90c0c0       guibg=NONE
 hi Ignore				gui=NONE		guifg=bg            guibg=NONE
 hi IncSearch			gui=UNDERLINE	guifg=#80ffff       guibg=#0060c0

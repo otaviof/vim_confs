@@ -133,9 +133,18 @@ if has("autocmd")
 endif
 
 "
+" Gui Cursor
+"
+
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0-Cursor
+set guicursor+=i:blinkwait20-iCursor
+
+"
 " Deleting Win/Dos CR/LF
 "
-"
+
 fun RmCR()
     let oldLine=line('.')
     exe ":%s/\r//g"
@@ -369,8 +378,6 @@ map ,M <ESC>:match rightMargin <CR>
 let g:fastgit_default_mapping = 1
 " setup default remote for git pull and push
 let g:fastgit_default_remote = 'origin'
-" use fastgit statusline:
-let g:fastgit_statusline = 'f'
 " append git branch info to current statusline (if you have enough space)
 let g:fastgit_statusline = 'a'
 
