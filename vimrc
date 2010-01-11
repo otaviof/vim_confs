@@ -42,13 +42,14 @@ set wildmenu                    " mostra os menus em cima da linha de comando
 set wrap                        " quebra a linha automaticamente
 set textwidth=78                " quantos caraceres vamos ter por linha
 set nomodeline                  " opção de segurança
-set vb t_vb=''                  " no bell sound
+set vb t_vb=                    " no bell sound
 set confirm                     " to get a dialog when a command fails
 set complete+=k                 " scan the files given with the 'dictionary'
 set autoread                    " read open files again when changed outside Vim
 set showmode                    " show mode (Visual, Insert, Select, etc)
 set selectmode=mouse	        " select mode will be started by shift keys
 set guioptions=egmLtihvF        " options for Gvim/MacVim
+set lines=50 columns=110        " standard window size we were used to
 
 " sempre havera plugins ligados
 filetype on
@@ -84,7 +85,6 @@ if has("gui_running")
     set transparency=10         " o MacVim tem suporte a transparencia
     set linespace=-5            " economizando um pouco de espaco entre
                                 " as linhas, para codificar, ente -1 e -3
-    set lines=40 columns=96     " standard window size we were used to
     set cursorline              " destaca a linha atual com as cores que
                                 " sao setadas no tema (colorscheme)
     set invnumber               " exibindo o numero nas linhas

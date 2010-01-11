@@ -1,13 +1,13 @@
+" ------------------------------------------------------------------------------
+"
 " Vim filetype plugin file
 "
 "   Language :  C / C++
-"     Plugin :  c.vim (version 5.3)
+"     Plugin :  c.vim 
 " Maintainer :  Fritz Mehner <mehner@fh-swf.de>
-"   Revision :  $Id: c.vim,v 1.32 2008/11/28 08:44:37 mehner Exp $
+"   Revision :  $Id: c.vim,v 1.51 2009/10/21 18:14:45 mehner Exp $
 "
-" This will enable keyword completion for C and C++
-" using Vim's dictionary feature |i_CTRL-X_CTRL-K|.
-" -----------------------------------------------------------------
+" ------------------------------------------------------------------------------
 "
 " Only do this when not done yet for this buffer
 " 
@@ -19,13 +19,18 @@ let b:did_C_ftplugin = 1
 " ---------- Do we have a mapleader other than '\' ? ------------
 "
 if exists("g:C_MapLeader")
-	let maplocalleader	= g:C_MapLeader
+  let maplocalleader  = g:C_MapLeader
 endif    
 "
 " ---------- C/C++ dictionary -----------------------------------
+" This will enable keyword completion for C and C++
+" using Vim's dictionary feature |i_CTRL-X_CTRL-K|.
+" Set the new dictionaries in front of the existing ones
 " 
 if exists("g:C_Dictionary_File")
-    silent! exec 'setlocal dictionary+='.g:C_Dictionary_File
+	let	save=&dictionary
+  silent! exe 'setlocal dictionary='.g:C_Dictionary_File
+  silent! exe 'setlocal dictionary+='.save
 endif    
 "
 " ---------- F-key mappings  ------------------------------------
@@ -35,28 +40,38 @@ endif
 "  Ctrl-F9   run executable
 " Shift-F9   command line arguments
 "
- map  <buffer>  <silent>  <A-F9>       :call C_Compile()<CR>:redraw<CR>:call C_HlMessage()<CR>
-imap  <buffer>  <silent>  <A-F9>  <C-C>:call C_Compile()<CR>:redraw<CR>:call C_HlMessage()<CR>
+ map  <buffer>  <silent>  <A-F9>       :call C_Compile()<CR>:redraw!<CR>:call C_HlMessage()<CR>
+imap  <buffer>  <silent>  <A-F9>  <C-C>:call C_Compile()<CR>:redraw!<CR>:call C_HlMessage()<CR>
 "
- map  <buffer>  <silent>    <F9>       :call C_Link()<CR>:redraw<CR>:call C_HlMessage()<CR>
-imap  <buffer>  <silent>    <F9>  <C-C>:call C_Link()<CR>:redraw<CR>:call C_HlMessage()<CR>
+ map  <buffer>  <silent>    <F9>       :call C_Link()<CR>:redraw!<CR>:call C_HlMessage()<CR>
+imap  <buffer>  <silent>    <F9>  <C-C>:call C_Link()<CR>:redraw!<CR>:call C_HlMessage()<CR>
 "
-" <C-C> seems to be essential here:
  map  <buffer>  <silent>  <C-F9>       :call C_Run()<CR>
 imap  <buffer>  <silent>  <C-F9>  <C-C>:call C_Run()<CR>
 "
  map  <buffer>  <silent>  <S-F9>       :call C_Arguments()<CR>
 imap  <buffer>  <silent>  <S-F9>  <C-C>:call C_Arguments()<CR>
 "
-" alternate file plugin
+" ---------- alternate file plugin (a.vim) ----------------------
 "
+if exists("loaded_alternateFile")
+ map  <buffer>  <silent>  <S-F2>       :A<CR>
+imap  <buffer>  <silent>  <S-F2>  <C-C>:A<CR>
+endif
+"
+command! -nargs=1 -complete=customlist,C_CFileSectionList   	  CFileSection      call C_CFileSectionListInsert (<f-args>)
+command! -nargs=1 -complete=customlist,C_HFileSectionList   	  HFileSection      call C_HFileSectionListInsert (<f-args>)
+command! -nargs=1 -complete=customlist,C_KeywordCommentList     KeywordComment    call C_KeywordCommentListInsert (<f-args>)
+command! -nargs=1 -complete=customlist,C_SpecialCommentList     SpecialComment    call C_SpecialCommentListInsert (<f-args>)
+command! -nargs=1 -complete=customlist,C_StdLibraryIncludesList IncludeStdLibrary call C_StdLibraryIncludesInsert (<f-args>)
+command! -nargs=1 -complete=customlist,C_C99LibraryIncludesList IncludeC99Library call C_C99LibraryIncludesInsert (<f-args>)
+
 " ---------- KEY MAPPINGS : MENU ENTRIES -------------------------------------
-"
 " ---------- comments menu  ------------------------------------------------
 "
  noremap    <buffer>  <silent>  <LocalLeader>cl         :call C_LineEndComment()<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cl    <Esc>:call C_LineEndComment()<CR>a
-vnoremap    <buffer>  <silent>  <LocalLeader>cl    <Esc>:call C_MultiLineEndComments()<CR>
+vnoremap    <buffer>  <silent>  <LocalLeader>cl    <Esc>:call C_MultiLineEndComments()<CR>a
  noremap    <buffer>  <silent>  <LocalLeader>cj         :call C_AdjustLineEndComm("a")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>cj    <Esc>:call C_AdjustLineEndComm("v")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cj    <Esc>:call C_AdjustLineEndComm("a")<CR>a
@@ -64,8 +79,6 @@ inoremap    <buffer>  <silent>  <LocalLeader>cj    <Esc>:call C_AdjustLineEndCom
 
  noremap    <buffer>  <silent>  <LocalLeader>c*         :call C_CodeComment("a","yes")<CR>:nohlsearch<CR>j
 vnoremap    <buffer>  <silent>  <LocalLeader>c*    <Esc>:call C_CodeComment("v","yes")<CR>:nohlsearch<CR>j
- noremap    <buffer>  <silent>  <LocalLeader>c/         :call C_CodeComment("a","no")<CR>:nohlsearch<CR>j
-vnoremap    <buffer>  <silent>  <LocalLeader>c/    <Esc>:call C_CodeComment("v","no")<CR>:nohlsearch<CR>j
 
  noremap    <buffer>  <silent>  <LocalLeader>cc         :call C_CodeComment("a","no")<CR>:nohlsearch<CR>j
 vnoremap    <buffer>  <silent>  <LocalLeader>cc    <Esc>:call C_CodeComment("v","no")<CR>:nohlsearch<CR>j
@@ -76,17 +89,35 @@ vnoremap    <buffer>  <silent>  <LocalLeader>co    <Esc>:call C_CommentCode("v")
  noremap    <buffer>  <silent>  <LocalLeader>cfu        :call C_InsertTemplate("comment.function")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>cme        :call C_InsertTemplate("comment.method")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>ccl        :call C_InsertTemplate("comment.class")<CR>
+ noremap    <buffer>  <silent>  <LocalLeader>cfdi       :call C_InsertTemplate("comment.file-description")<CR>
+ noremap    <buffer>  <silent>  <LocalLeader>cfdh       :call C_InsertTemplate("comment.file-description-header")<CR>
 
 inoremap    <buffer>  <silent>  <LocalLeader>cfr   <Esc>:call C_InsertTemplate("comment.frame")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cfu   <Esc>:call C_InsertTemplate("comment.function")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cme   <Esc>:call C_InsertTemplate("comment.method")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>ccl   <Esc>:call C_InsertTemplate("comment.class")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>cfdi  <Esc>:call C_InsertTemplate("comment.file-description")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>cfdh  <Esc>:call C_InsertTemplate("comment.file-description-header")<CR>
 
  noremap    <buffer>  <silent>  <LocalLeader>cd    <Esc>:call C_InsertDateAndTime('d')<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>cd    <Esc>:call C_InsertDateAndTime('d')<CR>a
+vnoremap    <buffer>  <silent>  <LocalLeader>cd   s<Esc>:call C_InsertDateAndTime('d')<CR>a
  noremap    <buffer>  <silent>  <LocalLeader>ct    <Esc>:call C_InsertDateAndTime('dt')<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>ct    <Esc>:call C_InsertDateAndTime('dt')<CR>a
+vnoremap    <buffer>  <silent>  <LocalLeader>ct   s<Esc>:call C_InsertDateAndTime('dt')<CR>a
 "
+" call the above defined commands:
+"
+ noremap    <buffer>            <LocalLeader>ccs   <Esc>:CFileSection<Space>
+ noremap    <buffer>            <LocalLeader>chs   <Esc>:HFileSection<Space>
+ noremap    <buffer>            <LocalLeader>ckc   <Esc>:KeywordComment<Space>
+ noremap    <buffer>            <LocalLeader>csc   <Esc>:SpecialComment<Space>
+"
+inoremap    <buffer>            <LocalLeader>ccs   <Esc>:CFileSection<Space>
+inoremap    <buffer>            <LocalLeader>chs   <Esc>:HFileSection<Space>
+inoremap    <buffer>            <LocalLeader>ckc   <Esc>:KeywordComment<Space>
+inoremap    <buffer>            <LocalLeader>csc   <Esc>:SpecialComment<Space>
+" 
 " ---------- statements menu  ------------------------------------------------
 "
  noremap    <buffer>  <silent>  <LocalLeader>sd         :call C_InsertTemplate("statements.do-while")<CR>
@@ -115,6 +146,10 @@ inoremap    <buffer>  <silent>  <LocalLeader>sie   <Esc>:call C_InsertTemplate("
 vnoremap    <buffer>  <silent>  <LocalLeader>sife  <Esc>:call C_InsertTemplate("statements.if-block-else", "v")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>sife  <Esc>:call C_InsertTemplate("statements.if-block-else")<CR>
 
+ noremap    <buffer>  <silent>  <LocalLeader>se         :call C_InsertTemplate("statements.else-block")<CR>
+vnoremap    <buffer>  <silent>  <LocalLeader>se    <Esc>:call C_InsertTemplate("statements.else-block", "v")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>se    <Esc>:call C_InsertTemplate("statements.else-block")<CR>
+
  noremap    <buffer>  <silent>  <LocalLeader>sw         :call C_InsertTemplate("statements.while")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>sw    <Esc>:call C_InsertTemplate("statements.while")<CR>
 
@@ -132,8 +167,17 @@ inoremap    <buffer>  <silent>  <LocalLeader>sc    <Esc>:call C_InsertTemplate("
  noremap    <buffer>  <silent>  <LocalLeader>s{         :call C_InsertTemplate("statements.block")<CR>
 vnoremap    <buffer>  <silent>  <LocalLeader>s{    <Esc>:call C_InsertTemplate("statements.block", "v")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>s{    <Esc>:call C_InsertTemplate("statements.block")<CR>
+
+ noremap    <buffer>  <silent>  <LocalLeader>sb         :call C_InsertTemplate("statements.block")<CR>
+vnoremap    <buffer>  <silent>  <LocalLeader>sb    <Esc>:call C_InsertTemplate("statements.block", "v")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>sb    <Esc>:call C_InsertTemplate("statements.block")<CR>
 "
 " ---------- preprocessor menu  ----------------------------------------------
+""
+ noremap    <buffer>  <LocalLeader>ps                  :IncludeStdLibrary<Space>
+inoremap    <buffer>  <LocalLeader>ps             <Esc>:IncludeStdLibrary<Space>
+ noremap    <buffer>  <LocalLeader>pc                  :IncludeC99Library<Space>
+inoremap    <buffer>  <LocalLeader>pc             <Esc>:IncludeC99Library<Space>
 "
  noremap    <buffer>  <silent>  <LocalLeader>p<        :call C_InsertTemplate("preprocessor.include-global")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>p"        :call C_InsertTemplate("preprocessor.include-local")<CR>
@@ -209,8 +253,8 @@ inoremap    <buffer>  <silent>  <LocalLeader>ip    <Esc>:call C_InsertTemplate("
  noremap    <buffer>  <silent>  <LocalLeader>isc        :call C_InsertTemplate("idioms.scanf")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>isc   <Esc>:call C_InsertTemplate("idioms.scanf")<CR>
 "
- noremap    <buffer>  <silent>  <LocalLeader>ica        :call C_InsertTemplate("idioms.calloc")
-inoremap    <buffer>  <silent>  <LocalLeader>ica   <Esc>:call C_InsertTemplate("idioms.calloc")
+ noremap    <buffer>  <silent>  <LocalLeader>ica        :call C_InsertTemplate("idioms.calloc")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>ica   <Esc>:call C_InsertTemplate("idioms.calloc")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>ima        :call C_InsertTemplate("idioms.malloc")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>ima   <Esc>:call C_InsertTemplate("idioms.malloc")<CR>
 "
@@ -244,9 +288,12 @@ vnoremap    <buffer>  <silent>  <LocalLeader>np    <Esc>:call C_ProtoPick("v")<C
 "
  noremap    <buffer>  <silent>  <LocalLeader>ntl        :call C_EditTemplates("local")<CR>
  noremap    <buffer>  <silent>  <LocalLeader>ntg        :call C_EditTemplates("global")<CR>
- noremap    <buffer>  <silent>  <LocalLeader>ntr        :call C_RebuildTemplates()<CR>
+ noremap    <buffer>  <silent>  <LocalLeader>ntr        :call C_RereadTemplates()<CR>
 "
 " ---------- C++ menu ----------------------------------------------------
+"
+ noremap    <buffer>  <silent>  <LocalLeader>+co        :call C_InsertTemplate("cpp.cout")<CR>
+inoremap    <buffer>  <silent>  <LocalLeader>+co   <Esc>:call C_InsertTemplate("cpp.cout")<CR>
 "
  noremap    <buffer>  <silent>  <LocalLeader>+c         :call C_InsertTemplate("cpp.class-definition")<CR>
 inoremap    <buffer>  <silent>  <LocalLeader>+c    <Esc>:call C_InsertTemplate("cpp.class-definition")<CR>
@@ -298,30 +345,30 @@ inoremap    <buffer>  <silent>  <LocalLeader>+c.   <Esc>:call C_InsertTemplate("
 "
 " ---------- run menu --------------------------------------------------------
 "
- map    <buffer>  <silent>  <LocalLeader>rc         :call C_Compile()<CR>:redraw<CR>:call C_HlMessage()<CR>
- map    <buffer>  <silent>  <LocalLeader>rl         :call C_Link()<CR>:redraw<CR>:call C_HlMessage()<CR>
+ map    <buffer>  <silent>  <LocalLeader>rc         :call C_Compile()<CR>:redraw!<CR>:call C_HlMessage()<CR>
+ map    <buffer>  <silent>  <LocalLeader>rl         :call C_Link()<CR>:redraw!<CR>:call C_HlMessage()<CR>
  map    <buffer>  <silent>  <LocalLeader>rr         :call C_Run()<CR>
  map    <buffer>  <silent>  <LocalLeader>ra         :call C_Arguments()<CR>
  map    <buffer>  <silent>  <LocalLeader>rm         :call C_Make()<CR>
  map    <buffer>  <silent>  <LocalLeader>rg         :call C_MakeArguments()<CR>
- map    <buffer>  <silent>  <LocalLeader>rp         :call C_SplintCheck()<CR>:redraw<CR>:call C_HlMessage()<CR>
+ map    <buffer>  <silent>  <LocalLeader>rp         :call C_SplintCheck()<CR>:redraw!<CR>:call C_HlMessage()<CR>
  map    <buffer>  <silent>  <LocalLeader>ri         :call C_SplintArguments()<CR>
- map    <buffer>  <silent>  <LocalLeader>rd         :call C_Indent("a")<CR>:redraw<CR>:call C_HlMessage()<CR>
+ map    <buffer>  <silent>  <LocalLeader>rd         :call C_Indent("a")<CR>:redraw!<CR>:call C_HlMessage()<CR>
  map    <buffer>  <silent>  <LocalLeader>rh         :call C_Hardcopy("n")<CR>
  map    <buffer>  <silent>  <LocalLeader>rs         :call C_Settings()<CR>
 "
-vmap    <buffer>  <silent>  <LocalLeader>rd    <C-C>:call C_Indent("v")<CR>:redraw<CR>:call C_HlMessage()<CR>
+vmap    <buffer>  <silent>  <LocalLeader>rd    <C-C>:call C_Indent("v")<CR>:redraw!<CR>:call C_HlMessage()<CR>
 vmap    <buffer>  <silent>  <LocalLeader>rh    <C-C>:call C_Hardcopy("v")<CR>
 "
-imap    <buffer>  <silent>  <LocalLeader>rc    <C-C>:call C_Compile()<CR>:redraw<CR>:call C_HlMessage()<CR>
-imap    <buffer>  <silent>  <LocalLeader>rl    <C-C>:call C_Link()<CR>:redraw<CR>:call C_HlMessage()<CR>
+imap    <buffer>  <silent>  <LocalLeader>rc    <C-C>:call C_Compile()<CR>:redraw!<CR>:call C_HlMessage()<CR>
+imap    <buffer>  <silent>  <LocalLeader>rl    <C-C>:call C_Link()<CR>:redraw!<CR>:call C_HlMessage()<CR>
 imap    <buffer>  <silent>  <LocalLeader>rr    <C-C>:call C_Run()<CR>
 imap    <buffer>  <silent>  <LocalLeader>ra    <C-C>:call C_Arguments()<CR>
 imap    <buffer>  <silent>  <LocalLeader>rm    <C-C>:call C_Make()<CR>
 imap    <buffer>  <silent>  <LocalLeader>rg    <C-C>:call C_MakeArguments()<CR>
-imap    <buffer>  <silent>  <LocalLeader>rp    <C-C>:call C_SplintCheck()<CR>:redraw<CR>:call C_HlMessage()<CR>
+imap    <buffer>  <silent>  <LocalLeader>rp    <C-C>:call C_SplintCheck()<CR>:redraw!<CR>:call C_HlMessage()<CR>
 imap    <buffer>  <silent>  <LocalLeader>ri    <C-C>:call C_SplintArguments()<CR>
-imap    <buffer>  <silent>  <LocalLeader>rd    <C-C>:call C_Indent("a")<CR>:redraw<CR>:call C_HlMessage()<CR>
+imap    <buffer>  <silent>  <LocalLeader>rd    <C-C>:call C_Indent("a")<CR>:redraw!<CR>:call C_HlMessage()<CR>
 imap    <buffer>  <silent>  <LocalLeader>rh    <C-C>:call C_Hardcopy("n")<CR>
 imap    <buffer>  <silent>  <LocalLeader>rs    <C-C>:call C_Settings()<CR>
  if has("unix")
@@ -334,9 +381,9 @@ imap    <buffer>  <silent>  <LocalLeader>ro    <C-C>:call C_Toggle_Gvim_Xterm()<
 " Abraxas CodeCheck (R)
 "
 if executable("check") 
-  map    <buffer>  <silent>  <LocalLeader>rk         :call C_CodeCheck()<CR>:redraw<CR>:call C_HlMessage()<CR>
+  map    <buffer>  <silent>  <LocalLeader>rk         :call C_CodeCheck()<CR>:redraw!<CR>:call C_HlMessage()<CR>
   map    <buffer>  <silent>  <LocalLeader>re         :call C_CodeCheckArguments()<CR>
- imap    <buffer>  <silent>  <LocalLeader>rk    <C-C>:call C_CodeCheck()<CR>:redraw<CR>:call C_HlMessage()<CR>
+ imap    <buffer>  <silent>  <LocalLeader>rk    <C-C>:call C_CodeCheck()<CR>:redraw!<CR>:call C_HlMessage()<CR>
  imap    <buffer>  <silent>  <LocalLeader>re    <C-C>:call C_CodeCheckArguments()<CR>
 endif
 " ---------- plugin help -----------------------------------------------------
@@ -346,3 +393,28 @@ imap    <buffer>  <silent>  <LocalLeader>hp    <C-C>:call C_HelpCsupport()<CR>
  map    <buffer>  <silent>  <LocalLeader>hm         :call C_Help("m")<CR>
 imap    <buffer>  <silent>  <LocalLeader>hm    <C-C>:call C_Help("m")<CR>
 "
+"-------------------------------------------------------------------------------
+" additional mapping : complete a classical C comment: '/*' => '/* | */'
+"-------------------------------------------------------------------------------
+inoremap  <buffer>  /*       /*<Space><Space>*/<Left><Left><Left>
+vnoremap  <buffer>  /*      s/*<Space><Space>*/<Left><Left><Left><Esc>p
+"
+"-------------------------------------------------------------------------------
+" additional mapping : complete a classical C multi-line comment: 
+"                      '/*<CR>' =>  /*
+"                                    * |
+"                                    */
+"-------------------------------------------------------------------------------
+inoremap  <buffer>  /*<CR>  /*<CR><CR>/<Esc>kA<Space>
+"
+"-------------------------------------------------------------------------------
+" additional mapping : {<CR> always opens a block
+"-------------------------------------------------------------------------------
+inoremap  <buffer>  {<CR>    {<CR>}<Esc>O
+vnoremap  <buffer>  {<CR>   S{<CR>}<Esc>Pk=iB
+"
+"
+if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
+	nmap    <buffer>  <silent>  <C-j>   i<C-R>=C_JumpCtrlJ()<CR>
+	imap    <buffer>  <silent>  <C-j>    <C-R>=C_JumpCtrlJ()<CR>
+endif
