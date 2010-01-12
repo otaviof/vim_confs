@@ -139,7 +139,7 @@ endif
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0-Cursor
-set guicursor+=i:blinkwait20-iCursor
+set guicursor+=i:blinkwait575-iCursor
 
 "
 " Deleting Win/Dos CR/LF
