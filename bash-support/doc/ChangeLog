@@ -1,4 +1,126 @@
 =======================================================================================
+  RELEASE NOTES FOR VERSION 3.1
+=======================================================================================
+- The plugin now handles different template styles without editing and
+  reloading the main template file.
+- New hotkey and ex-command to switch template styles.
+- New global List/Dictionnary g:BASH_AlsoBash: add filename pattern (and
+  styles) for files not named *.sh .
+- Minor improvements.
+- Bugfixes: missing redraws in some cases. 
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 3.0.1
+=======================================================================================
+- New global variable g:BASH_Errorformat: adapt the error format used to parse
+  runtime messages to your locale setting.
+- Bugfix (Windows only): missing internal variable prevents proper initialization.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 3.0
+=======================================================================================
++ Completely new template system. User can change templates on the fly.
++ Additional mapping Ctrl-j : jump behind parenthesis or strings in the current line.
++ A few Posix character classes have better shortcuts.
++ Bugfix: insert mode for Posix character classes.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.14
+=======================================================================================
++ Debugging: ddd always called with bashdb(1).
++ More complete adaption to Bash 4.0: options, builtins, environment variables.
++ Bugfix: running and starting the debugger causes error if working directory is not
+  the directory of the current file.
++ Minor improvements.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.13
+=======================================================================================
++ New menu item 'array element'.
++ New hotkeys \sa, \sas.
++ New submenu 'Snippets'.
++ Hotkeys for the POSIX character classes.
++ Hardcopy (run menu) can print any buffer.
++ Bugfix: 'Run->save + run script' (\rr, <C-F9>) : visual mode broken. 
++ Minor improvements.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.12
+=======================================================================================
++ Hotkeys are shown in the menus.
++ New menu item and hotkey \hb : open the Bash manual.
++ New hotkey \rco : syntax check options.
++ File browser for code snippets choosable (new global variable).
++ Bugfix: wrapper script for use of a xterm could not handle parameters containing blanks.
++ Minor improvements.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.11
+=======================================================================================
++ Additions for Bash version 4.0.
++ Comments menu (\cj): adjustment of end-of-line comments improved.
++ Two submenus rearranged.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.10
+=======================================================================================
+- new item in the Statements-menu: 'for ((...)) do done'.
+- new item in the Statements-menu: 'printf "%s"'.
+- new item in the Statements-menu: indirect parameter expansion ${!name}
+- Bugfix: unnecessary submenu beyond 'Environ'.
+- Bugfix: shopt menu had no insert mode.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.9.1
+=======================================================================================
+- Map leader for hotkeys now user definable: new global variable g:BASH_MapLeader.
+- Bugfix: 'Statements->no. of elem.s' inserts wrong text.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.9
+=======================================================================================
++ Can now be used under Windows, e.g. with win-bash (few restrictions).
++ Name completion when entering a builtin name.
++ Bugfix: help shows no selection when just 2 manuals are available.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.8
+=======================================================================================
++ New help menu: help reorganized, 3 new help hotkeys.
++ The help hotkeys now also work when Vim is run on the console.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.7.1
+=======================================================================================
++ Minor bugfix in the I/O-Redir-menu.
++ I/O-Redir-menu shows redirectors (sort of help).
++ I/O-Redir-menu: here-document item has a vmode.
++ File name expansion for the first command line argument entered with <S-F9>.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.7
+=======================================================================================
++ When a Bash script is started from the Vim command line errors and warnings (if any)
+  are caught in an error window allowing quickfix commands to be used.
++ Scripts which are not set executable can be run under Vim.
++ One new hotkey.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.6
+=======================================================================================
++ Superfluous control characters for mode switching (menus, hotkeys) removed. Caused beeps.
++ Most hotkeys now work in insert mode.
+
+=======================================================================================
+  RELEASE NOTES FOR VERSION 2.5
+=======================================================================================
++ Menu item 'toggle comment' replaces 'code->comment' and 'comment->code'
++ Hotkey \co removed,  \cc is now a toggle.
++ Bugfix. Adjusting comments (\cj): # in '$#' and '${#...}' is no longer
+  regarded as a start of a comment.
++ Bugfix. \cl in insert mode called function for visual mode.
+
+=======================================================================================
   RELEASE NOTES FOR VERSION 2.4
 =======================================================================================
 + Format for the macros |DATE|, |TIME|, and |YEAR| can be defined by the user.

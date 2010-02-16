@@ -1,34 +1,34 @@
 #!/bin/bash
 #===============================================================================
 #          FILE:  wrapper.sh
-#         USAGE:  ./wrapper.sh executable [cmd-line-args] 
+#         USAGE:  ./wrapper.sh scriptname [cmd-line-args] 
 #   DESCRIPTION:  Wraps the execution of a programm or script.
-#                 Use with xterm: xterm -e wrapper.sh executable cmd-line-args
-#                 This script is used by several plugins:
-#                  bash-support.vim, c.vim and perl-support.vim
+#                 Use with xterm: xterm -e wrapper.sh scriptname cmd-line-args
+#                 This script is used by the Vim plugin bash-support.vim
 #       OPTIONS:  ---
-#  REQUIREMENTS:  which(1) - shows the full path of (shell) commands.
+#  REQUIREMENTS:  ---
 #          BUGS:  ---
 #         NOTES:  ---
 #        AUTHOR:  Dr.-Ing. Fritz Mehner (Mn), mehner@fh-swf.de
 #       COMPANY:  Fachhochschule Südwestfalen, Iserlohn
 #       CREATED:  23.11.2004 18:04:01 CET
-#      REVISION:  $Id: wrapper.sh,v 1.2 2007/10/06 15:00:11 mehner Exp $
+#      REVISION:  $Id: wrapper.sh,v 1.5 2009/06/04 17:14:02 mehner Exp $
 #===============================================================================
 
-command=${@}                             # the complete command line
-executable=${1}                          # name of the executable; may be quoted
+scriptname="${1}"                               # name of the script to execute
+returncode=0                                    # default return code
 
-fullname=$(which $executable)
-[ $? -eq 0 ] && executable=$fullname
-
-if [ ${#} -ge 1 ] && [ -x "$executable" ]
-then
-  shift
-  "$executable" ${@}
-  echo -e "\"${command}\" returned ${?}"
+if [ ${#} -ge 1 ] ; then
+	if [ -x "$scriptname" ] ; then                # start an executable script?
+		"${@}"
+	else
+    $SHELL "${@}"                               # start a script which is not executable
+	fi
+	returncode=$?
+	[ $returncode -ne 0 ] && printf "'${@}' returned ${returncode}\n"
 else
-  echo -e "\n  !! file \"${executable}\" does not exist or is not executable !!"
+  printf "\n!! ${0} : no argument(s) !!\n"
 fi
-echo -e "  ... press return key ... "
-read dummy
+
+read -p "... press return key ... " dummy
+exit $returncode
