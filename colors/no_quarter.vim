@@ -17,13 +17,13 @@ let colors_name = "no_quarter"
 " Vim Colors (( Default Options ))
 "
 
-hi Normal				guifg=grey90                        guibg=#303030
+hi Normal				guifg=grey90                        guibg=#252525
 
 hi Comment				gui=NONE		guifg=#647bcf       guibg=NONE
 hi Constant				gui=NONE		guifg=#b07050       guibg=NONE
 hi Cursor				gui=NONE		guifg=#424242       guibg=yellow
 hi CursorIM				gui=NONE		guifg=#ffffff       guibg=#8800ff
-hi CursorLine           gui=NONE                            guibg=gray25
+hi CursorLine           gui=NONE                            guibg=gray20
 hi DiffAdd				gui=NONE		guifg=#a0d0ff       guibg=#0020a0
 hi DiffChange			gui=NONE		guifg=#e03870       guibg=#601830
 hi DiffDelete			gui=NONE		guifg=#a0d0ff       guibg=#0020a0
@@ -40,7 +40,7 @@ hi IncSearch			gui=UNDERLINE	guifg=#80ffff       guibg=#0060c0
 hi LineNr				gui=NONE		guifg=#707070       guibg=NONE
 hi ModeMsg				gui=BOLD		guifg=#a0d0ff       guibg=NONE
 hi MoreMsg				gui=NONE        guifg=lightred      guibg=bg
-hi NonText				gui=BOLD		guifg=#707070       guibg=#383838
+hi NonText				gui=BOLD		guifg=#707070       guibg=#202020
 hi OverLength           gui=NONE        guifg=fg            guibg=#353535
 hi PreProc				gui=NONE		guifg=#c090c0       guibg=NONE
 hi Question				gui=BOLD		guifg=#e8e800       guibg=NONE

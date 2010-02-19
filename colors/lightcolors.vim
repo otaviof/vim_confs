@@ -76,5 +76,6 @@ hi Float guifg=#aa2160
 
 hi Pmenu guibg=#ccc0b7 gui=italic
 hi PmenuSel guifg=#ffffff guibg=#555555 gui=italic
+hi CursorLine gui=NONE guibg=gray85
 
 
