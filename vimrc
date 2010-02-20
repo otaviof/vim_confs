@@ -323,6 +323,14 @@ let g:Perl_Company                  = 'Locaweb'
 let g:Perl_Email                    = 'otavio.fernandes@locaweb.com.br'   
 
 "
+" Language Support Menus
+"
+
+let g:Perl_LoadMenus                = 'no'
+let g:BASH_LoadMenus                = 'no'
+let g:C_LoadMenus      				= 'no'
+
+"
 " Tag List Options
 "
 
