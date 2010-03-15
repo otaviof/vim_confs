@@ -40,7 +40,7 @@ hi ErrorMsg             gui=bold guifg=#ffffff guibg=#ff0000
 hi VertSplit            gui=bold guifg=#bdb76b guibg=#000000
 hi Folded               guifg=#000000 guibg=#bdb76b
 hi FoldColumn           guifg=#000000 guibg=#bdb76b
-hi SignColumn           gui=bold guifg=#bdb76b guibg=#20b2aa
+hi SignColumn           gui=bold guifg=#bdb76b guibg=bg
 hi IncSearch            gui=bold guifg=#000000 guibg=#ffffff
 hi LineNr               gui=bold guifg=#bdb76b guibg=#528b8b
 hi ModeMsg              gui=bold
