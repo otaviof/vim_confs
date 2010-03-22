@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/otaviof/Desktop/Programming/Open_Source/smtpprox-1.2'
 let g:netrw_dirhist_2='/Users/otaviof/Desktop/Programming/Locaweb/hm2611'
+let g:netrw_dirhist_3='/Users/otaviof/Desktop/Programming/BluePex/Eclipse/SM/bp_modules'
+let g:netrw_dirhist_4='/Users/otaviof/Desktop/Programming/GitHub/hm2611'
+let g:netrw_dirhist_5='/Users/otaviof/Desktop/Programming/Open_Source/amavisd-new-2.6.4'
+let g:netrw_dirhist_6='/Users/otaviof/Desktop/Programming/Open_Source/qpsmtpd'
