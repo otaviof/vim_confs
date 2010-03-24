@@ -61,6 +61,11 @@ if &t_Co > 1
     syntax enable
 endif
 
+if has("gui_macvim")
+    macmenu File.Open\ Tab\.\.\. key=<nop>
+    map <D-T> :CommandT<CR>
+endif
+
 " caso a interface grafica estaja rodando, vamos setar:
 if has("gui_running") 
 
@@ -407,5 +412,7 @@ let delimitMate_excluded_ft = ""
 
 let MailApp_bundle = "~/.vim/MailApp.bundle/"
 let MailApp_from = "Otávio Fernandes <otavio.fernandes@locaweb.com.br>"
+
+map <D-e> :CommandT<CR>
 
 " EOF
