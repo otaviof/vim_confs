@@ -408,6 +408,10 @@ let delimitMate_excluded_ft = ""
 let MailApp_bundle = "~/.vim/MailApp.bundle/"
 let MailApp_from = "Otávio Fernandes <otavio.fernandes@locaweb.com.br>"
 
-map <D-e> :CommandT<CR>
+"
+" No ShowMarks when Vim starts
+"
+
+let showmarks_enable = 0
 
 " EOF
