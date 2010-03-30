@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/otaviof/Desktop/Programming/Open_Source/smtpprox-1.2'
 let g:netrw_dirhist_2='/Users/otaviof/Desktop/Programming/Locaweb/hm2611'
 let g:netrw_dirhist_3='/Users/otaviof/Desktop/Programming/Open_Source/nginx-mail-06419a2298a9'
 let g:netrw_dirhist_4='/Users/otaviof/Desktop/Programming/Locaweb/hm2611'
 let g:netrw_dirhist_5='/Users/otaviof/Desktop/Programming/Open_Source/amavisd-new-2.6.4/README_FILES'
 let g:netrw_dirhist_6='/Users/otaviof/Desktop/Programming/Open_Source/amavisd-new-2.6.4'
+let g:netrw_dirhist_7='/Users/otaviof/Desktop/Programming/GitHub/Programming_Tests'
+let g:netrw_dirhist_8='/Users/otaviof/Desktop/Programming/GitHub/Perl-NFS_Watchdog'

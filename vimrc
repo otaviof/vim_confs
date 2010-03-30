@@ -320,7 +320,7 @@ let g:def_perl_comp_packagen        = 1
 let g:Perl_AuthorName               = 'Otavio Fernandes'     
 let g:Perl_AuthorRef                = 'OF'                         
 let g:Perl_Company                  = 'Locaweb'    
-let g:Perl_Email                    = 'otavio.fernandes@locaweb.com.br'   
+let g:Perl_Email                    = 'otaviof@gmail.com'   
 
 "
 " Language Support Menus
@@ -406,7 +406,7 @@ let delimitMate_excluded_ft = ""
 "
 
 let MailApp_bundle = "~/.vim/MailApp.bundle/"
-let MailApp_from = "Otávio Fernandes <otavio.fernandes@locaweb.com.br>"
+let MailApp_from = "Otavio Fernandes <otaviof@gmail.com>"
 
 "
 " No ShowMarks when Vim starts
