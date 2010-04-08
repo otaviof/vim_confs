@@ -4,93 +4,66 @@
 "       Otavio Fernandes <otaviof@gmail.com>
 " ----------------------------------------------------------------------
 
-set ai                          " always set autoindenting on.
-set autowrite                   " deixa gravar arquivos simultaneamente
-set autowriteall                " deixa gravar muitos arquivos ao mesmo
-                                " tempo, subentende-se que o autowrite
-                                " esta ligado
-set backspace=indent,eol,start  " allow backspacing over everything in insert
-                                " mode
-set browsedir=current           " diretorio onde primeiro vamos procurar
-                                " arquivos para abrir
-set cinoptions=(0               " set the cinoptions. Use the default
-                                " for everything except the ( option.
-set history=50                  " keep 50 lines of command line history
-set incsearch                   " do incremental searching
-set joinspaces                  " insert two spaces after a period with every
-                                " joining of lines.
-set nobackup                    " do not keep a backup file, use versions
-                                " instead
-set nocompatible                " changes other options as a side effect.
-set ruler                       " show the cursor position all the time
-set shiftwidth=4                " numero de espacos utilizado para
-                                " indentacao
-set expandtab                   " sempre vamos usar espacos, no lugar
-                                " dos tabs
-set showcmd                     " display incomplete commands
-set showmatch                   " showmatch: Show the matching bracket for the
-                                " last ')'?
-set smartindent                 " adiciona itens de indentacao nos
-                                " fontes editados pelo Vim
-set smarttab                    " identação para os tabs
-set tabstop=4                   " melhora a identação, principalmente de C
-set softtabstop=4               
-set tildeop                     " allow tilde (~) to act as an operator -- ~w
-set ts=4                        " setando o tamanho do tab
-set wildignore=*.bak,*.o,*.e,*~
-set wildmenu                    " mostra os menus em cima da linha de comando
-set wrap                        " quebra a linha automaticamente
-set textwidth=78                " quantos caraceres vamos ter por linha
-set nomodeline                  " opção de segurança
-set vb t_vb=                    " no bell sound
-set confirm                     " to get a dialog when a command fails
-set complete+=k                 " scan the files given with the 'dictionary'
-set autoread                    " read open files again when changed outside Vim
-set showmode                    " show mode (Visual, Insert, Select, etc)
-set selectmode=mouse	        " select mode will be started by shift keys
-set guioptions=egmLtihvF        " options for Gvim/MacVim
-set lines=50 columns=110        " standard window size we were used to
+set ai
+set autoread
+set autowrite
+set autowriteall
+set confirm
+set expandtab
+set incsearch
+set joinspaces
+set nobackup
+set nocompatible
+set nomodeline
+set ruler
+set showcmd
+set showmatch
+set showmode
+set smartindent
+set smarttab
+set tildeop
+set wildmenu
+set wrap
 
-" sempre havera plugins ligados
+set backspace=indent,eol,start
+set browsedir=current
+set cinoptions=(0
+set columns=110
+set complete+=k
+set guioptions=egmLtihvF
+set history=50
+set lines=50
+set selectmode=mouse
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set textwidth=78
+set ts=4
+set vb t_vb=
+set wildignore=*.bak,*.o,*.e,*~
+
 filetype on
 filetype plugin on
 filetype indent on
 
-" caso o terminal suporte, vamos habilitar syntax hilight
 if &t_Co > 1
     syntax enable
 endif
 
-" caso a interface grafica estaja rodando, vamos setar:
 if has("gui_running") 
+    colorscheme no_quarter
 
-    colorscheme no_quarter      " esquema de cores, Otavio Fernandes ;-)
-    " set noantialias             " para leitura e coficacao eh melhor
-                                " remover o antialias
-    set background=dark         " tipo de background
-
-    " set fileencodings=ucs-bom,utf-8,default,latin1
-    " set guifont=Monaco:h10
-    " set guifont=-*-proggytinysz-*-*-*-*-10-*-*-*-*-*-iso8859-1
-    " set guifont=ProggyTinyTTSZ\ 12
-    " set guifont=Terminus\ 8
-    " set guifont=Monaco\ 8
+    set cursorline
+    set invnumber
+    set mousehide
 
     set guifont=Monaco:h12
-    set helplang=en             " lingua default
-    set mouse=a                 " deixaremos o mouse interagir com o Vim
-    set mousehide               " hide mouse while typing
-    set termencoding=utf-8    	" codificacao padrao do Mac OS X e
-                                " qualquer outro SO hoje
-    set transparency=10         " o MacVim tem suporte a transparencia
-    set linespace=-5            " economizando um pouco de espaco entre
-                                " as linhas, para codificar, ente -1 e -3
-    set cursorline              " destaca a linha atual com as cores que
-                                " sao setadas no tema (colorscheme)
-    set invnumber               " exibindo o numero nas linhas
-
     set guitablabel=(%N%M)\ %f
-
+    set helplang=en
+    set linespace=-5
+    set mouse=a
+    set termencoding=utf-8
+    set transparency=5
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -137,9 +110,9 @@ endif
 "
 
 set guicursor=n-v-c:block-Cursor
+set guicursor+=i:blinkwait575-iCursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0-Cursor
-set guicursor+=i:blinkwait575-iCursor
 
 "
 " Deleting Win/Dos CR/LF
@@ -167,18 +140,6 @@ endfunction
 " inoremap <M-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 " inoremap <m-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
-
-"
-" Show line number
-"
-
-map <F7> :set invnumber<CR>
-
-"
-" Spell checking for pt_BR and en_US
-"
-
-map ,g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 
 "
 " Tidy-up coding style
@@ -266,6 +227,19 @@ endfunction
 
 noremap  ,gs  :call GotoSub(expand('<cword>'))<cr>
 
+"
+" Show line number
+"
+
+map <F7> :set invnumber<CR>
+
+"
+" Spell checking for pt_BR and en_US
+"
+
+map ,g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
+
+
 " 
 " Caps-Lock
 "
@@ -304,51 +278,51 @@ map <D-0> 10g
 " Perl
 "
 
-let perl_include_POD                = 1
-let perl_want_scope_in_variables    = 1
-let perl_extended_vars              = 1
-let perl_no_sync_on_sub             = 1
-let perl_no_sync_on_global_var      = 1
-let perl_sync_dist                  = 100
-let perl_fold                       = 1
-let perl_nofold_packages            = 1
-let perl_nofold_subs                = 1
+let perl_extended_vars=1
+let perl_fold=1
+let perl_include_POD=1
+let perl_no_sync_on_global_var=1
+let perl_no_sync_on_sub=1
+let perl_nofold_packages=1
+let perl_nofold_subs=1
+let perl_sync_dist=100
+let perl_want_scope_in_variables=1
 
-let g:def_perl_comp_bfunction       = 1
-let g:def_perl_comp_packagen        = 1
+let g:def_perl_comp_bfunction=1
+let g:def_perl_comp_packagen=1
 
-let g:Perl_AuthorName               = 'Otavio Fernandes'     
-let g:Perl_AuthorRef                = 'OF'                         
-let g:Perl_Company                  = 'Locaweb'    
-let g:Perl_Email                    = 'otaviof@gmail.com'   
+let g:Perl_AuthorName='Otavio Fernandes'     
+let g:Perl_AuthorRef='OF'                         
+let g:Perl_Company=''
+let g:Perl_Email='otaviof@gmail.com'   
 
 "
-" Language Support Menus
+" Language Support Menus (MacVim)
 "
 
-let g:Perl_LoadMenus                = 'no'
-let g:BASH_LoadMenus                = 'no'
-let g:C_LoadMenus      				= 'no'
+let g:BASH_LoadMenus='no'
+let g:C_LoadMenus='no'
+let g:Perl_LoadMenus='no'
 
 "
 " Tag List Options
 "
 
-let Tlist_WinWidth                  = 35
-let Tlist_Show_One_File             = 0
-let Tlist_Compact_Format            = 0
-let Tlist_Auto_Highlight_Tag        = 1
-let Tlist_Process_File_Always       = 1
-let tlist_perl_settings             = 'perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
-let Tlist_Ctags_Cmd                 = '/opt/local/bin/ctags' " OSX
+let Tlist_Auto_Highlight_Tag=1
+let Tlist_Compact_Format=0
+let Tlist_Ctags_Cmd='/opt/local/bin/ctags' " OSX
+let Tlist_Process_File_Always=1
+let Tlist_Show_One_File=0
+let Tlist_WinWidth=35
+let tlist_perl_settings='perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
 
 nnoremap <silent>  <F6> :Tlist<CR>
 nnoremap <silent>  <F5> :TlistUpdate<CR>
 nnoremap <silent> <tab> :bn<CR
 
 " habilitando o plugin de xml
-let xml_use_xhtml = 1
-let b:html_mode = 1
+let b:html_mode=1
+let xml_use_xhtml=1
 
 "
 " NERDTree
@@ -382,36 +356,33 @@ map ,M <ESC>:match rightMargin <CR>
 " FastGit ( http://github.com/c9s/fastgit.vim )
 "
 
-" enable default mapping:
-let g:fastgit_default_mapping = 1
-" setup default remote for git pull and push
-let g:fastgit_default_remote = 'origin'
-" append git branch info to current statusline (if you have enough space)
-let g:fastgit_statusline = 'a'
+let g:fastgit_default_mapping=1
+let g:fastgit_default_remote='origin'
+let g:fastgit_statusline='a'
 
 "
 " Delimate options
 "
 
-let delimitMate = "(:),[:],{:},<:>"
-let delimitMate_matchpairs = "(:),[:],{:},<:>"
-let delimitMate_quotes = "\" ' ` *"
-let delimitMate_visual_leader = "f"
-let delimitMate_expand_cr = "\<CR>\<CR>\<Up>"
-let delimitMate_expand_space = "\<Space>\<Space>\<Left>"
-let delimitMate_excluded_ft = ""
+let delimitMate="(:),[:],{:},<:>"
+let delimitMate_excluded_ft=""
+let delimitMate_expand_cr="\<CR>\<CR>\<Up>"
+let delimitMate_expand_space="\<Space>\<Space>\<Left>"
+let delimitMate_matchpairs="(:),[:],{:},<:>"
+let delimitMate_quotes="\" ' ` *"
+let delimitMate_visual_leader="f"
 
 "
 " Mail.App
 "
 
-let MailApp_bundle = "~/.vim/MailApp.bundle/"
-let MailApp_from = "Otavio Fernandes <otaviof@gmail.com>"
+let MailApp_bundle="~/.vim/MailApp.bundle/"
+let MailApp_from="Otavio Fernandes <otaviof@gmail.com>"
 
 "
 " No ShowMarks when Vim starts
 "
 
-let showmarks_enable = 0
+let showmarks_enable=0
 
 " EOF
