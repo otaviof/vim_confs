@@ -49,13 +49,13 @@ hi SignColumn               gui=NONE        guifg=darkyellow    guibg=bg
 hi Special                  gui=NONE		guifg=#c090c0       guibg=NONE
 hi SpecialKey               gui=BOLD		guifg=green         guibg=NONE
 hi Statement                gui=NONE		guifg=#c0c090       guibg=NONE
-hi StatusLine               gui=NONE		guifg=#000000       guibg=gray90
-hi StatusLineNC             gui=NONE		guifg=#abac84       guibg=gray12
+hi StatusLine               gui=NONE		guifg=gray30        guibg=gray10
+hi StatusLineNC             gui=NONE		guifg=gray30        guibg=gray10
 hi Title                    gui=NONE        guifg=darkcyan      guibg=bg
 hi Todo                     gui=BOLD		guifg=#ff80d0       guibg=NONE
 hi Type                     gui=NONE		guifg=#60f0a8       guibg=NONE
 hi Underlined               gui=UNDERLINE	guifg=#707070       guibg=NONE
-hi VertSplit                gui=NONE		guifg=#abac84       guibg=gray12
+hi VertSplit                gui=NONE		guifg=#abac84       guibg=gray10
 hi Visual                   gui=NONE		guifg=#b0ffb0       guibg=#008000
 hi VisualNOS                gui=NONE		guifg=#ffe8c8       guibg=#c06800
 hi WarningMsg               gui=BOLD		guifg=#ffa0ff       guibg=NONE
