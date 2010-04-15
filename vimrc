@@ -385,4 +385,14 @@ let MailApp_from="Otavio Fernandes <otaviof@gmail.com>"
 
 let showmarks_enable=0
 
+"
+" Clojure
+" ( http://www.assembla.com/wiki/show/clojure/Getting_Started_with_Vim )
+"
+
+let clj_highlight_builtins = 1
+let clj_want_gorilla = 1
+let vimclojure#NailgunClient = "~/.vim/ng"
+let clj_want_gorilla = 1
+
 " EOF
