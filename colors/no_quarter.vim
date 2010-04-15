@@ -17,13 +17,13 @@ let colors_name = "no_quarter"
 " Vim Colors (( Default Options ))
 "
 
-hi Normal                   guifg=gray90                        guibg=gray9
+hi Normal                   gui=NONE        guifg=gray90        guibg=gray9
 
 hi Comment                  gui=NONE		guifg=#647bcf       guibg=NONE
 hi Constant                 gui=NONE		guifg=#b07050       guibg=NONE
 hi Cursor                   gui=NONE		guifg=#424242       guibg=yellow
 hi CursorIM                 gui=NONE		guifg=#ffffff       guibg=#8800ff
-hi CursorLine               gui=NONE                            guibg=gray10
+hi CursorLine               gui=NONE        guifg=NONE          guibg=gray10
 hi DiffAdd                  gui=NONE		guifg=#a0d0ff       guibg=#0020a0
 hi DiffChange               gui=NONE		guifg=#e03870       guibg=#601830
 hi DiffDelete               gui=NONE		guifg=#a0d0ff       guibg=#0020a0
@@ -31,7 +31,7 @@ hi DiffText                 gui=NONE		guifg=#ff78f0       guibg=#a02860
 hi Directory                gui=NONE		guifg=lightmagenta  guibg=NONE
 hi Error                    gui=BOLD		guifg=white         guibg=#8000ff
 hi ErrorMsg                 gui=BOLD		guifg=#ffa0ff       guibg=NONE
-hi FoldColumn               gui=NONE		guifg=#40c0ff       guibg=gray12
+hi FoldColumn               gui=NONE		guifg=cyan          guibg=bg
 hi Folded                   gui=NONE		guifg=#40f0f0       guibg=#006090
 hi iCursor                  gui=NONE        guifg=white         guibg=green
 hi Identifier               gui=NONE		guifg=#90c0c0       guibg=NONE
@@ -49,13 +49,13 @@ hi SignColumn               gui=NONE        guifg=darkyellow    guibg=bg
 hi Special                  gui=NONE		guifg=#c090c0       guibg=NONE
 hi SpecialKey               gui=BOLD		guifg=green         guibg=NONE
 hi Statement                gui=NONE		guifg=#c0c090       guibg=NONE
-hi StatusLine               gui=NONE		guifg=gray30        guibg=gray10
-hi StatusLineNC             gui=NONE		guifg=gray30        guibg=gray10
+hi StatusLine               gui=NONE		guifg=gray10        guibg=gray30
+hi StatusLineNC             gui=NONE		guifg=gray10        guibg=gray40
 hi Title                    gui=NONE        guifg=darkcyan      guibg=bg
 hi Todo                     gui=BOLD		guifg=#ff80d0       guibg=NONE
 hi Type                     gui=NONE		guifg=#60f0a8       guibg=NONE
 hi Underlined               gui=UNDERLINE	guifg=#707070       guibg=NONE
-hi VertSplit                gui=NONE		guifg=#abac84       guibg=gray10
+hi VertSplit                gui=NONE		guifg=#abac84       guibg=gray20
 hi Visual                   gui=NONE		guifg=#b0ffb0       guibg=#008000
 hi VisualNOS                gui=NONE		guifg=#ffe8c8       guibg=#c06800
 hi WarningMsg               gui=BOLD		guifg=#ffa0ff       guibg=NONE
@@ -121,15 +121,15 @@ hi perlVarSimpleMemberName	gui=NONE        guifg=grey70	guibg=bg
 " Omni Menu
 "
 
-hi Pmenu				guifg=grey10	guibg=grey50
-hi PmenuSel				guifg=#abac84	guibg=gray12
-hi PmenuSbar			guibg=grey20
-hi PmenuThumb			guifg=grey30
+hi Pmenu                    gui=NONE        guifg=grey10    guibg=grey50
+hi PmenuSel                 gui=NONE        guifg=#abac84	guibg=gray12
+hi PmenuSbar			    gui=NONE        guifg=NONE      guibg=grey20
+hi PmenuThumb			    gui=NONE        guifg=grey30    guibg=NONE
 
 "
 " Right Margin
 "
 
-hi rightMargin          guibg=#453030
+hi rightMargin              gui=NONE        guifg=NONE      guibg=#453030
 
 " EOF
