@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/otaviof/Desktop/Programming/Open_Source/emacs_chrome'
 let g:netrw_dirhist_2='/Users/otaviof/Desktop/Programming/GitHub/Perl-NFS_Watchdog'
 let g:netrw_dirhist_3='/Users/otaviof/.vim'
+let g:netrw_dirhist_4='/Users/otaviof/Desktop/Programming/GitHub/Perl-NFS_Watchdog'
