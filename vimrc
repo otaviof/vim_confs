@@ -42,6 +42,8 @@ set ts=4
 set vb t_vb=
 set wildignore=*.bak,*.o,*.e,*~
 
+let maplocalleader=','
+
 filetype on
 filetype plugin on
 filetype indent on
@@ -145,7 +147,7 @@ inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 " Tidy-up coding style
 "
 
-map ,t :call Tidy()<Cr>
+map <LocalLeader>t :call Tidy()<Cr>
 
 function! Tidy()
     let current_line = line('.')
@@ -225,7 +227,7 @@ function! PickFromList( name, list, ... )
     return a:list[choice]
 endfunction
 
-noremap  ,gs  :call GotoSub(expand('<cword>'))<cr>
+noremap <LocalLeader>gs :call GotoSub(expand('<cword>'))<cr>
 
 "
 " Show line number
@@ -237,7 +239,7 @@ map <F7> :set invnumber<CR>
 " Spell checking for pt_BR and en_US
 "
 
-map ,g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
+map <LocalLeader>g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 
 
 " 
@@ -252,7 +254,7 @@ nmap :Q :q
 " UTF8 conversion
 "
 
-nmap ,utf8 !recode -q ISO-8859-1..utf-8
+nmap <LocalLeader>utf8 !recode -q ISO-8859-1..utf-8
 
 
 "
@@ -328,8 +330,8 @@ let xml_use_xhtml=1
 " NERDTree
 "
 
-map ,n <ESC>:NERDTree<CR>
-nnoremap <silent> ,f :call FindInNERDTree()<CR> 
+map <LocalLeader>n <ESC>:NERDTree<CR>
+nnoremap <silent> <LocalLeader>f :call FindInNERDTree()<CR> 
 
 "
 " Omni Completion colors
@@ -349,8 +351,8 @@ inoremap <silent> <s-F8> <ESC> :silent browse confirm e<CR>
 " Display margin
 "
 
-map ,m <ESC>:match rightMargin /.\%>79v/<CR>
-map ,M <ESC>:match rightMargin <CR>
+map <LocalLeader>m <ESC>:match rightMargin /.\%>79v/<CR>
+map <LocalLeader>M <ESC>:match rightMargin <CR>
 
 "
 " FastGit ( http://github.com/c9s/fastgit.vim )
@@ -391,8 +393,9 @@ let showmarks_enable=0
 "
 
 let clj_highlight_builtins = 1
+let clj_highlight_contrib = 1
+let clj_parem_rainbow= 1
 let clj_want_gorilla = 1
-let vimclojure#NailgunClient = "~/.vim/ng"
-let clj_want_gorilla = 1
+let vimclojure#NailgunClient = "~/.vim/bin/ng"
 
 " EOF
