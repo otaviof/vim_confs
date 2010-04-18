@@ -133,7 +133,7 @@ syn match perlOperator			"\<\%(defined\|undef\|eq\|ne\|[gl][et]\|cmp\|not\|and\|
 syn match perlControl			"\<\%(BEGIN\|CHECK\|INIT\|END\|UNITCHECK\)\>"
 
 syn match perlStatementStorage		"\<\%(my\|our\|local\|state\)\>"
-syn match perlStatementControl		"\<\%(return\|last\|next\|redo\|goto\|break\)\>"
+syn match perlStatementControl		"\<\%(return\|last\|next\|redo\|goto\|break\|new\)\>"
 syn match perlStatementScalar		"\<\%(chom\=p\|chr\|crypt\|r\=index\|lc\%(first\)\=\|length\|ord\|pack\|sprintf\|substr\|uc\%(first\)\=\)\>"
 syn match perlStatementRegexp		"\<\%(pos\|quotemeta\|split\|study\)\>"
 syn match perlStatementNumeric		"\<\%(abs\|atan2\|cos\|exp\|hex\|int\|log\|oct\|rand\|sin\|sqrt\|srand\)\>"
