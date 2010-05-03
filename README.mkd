@@ -1,0 +1,143 @@
+
+Screencast
+==========
+
+http://www.youtube.com/watch?v=hZ7871WcIv0
+
+Install
+========
+
+just run make:
+
+    $ make install
+
+and add ~/.vim/bin/ to your $PATH env variable , for example, add these lines to your .bashrc or .zshrc:
+
+    export PATH=~/.vim/bin:$PATH
+
+please make sure you've enable filetype plugin your `.vimrc`:
+
+    filetype on
+    filetype plugin on
+    filetype indent on
+
+Usage
+=====
+
+In insert mode , press C-x C-o to emit omnicompletion.
+
+
+Write your perl omni completion extensions
+=========================================
+
+Perl omni completion plugin is extensible, you can extend completion rules by
+simple regular expressions.
+
+your omni completion extension should put in ~/.vim/after/ftplugin/perl/what-ever.vim.
+
+## API Functions
+
+**AddPerlOmniRule(rule)**, for example:
+
+    cal AddPerlOmniRule({ 'only':1, 'head': '^has\s\+\w\+' , 
+        \'context': '\s\+is\s*=>\s*$'  , 
+        \'backward': '[''"]\?\w*$' , 
+        \'comp': function('s:CompMooseIs') } )
+
+### Cache Functions
+
+**GetCacheNS(ns,key)**
+
+    ns: cache namespace
+    key:  cache key
+
+**SetCacheNS(ns,key,value)**
+
+    ns: cache namespace
+    key:  cache key
+    value:  cache value
+
+
+
+Development
+===========
+
+Please feel free to ask commit bit of this. just drop me a line. :-)
+
+
+Author
+======
+
+Cornelius (林佑安) 
+
+twitter:  http://twitter.com/c9s
+
+Samples
+=======
+
+
+    " SAMPLES {{{
+
+    extends 'Moose::Meta::Attribute';
+    extends 'AAC::Pvoice';
+
+    " module compeltion
+    my $obj = new B::C;
+
+
+    " complete class methods
+    Jifty::DBI::Record->
+
+    " complete built-in function
+    seekdir see
+
+
+    " $self completion
+    "   my $self
+    " to 
+    "   my $self = shift;
+    my $self
+
+    " complete current object methods
+    sub testtest { }
+    sub foo1 { }
+    sub foo2 { }
+
+    $self->
+
+    " smart object method completion
+    my $var = new Jifty;
+    $var->
+
+    " smart object method completion 2
+    my $var = Jifty::DBI->new;
+    $var->
+
+    my %hash = ( );
+    my @array = ( );
+
+    " complete variable
+    $var1 $var2 $var3 $var_test $var__adfasdf
+    $var__adfasd  $var1 
+
+
+    " moose complete
+
+    has url => (
+        metaclass => 'Labeled',
+        is        => 'rw',
+        isa       => 'Str',
+        label     => "The site's URL",
+    );
+
+    " role
+
+    with 'Restartable' => {
+        -alias => {
+            stop  => '_stop',
+            start => '_start'
+        },
+        -excludes => [ 'stop', 'start' ],
+    };
+
+    " }}}
