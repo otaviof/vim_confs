@@ -59,13 +59,14 @@ if has("gui_running")
     set invnumber
     set mousehide
 
+    set linespace=-5
     set guifont=Monaco:h12
+    set transparency=5
+
     set guitablabel=(%N%M)\ %f
     set helplang=en
-    set linespace=-5
     set mouse=a
     set termencoding=utf-8
-    set transparency=5
 endif
 
 " Only do this part when compiled with support for autocommands.
