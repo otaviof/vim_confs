@@ -13,7 +13,6 @@ set expandtab
 set incsearch
 set joinspaces
 set nobackup
-set nocompatible
 set nomodeline
 set ruler
 set showcmd
@@ -59,9 +58,9 @@ if has("gui_running")
     set invnumber
     set mousehide
 
-    set linespace=-5
-    set guifont=Monaco:h12
-    set transparency=5
+    set linespace=-1                " -5
+    set guifont=Menlo\ Regular:h13  " Monaco:h12
+    set transparency=7
 
     set guitablabel=(%N%M)\ %f
     set helplang=en
@@ -315,7 +314,7 @@ let g:Perl_LoadMenus='no'
 
 let Tlist_Auto_Highlight_Tag=1
 let Tlist_Compact_Format=0
-let Tlist_Ctags_Cmd='/opt/local/bin/ctags' " OSX
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_Process_File_Always=1
 let Tlist_Show_One_File=0
 let Tlist_WinWidth=35
