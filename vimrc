@@ -89,6 +89,9 @@ if has("autocmd")
     " carregando o plugin de xml/html
     autocmd FileType {xml,xhtml,html,htm,erb,tt2.html} runtime ftplugin/xml.vim
 
+    " perltidy will be the default formater for perl
+    autocmd Filetype perl :set equalprg='perltidy'
+
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
