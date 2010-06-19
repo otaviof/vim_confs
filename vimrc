@@ -66,6 +66,9 @@ if has("gui_running")
     set helplang=en
     set mouse=a
     set termencoding=utf-8
+
+    set laststatus=2
+    set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -90,7 +93,7 @@ if has("autocmd")
     autocmd FileType {xml,xhtml,html,htm,erb,tt2.html} runtime ftplugin/xml.vim
 
     " perltidy will be the default formater for perl
-    autocmd Filetype perl :set equalprg='perltidy'
+    autocmd Filetype perl :set equalprg=perltidy\ -pbp\ -ce
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -118,6 +121,15 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:blinkwait575-iCursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0-Cursor
+
+"
+" Returns Current Directory
+"
+
+function! CurDir()
+    let curdir = substitute( getcwd(), $HOME, "~", "g" )
+    return curdir
+endfunction
 
 "
 " Deleting Win/Dos CR/LF
