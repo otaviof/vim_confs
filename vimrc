@@ -78,7 +78,7 @@ if has("au")
     au! Syntax {cpp,c,idl}
     au Syntax {cpp,c,idl} runtime syntax/doxygen.vim
 
-    au Syntax {xml,xhtml,html,htm,erb,tt2.html} runtime ftplugin/xml.vim
+    au Syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
 
     " opcoes para ruby
     augroup ruby
@@ -94,7 +94,6 @@ if has("au")
 
     " perltidy will be the default formater for perl
     au Filetype perl :set equalprg=perltidy\ -pbp\ -ce
-
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
