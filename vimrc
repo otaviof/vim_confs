@@ -72,7 +72,7 @@ if has("gui_running")
 endif
 
 " Only do this part when compiled with support for autocommands.
-if has("autocmd")
+if has("au")
 
     " carregando plugin do doxygen
     au! Syntax {cpp,c,idl}
@@ -90,27 +90,28 @@ if has("autocmd")
     augroup END
 
     " carregando o plugin de xml/html
-    autocmd FileType {xml,xhtml,html,htm,erb,tt2.html} runtime ftplugin/xml.vim
+    au FileType {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
 
     " perltidy will be the default formater for perl
-    autocmd Filetype perl :set equalprg=perltidy\ -pbp\ -ce
+    au Filetype perl :set equalprg=perltidy\ -pbp\ -ce
+
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
+    au BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
     augroup END
 
-    autocmd Filetype {java,scala} setlocal omnifunc=javacomplete#Complete 
+    au Filetype {java,scala} setlocal omnifunc=javacomplete#Complete 
 
     " language definition for plain text
     let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
+
     " syntax highlight for txt.vim 
     au BufRead,BufNewFile *.txt setlocal ft=txt
-
 endif
 
 "
