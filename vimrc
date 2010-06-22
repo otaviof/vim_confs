@@ -93,7 +93,7 @@ if has("au")
     au FileType {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
 
     " perltidy will be the default formater for perl
-    au Filetype perl :set equalprg=perltidy\ -pbp\ -ce
+    au Filetype perl :set equalprg='perltidy'
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
