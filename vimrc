@@ -60,7 +60,7 @@ if has("gui_running")
 
     set linespace=-1                " -5
     set guifont=Menlo\ Regular:h13  " Monaco:h12
-    set transparency=7
+    set transparency=10
 
     set guitablabel=(%N%M)\ %f
     set helplang=en
