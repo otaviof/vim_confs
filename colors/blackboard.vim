@@ -18,6 +18,7 @@ if has("gui_running")
   "GUI Colors
   highlight Normal guifg=White   guibg=#0B1022
   highlight Cursor guifg=Black   guibg=Yellow
+  highlight iCursor guifg=White  guibg=green
   highlight CursorLine guibg=#191E2F
   highlight LineNr guibg=#323232 guifg=#888888
   highlight Folded guifg=#f1f3e8 guibg=#444444

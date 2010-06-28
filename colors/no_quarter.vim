@@ -21,7 +21,7 @@ hi Normal                   gui=NONE        guifg=gray90        guibg=gray12
 
 hi Comment                  gui=NONE		guifg=#647bcf       guibg=NONE
 hi Constant                 gui=NONE		guifg=#b07050       guibg=NONE
-hi Cursor                   gui=NONE		guifg=#424242       guibg=yellow
+hi Cursor                   gui=NONE		guifg=fg            guibg=yellow
 hi CursorIM                 gui=NONE		guifg=#ffffff       guibg=#8800ff
 hi CursorLine               gui=NONE        guifg=NONE          guibg=gray10
 hi DiffAdd                  gui=NONE		guifg=#a0d0ff       guibg=#0020a0
@@ -33,7 +33,7 @@ hi Error                    gui=BOLD		guifg=white         guibg=#8000ff
 hi ErrorMsg                 gui=BOLD		guifg=#ffa0ff       guibg=NONE
 hi FoldColumn               gui=NONE		guifg=darkslategray guibg=bg
 hi Folded                   gui=NONE		guifg=#40f0f0       guibg=#006090
-hi iCursor                  gui=NONE        guifg=white         guibg=green
+hi iCursor                  gui=NONE        guifg=fg            guibg=green
 hi Identifier               gui=NONE		guifg=#90c0c0       guibg=NONE
 hi Ignore                   gui=NONE		guifg=bg            guibg=NONE
 hi IncSearch                gui=UNDERLINE	guifg=#80ffff       guibg=#0060c0
@@ -74,25 +74,25 @@ hi TagListTagName           gui=UNDERLINE   guifg=fg            guibg=bg
 " Perl
 "
 
-hi perlControl				gui=NONE        guifg=#c0c090       guibg=gray15
+hi perlControl				gui=NONE        guifg=#c0c090       guibg=bg
 hi perlFunctionName			gui=NONE        guifg=white         guibg=bg
-hi perlIdentifier			gui=NONE	    guifg=gray75        guibg=NONE
-hi perlLabel				gui=NONE        guifg=#c0c090       guibg=gray15
-hi perlMatchStartEnd		gui=NONE        guifg=#c0c090       guibg=gray14
+hi perlIdentifier			gui=NONE	    guifg=gray75        guibg=bg
+hi perlLabel				gui=NONE        guifg=#c0c090       guibg=bg
+hi perlMatchStartEnd		gui=NONE        guifg=#c0c090       guibg=bg
 hi perlNumber				gui=NONE        guifg=#80ac7b       guibg=bg
 hi perlOperator				gui=NONE        guifg=#c0c090       guibg=bg
-hi perlPackageDecl			gui=NONE        guifg=#80ac7b       guibg=gray15
-hi perlQQ					gui=NONE        guifg=fg            guibg=gray15
+hi perlPackageDecl			gui=NONE        guifg=#80ac7b       guibg=bg
+hi perlQQ					gui=NONE        guifg=fg            guibg=bg
 hi perlRepeat				gui=NONE        guifg=#c0b790       guibg=bg
-hi perlSharpBang			gui=NONE        guifg=#c0c090       guibg=gray10
+hi perlSharpBang			gui=NONE        guifg=#c0c090       guibg=bg
 hi perlShellCommand			gui=NONE        guifg=lightred      guibg=bg
-hi perlSpecialBEOM			gui=NONE        guifg=fg            guibg=gray15
+hi perlSpecialBEOM			gui=NONE        guifg=fg            guibg=bg
 hi perlSpecialMatch			gui=NONE        guifg=#c864c7       guibg=bg
 hi perlSpecialString		gui=NONE        guifg=#dc966b       guibg=bg
-hi perlStatement			gui=NONE	    guifg=#c0c090       guibg=NONE
+hi perlStatement			gui=NONE	    guifg=#c0c090       guibg=bg
 hi perlStatementControl		gui=NONE        guifg=#dcdb6b       guibg=bg
 hi perlStatementFiledesc	gui=NONE        guifg=#a2c090       guibg=bg
-hi perlStatementHash		gui=NONE	    guifg=#c0c090       guibg=gray12
+hi perlStatementHash		gui=NONE	    guifg=#c0c090       guibg=bg
 hi perlStatementInclude 	gui=NONE        guifg=#c0c090       guibg=bg
 hi perlStatementNew			gui=underline   guifg=#c0c090       guibg=bg
 hi perlStatementSub 		gui=NONE        guifg=#c0c090       guibg=bg
@@ -103,20 +103,22 @@ hi perlVarPlain2			gui=NONE        guifg=#74c6a8       guibg=bg
 hi perlVarSimpleMember		gui=NONE        guifg=#c0c090       guibg=bg
 hi perlVarSimpleMemberName	gui=NONE        guifg=grey70	    guibg=bg
 
-" -------------------------------------------------------------------------------------------------
-" perlStatementRegexp perlSpecialDollar perlSpecialStringU perlSubstitutionBracket
-" perlTranslationBracket perlType perlStatementStorage perlStatementScalar
-" perlStatementNumeric perlStatementList perlStatementIOfunc 
-" perlStatementVector perlStatementFiles perlStatementFlow perlStatementScope
-" perlStatementProc perlStatementSocket perlStatementIPC perlStatementNetwork perlStatementPword
-" perlStatementTime perlStatementMisc perlStatementPackage perlList perlMisc
-" perlVarSlash perlMethod perlFiledescRead perlFiledescStatement perlFormatName
-" perlFloat perlString perlSubstitutionSQ perlSubstitutionDQ
-" perlSubstitutionSlash perlSubstitutionHash perlSubstitutionCurly perlSubstitutionPling
-" perlTranslationSlash perlTranslationHash perlTranslationCurly perlHereDoc perlFormatField
-" perlStringUnexpanded perlCharacter perlSpecialAscii perlConditional perlInclude
-" perlStorageClass perlPackageRef perlFunctionPRef
-" -------------------------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+" perlCharacter perlConditional perlFiledescRead perlFiledescStatement
+" perlFloat perlFormatField perlFormatName perlFunctionPRef perlHereDoc
+" perlInclude perlList perlMethod perlMisc perlPackageRef perlSpecialAscii
+" perlSpecialDollar perlSpecialStringU perlStatementFiles perlStatementFlow
+" perlStatementIOfunc perlStatementIPC perlStatementList perlStatementMisc
+" perlStatementNetwork perlStatementNumeric perlStatementPackage
+" perlStatementProc perlStatementPword perlStatementRegexp perlStatementScalar
+" perlStatementScope perlStatementSocket perlStatementStorage
+" perlStatementTime perlStatementVector perlStorageClass perlString
+" perlStringUnexpanded perlSubstitutionBracket perlSubstitutionCurly
+" perlSubstitutionDQ perlSubstitutionHash perlSubstitutionPling
+" perlSubstitutionSQ perlSubstitutionSlash perlTranslationBracket
+" perlTranslationCurly perlTranslationHash perlTranslationSlash perlType
+" perlVarSlash
+" ----------------------------------------------------------------------------
 
 "
 " Omni Menu
