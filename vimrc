@@ -12,6 +12,7 @@ set confirm
 set expandtab
 set incsearch
 set joinspaces
+set list
 set nobackup
 set nomodeline
 set ruler
@@ -24,14 +25,18 @@ set tildeop
 set wildmenu
 set wrap
 
+let maplocalleader=','
+
 set backspace=indent,eol,start
 set browsedir=current
 set cinoptions=(0
 set columns=110
 set complete+=k
+set foldmethod=syntax
 set guioptions=egmtihvF
 set history=50
 set lines=50
+set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:• " eol:¶
 set selectmode=mouse
 set shiftwidth=4
 set softtabstop=4
@@ -40,8 +45,6 @@ set textwidth=78
 set ts=4
 set vb t_vb=
 set wildignore=*.bak,*.o,*.e,*~
-
-let maplocalleader=','
 
 filetype on
 filetype plugin on
@@ -60,7 +63,7 @@ if has("gui_running")
 
     set linespace=-1                " -5
     set guifont=Menlo\ Regular:h13  " Monaco:h12
-    set transparency=10
+    set transparency=5              " 10
 
     set guitablabel=(%N%M)\ %f
     set helplang=en
