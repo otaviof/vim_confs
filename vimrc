@@ -25,6 +25,8 @@ set tildeop
 set wildmenu
 set wrap
 
+let leader=','
+let mapleader = ","
 let maplocalleader=','
 
 set backspace=indent,eol,start
@@ -40,7 +42,7 @@ set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:• " eol:¶
 set selectmode=mouse
 set shiftwidth=4
 set softtabstop=4
-set tabstop=4
+set tabstop=8 " Python
 set textwidth=78
 set ts=4
 set vb t_vb=
@@ -72,18 +74,21 @@ if has("gui_running")
 
     set laststatus=2
     set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+
+    " Gui Cursor
+    set guicursor=n-v-c:block-Cursor
+    set guicursor+=i:blinkwait575-iCursor
+    set guicursor+=i:ver100-iCursor
+    set guicursor+=n-v-c:blinkon0-Cursor
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("au")
 
-    " carregando plugin do doxygen
-    au! Syntax {cpp,c,idl}
     au Syntax {cpp,c,idl} runtime syntax/doxygen.vim
-
     au Syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
 
-    " opcoes para ruby
+    " programming ruby
     augroup ruby
         if !exists("autocommands_ruby_loaded")
             let autocommands_ruby_loaded = 1
@@ -92,11 +97,16 @@ if has("au")
         endif
     augroup END
 
+    " TODO: augroup for Perl
+    " TODO: augroup for Python
+    " TODO: augroup for C and C++ (incluind IDL)
+
     " carregando o plugin de xml/html
     au FileType {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
 
     " perltidy will be the default formater for perl
-    au Filetype perl :set equalprg='perltidy'
+    augroup perl
+    au Filetype {perl,html,mason} :set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -108,6 +118,8 @@ if has("au")
     augroup END
 
     au Filetype {java,scala} setlocal omnifunc=javacomplete#Complete 
+    au FileType python set omnifunc=pythoncomplete#Complete
+    au BufRead *.py set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 
     " language definition for plain text
     let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
@@ -115,15 +127,6 @@ if has("au")
     " syntax highlight for txt.vim 
     au BufRead,BufNewFile *.txt setlocal ft=txt
 endif
-
-"
-" Gui Cursor
-"
-
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:blinkwait575-iCursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0-Cursor
 
 "
 " Returns Current Directory
@@ -143,8 +146,20 @@ fun RmCR()
     exe ":%s/\r//g"
     exe ':' . oldLine
 endfun
-map ,cr :call RmCR()<CR>
+" map ,cr :call RmCR()<CR>
 
+"
+" TaskList Plugin
+"
+
+map <leader>j <Plug>TaskList
+
+"
+" Perl Deparse
+"
+
+nnoremap <silent> <LocalLeader>d :.!perl -MO=Deparse 2>/dev/null<cr>
+vnoremap <silent> <LocalLeader>d :!perl -MO=Deparse 2>/dev/null<cr>
 
 "
 " Completing words
