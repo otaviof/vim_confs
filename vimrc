@@ -99,6 +99,7 @@ if has("au")
     augroup END
 
     augroup python
+        let s:PYDOC_CMD="/usr/bin/pydoc"
         au FileType python \
             set omnifunc=pythoncomplete#Complete
         au BufRead *.py \

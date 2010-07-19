@@ -1,6 +1,5 @@
 snippet #!
-	#!/usr/bin/python
-
+	#!/usr/bin/env python
 snippet imp
 	import ${1:module}
 # Module Docstring
@@ -86,3 +85,7 @@ snippet _
 	__${1:init}__${2}
 snippet ""
 	""" ${1} """
+snippet debug
+	import pprint
+	pp = pprint.PrettyPrinter(indent=4)
+	print "Debug -> ${1:var} #" + ( pp.pprint($1${2}) ) + "#"
