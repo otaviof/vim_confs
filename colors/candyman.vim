@@ -419,5 +419,37 @@ delf s:grey_color
 delf s:grey_level
 delf s:grey_number
 " }}}
- 
 
+"
+" Perl
+"
+
+hi perlControl              gui=NONE        guifg=#c0c090       guibg=bg
+hi perlFunctionName         gui=NONE        guifg=white         guibg=bg
+hi perlIdentifier           gui=NONE        guifg=gray75        guibg=bg
+hi perlLabel                gui=NONE        guifg=#c0c090       guibg=bg
+hi perlMatchStartEnd        gui=NONE        guifg=#c0c090       guibg=bg
+hi perlNumber               gui=NONE        guifg=#80ac7b       guibg=bg
+hi perlOperator             gui=NONE        guifg=#c0c090       guibg=bg
+hi perlPackageDecl          gui=NONE        guifg=#80ac7b       guibg=bg
+hi perlQQ                   gui=NONE        guifg=fg            guibg=bg
+hi perlRepeat               gui=NONE        guifg=#c0b790       guibg=bg
+hi perlSharpBang            gui=NONE        guifg=#c0c090       guibg=bg
+hi perlShellCommand         gui=NONE        guifg=lightred      guibg=bg
+hi perlSpecialBEOM          gui=NONE        guifg=fg            guibg=bg
+hi perlSpecialMatch         gui=NONE        guifg=#c864c7       guibg=bg
+hi perlSpecialString        gui=NONE        guifg=#dc966b       guibg=bg
+hi perlStatement            gui=NONE        guifg=#c0c090       guibg=bg
+hi perlStatementControl     gui=NONE        guifg=#dcdb6b       guibg=bg
+hi perlStatementFiledesc    gui=NONE        guifg=#a2c090       guibg=bg
+hi perlStatementHash        gui=NONE        guifg=#c0c090       guibg=bg
+hi perlStatementInclude     gui=NONE        guifg=#c0c090       guibg=bg
+hi perlStatementNew         gui=underline   guifg=#c0c090       guibg=bg
+hi perlStatementSub         gui=NONE        guifg=#c0c090       guibg=bg
+hi perlStringStartEnd       gui=italic      guifg=#dc966b       guibg=bg
+hi perlVarNotInMatches      gui=NONE        guifg=#915555       guibg=bg
+hi perlVarPlain             gui=NONE        guifg=#74c5c6       guibg=bg
+hi perlVarPlain2            gui=NONE        guifg=#74c6a8       guibg=bg
+hi perlVarSimpleMember      gui=NONE        guifg=#c0c090       guibg=bg
+hi perlVarSimpleMemberName  gui=NONE        guifg=grey70        guibg=bg
+hi perlSpecialDollar        gui=BOLD        guifg=white         guibg=black

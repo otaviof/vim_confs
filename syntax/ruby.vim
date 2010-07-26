@@ -11,10 +11,10 @@
 " Thanks to perl.vim authors, and to Reimer Behrends. :-) (MN)
 " ----------------------------------------------------------------------------
 
-set shiftwidth=2
-set ts=2
-set sw=2
-set sts=2
+" set shiftwidth=2
+" set ts=2
+" set sw=2
+" set sts=2
 
 if exists("b:current_syntax")
   finish

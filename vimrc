@@ -12,12 +12,13 @@ set browsedir=current cinoptions=(0 complete+=k
 set guioptions=egmtihvF selectmode=mouse foldmethod=syntax
 set history=50 lines=50 columns=110
 set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:• " eol:¶
-set ts=4 shiftwidth=4 softtabstop=4 tabstop=8 textwidth=78
+set ts=4 tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
 set vb t_vb= wildignore=*.bak,*.o,*.e,*~
 
 let leader=','
 let mapleader= ','
 let maplocalleader=','
+
 
 filetype on
 filetype plugin on
@@ -27,17 +28,17 @@ if &t_Co > 1
     syntax enable
 endif
 
-if has("gui_running") 
+if has("gui_running")
     colorscheme no_quarter
     set cursorline
+    set guicursor=n-v-c:block-Cursor
     set guicursor+=i:blinkwait575-iCursor
     set guicursor+=i:ver100-iCursor
     set guicursor+=n-v-c:blinkon0-Cursor
-    set guicursor=n-v-c:block-Cursor
     set guifont=Menlo\ Regular:h13 " Monaco:h12
     set guitablabel=(%N%M)\ %f
     set helplang=en
-    set invnumber
+    set number
     set laststatus=2
     set linespace=-1 " -5
     set mouse=a
@@ -54,8 +55,13 @@ endif
 if has("au")
     let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
 
+    " source the vimrc file after saving it
+    au BufWritePost .*vimrc source $MYVIMRC
+
     au BufRead,BufNewFile *.txt \
         setlocal ft=txt
+    au BufRead,BufNewFile Makefile* \
+        set noexpandtab
     au FileType {xml,xhtml,html,htm,erb} \
         runtime ftplugin/xml.vim         \
         :let b:html_mode=1 xml_use_xhtml=1
@@ -112,15 +118,6 @@ if has("au")
             au BufReadPre *.rb set shiftwidth=2 ts=2 sw=2 sts=2 nu | let IndentStyle = "ruby"
             au BufNewFile *.rb 0r ~/.vim/skeleton.rb | let IndentStyle = "ruby"
         endif
-    augroup END
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    au BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal g`\"" |
-      \ endif
     augroup END
 endif
 
@@ -217,6 +214,9 @@ noremap <LocalLeader>gs :call GotoSub(expand('<cword>'))<cr>
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
+
+" Open and edit vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " TaskList Plugin
 map <leader>j <Plug>TaskList

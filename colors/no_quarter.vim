@@ -1,177 +1,130 @@
-" Vim color file
-"  Maintainer: Otavio Fernandes <otaviof@gmail.com>
-" Last Change: 2010/06/23 Wed 17h 22
-"     Version: 1.0.8
 "
-" ts=4
+" -- Vim's Colorscheme --
+"
+"  Maintainer: Otavio Fernandes <otaviof@gmail.com>
+" Last Change: 2010/07/23 Thu 9h 13
+"     Version: 1.0.9
+"
+" vim: ts=4
 "
 
 set background=dark
 hi clear
 if exists("syntax_on")
-   syntax reset
+    syntax reset
 endif
 let colors_name = "no_quarter"
 
 "
-" Vim Colors (( Default Options ))
+" Vim Colors (Default Options)
 "
 
-hi Normal                   gui=NONE        guifg=gray90        guibg=gray12
+hi Normal                   gui=none        guifg=gray90        guibg=gray12
 
-hi Comment                  gui=NONE        guifg=#647bcf       guibg=NONE
-hi Constant                 gui=NONE        guifg=#b07050       guibg=NONE
-hi Cursor                   gui=NONE        guifg=fg            guibg=yellow
-hi CursorIM                 gui=NONE        guifg=#ffffff       guibg=#8800ff
-hi CursorLine               gui=NONE        guifg=NONE          guibg=gray10
-hi DiffAdd                  gui=NONE        guifg=#a0d0ff       guibg=#0020a0
-hi DiffChange               gui=NONE        guifg=#e03870       guibg=#601830
-hi DiffDelete               gui=NONE        guifg=#a0d0ff       guibg=#0020a0
-hi DiffText                 gui=NONE        guifg=#ff78f0       guibg=#a02860
-hi Directory                gui=NONE        guifg=lightmagenta  guibg=NONE
-hi Error                    gui=BOLD        guifg=white         guibg=#8000ff
-hi ErrorMsg                 gui=BOLD        guifg=#ffa0ff       guibg=NONE
-hi FoldColumn               gui=NONE        guifg=darkslategray guibg=bg
-hi Folded                   gui=NONE        guifg=#40f0f0       guibg=#006090
-hi iCursor                  gui=NONE        guifg=fg            guibg=green
-hi Identifier               gui=NONE        guifg=#90c0c0       guibg=NONE
-hi Ignore                   gui=NONE        guifg=bg            guibg=NONE
-hi IncSearch                gui=UNDERLINE   guifg=#80ffff       guibg=#0060c0
-hi LineNr                   gui=NONE        guifg=gray30        guibg=gray10
-hi ModeMsg                  gui=BOLD        guifg=#a0d0ff       guibg=NONE
-hi MoreMsg                  gui=NONE        guifg=lightred      guibg=bg
-hi NonText                  gui=NONE        guifg=gray30        guibg=bg
-hi OverLength               gui=NONE        guifg=fg            guibg=gray30
-hi PreProc                  gui=NONE        guifg=#c090c0       guibg=NONE
-hi Question                 gui=BOLD        guifg=#e8e800       guibg=NONE
-hi Search                   gui=NONE        guifg=bg            guibg=gray60
-hi SignColumn               gui=NONE        guifg=darkyellow    guibg=bg
-hi Special                  gui=NONE        guifg=#c090c0       guibg=NONE
-hi SpecialKey               gui=NONE        guifg=darkslategray guibg=NONE
-hi Statement                gui=NONE        guifg=#c0c090       guibg=NONE
-hi StatusLine               gui=NONE        guifg=darkslategray guibg=gray10
-hi StatusLineNC             gui=NONE        guifg=gray10        guibg=gray20
-hi Title                    gui=NONE        guifg=darkyellow    guibg=bg
-hi Todo                     gui=BOLD        guifg=#ff80d0       guibg=NONE
-hi Type                     gui=NONE        guifg=#60f0a8       guibg=NONE
-hi Underlined               gui=UNDERLINE   guifg=#707070       guibg=NONE
-hi VertSplit                gui=NONE        guifg=darkslategray guibg=bg
-hi Visual                   gui=NONE        guifg=#b0ffb0       guibg=#008000
-hi VisualNOS                gui=NONE        guifg=#ffe8c8       guibg=#c06800
-hi WarningMsg               gui=BOLD        guifg=#ffa0ff       guibg=NONE
-hi WildMenu                 gui=NONE        guifg=#000000       guibg=#abac84
-hi htmlTagName              gui=NONE        guifg=grey70        guibg=bg
-hi lCursor                  gui=NONE        guifg=#ffffff       guibg=#8800ff
-
-"
-" Tag List
-"
-
-hi MyTagListFileName        gui=UNDERLINE   guifg=fg            guibg=bg
-hi TagListTagName           gui=UNDERLINE   guifg=fg            guibg=bg
+hi Comment                  gui=none        guifg=#647bcf       guibg=bg
+hi Constant                 gui=none        guifg=#b07050       guibg=bg
+hi Cursor                   gui=none        guifg=NONE          guibg=darkorange
+hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
+hi CursorLine               gui=none        guifg=NONE          guibg=gray20
+hi DiffAdd                  gui=none        guifg=#a0d0ff       guibg=#0020a0
+hi DiffChange               gui=none        guifg=#e03870       guibg=#601830
+hi DiffDelete               gui=none        guifg=#a0d0ff       guibg=#0020a0
+hi DiffText                 gui=none        guifg=#ff78f0       guibg=#a02860
+hi Directory                gui=none        guifg=lightmagenta  guibg=bg
+hi Error                    gui=bold        guifg=white         guibg=red
+hi ErrorMsg                 gui=bold        guifg=#ffa0ff       guibg=bg
+hi FoldColumn               gui=none        guifg=darkslategray guibg=bg
+hi Folded                   gui=none        guifg=#40f0f0       guibg=#006090
+hi iCursor                  gui=none        guifg=fg            guibg=green
+hi Identifier               gui=none        guifg=#90c0c0       guibg=bg
+hi Ignore                   gui=none        guifg=bg            guibg=bg
+hi IncSearch                gui=underline   guifg=#80ffff       guibg=#0060c0
+hi LineNr                   gui=none        guifg=gray30        guibg=gray10
+hi ModeMsg                  gui=bold        guifg=#a0d0ff       guibg=bg
+hi MoreMsg                  gui=none        guifg=lightred      guibg=bg
+hi NonText                  gui=none        guifg=gray30        guibg=bg
+hi OverLength               gui=none        guifg=fg            guibg=gray30
+hi PreProc                  gui=none        guifg=#c090c0       guibg=bg
+hi Question                 gui=bold        guifg=#e8e800       guibg=bg
+hi Search                   gui=none        guifg=bg            guibg=gray60
+hi SignColumn               gui=none        guifg=darkyellow    guibg=bg
+hi Special                  gui=none        guifg=#c090c0       guibg=bg
+hi SpecialKey               gui=none        guifg=darkslategray guibg=bg
+hi Statement                gui=none        guifg=#c0c090       guibg=bg
+hi StatusLine               gui=none        guifg=darkslategray guibg=gray10
+hi StatusLineNC             gui=none        guifg=gray10        guibg=gray20
+hi Title                    gui=none        guifg=darkyellow    guibg=bg
+hi Todo                     gui=bold        guifg=#ff80d0       guibg=bg
+hi Type                     gui=none        guifg=#60f0a8       guibg=bg
+hi Underlined               gui=underline   guifg=#707070       guibg=bg
+hi VertSplit                gui=none        guifg=darkslategray guibg=bg
+hi Visual                   gui=none        guifg=#b0ffb0       guibg=#008000
+hi VisualNOS                gui=none        guifg=#ffe8c8       guibg=#c06800
+hi WarningMsg               gui=bold        guifg=#ffa0ff       guibg=bg
+hi WildMenu                 gui=none        guifg=#000000       guibg=#abac84
+hi htmlTagName              gui=none        guifg=grey70        guibg=bg
+hi lCursor                  gui=none        guifg=#ffffff       guibg=#8800ff
 
 "
-" Perl
+" Other tools
 "
 
-hi perlControl              gui=NONE        guifg=#c0c090       guibg=bg
-hi perlFunctionName         gui=NONE        guifg=white         guibg=bg
-hi perlIdentifier           gui=NONE        guifg=gray75        guibg=bg
-hi perlLabel                gui=NONE        guifg=#c0c090       guibg=bg
-hi perlMatchStartEnd        gui=NONE        guifg=#c0c090       guibg=bg
-hi perlNumber               gui=NONE        guifg=#80ac7b       guibg=bg
-hi perlOperator             gui=NONE        guifg=#c0c090       guibg=bg
-hi perlPackageDecl          gui=NONE        guifg=#80ac7b       guibg=bg
-hi perlQQ                   gui=NONE        guifg=fg            guibg=bg
-hi perlRepeat               gui=NONE        guifg=#c0b790       guibg=bg
-hi perlSharpBang            gui=NONE        guifg=#c0c090       guibg=bg
-hi perlShellCommand         gui=NONE        guifg=lightred      guibg=bg
-hi perlSpecialBEOM          gui=NONE        guifg=fg            guibg=bg
-hi perlSpecialMatch         gui=NONE        guifg=#c864c7       guibg=bg
-hi perlSpecialString        gui=NONE        guifg=#dc966b       guibg=bg
-hi perlStatement            gui=NONE        guifg=#c0c090       guibg=bg
-hi perlStatementControl     gui=NONE        guifg=#dcdb6b       guibg=bg
-hi perlStatementFiledesc    gui=NONE        guifg=#a2c090       guibg=bg
-hi perlStatementHash        gui=NONE        guifg=#c0c090       guibg=bg
-hi perlStatementInclude     gui=NONE        guifg=#c0c090       guibg=bg
+hi MyTagListFileName        gui=underline   guifg=fg            guibg=bg
+hi Pmenu                    gui=none        guifg=grey10        guibg=grey50
+hi PmenuSbar                gui=none        guifg=fg            guibg=grey20
+hi PmenuSel                 gui=none        guifg=#abac84       guibg=gray12
+hi PmenuThumb               gui=none        guifg=grey30        guibg=bg
+hi TagListTagName           gui=underline   guifg=fg            guibg=bg
+hi RightMargin              gui=none        guifg=fg            guibg=#453030
+
+"
+" Perl's
+"
+
+hi perlControl              gui=none        guifg=#c0c090       guibg=bg
+hi perlFunctionName         gui=none        guifg=white         guibg=bg
+hi perlIdentifier           gui=none        guifg=gray75        guibg=bg
+hi perlLabel                gui=none        guifg=#c0c090       guibg=bg
+hi perlMatchStartEnd        gui=none        guifg=#c0c090       guibg=bg
+hi perlNumber               gui=none        guifg=#80ac7b       guibg=bg
+hi perlOperator             gui=none        guifg=#c0c090       guibg=bg
+hi perlPackageDecl          gui=none        guifg=#80ac7b       guibg=bg
+hi perlQQ                   gui=none        guifg=fg            guibg=bg
+hi perlRepeat               gui=none        guifg=#c0b790       guibg=bg
+hi perlSharpBang            gui=none        guifg=#c0c090       guibg=bg
+hi perlShellCommand         gui=none        guifg=lightred      guibg=bg
+hi perlSpecialBEOM          gui=none        guifg=fg            guibg=bg
+hi perlSpecialMatch         gui=none        guifg=#c864c7       guibg=bg
+hi perlSpecialString        gui=none        guifg=#dc966b       guibg=bg
+hi perlStatement            gui=none        guifg=#c0c090       guibg=bg
+hi perlStatementControl     gui=none        guifg=#dcdb6b       guibg=bg
+hi perlStatementFiledesc    gui=none        guifg=#a2c090       guibg=bg
+hi perlStatementHash        gui=none        guifg=#c0c090       guibg=bg
+hi perlStatementInclude     gui=none        guifg=#c0c090       guibg=bg
 hi perlStatementNew         gui=underline   guifg=#c0c090       guibg=bg
-hi perlStatementSub         gui=NONE        guifg=#c0c090       guibg=bg
+hi perlStatementSub         gui=none        guifg=#c0c090       guibg=bg
 hi perlStringStartEnd       gui=italic      guifg=#dc966b       guibg=bg
-hi perlVarNotInMatches      gui=NONE        guifg=#915555       guibg=bg
-hi perlVarPlain             gui=NONE        guifg=#74c5c6       guibg=bg
-hi perlVarPlain2            gui=NONE        guifg=#74c6a8       guibg=bg
-hi perlVarSimpleMember      gui=NONE        guifg=#c0c090       guibg=bg
-hi perlVarSimpleMemberName  gui=NONE        guifg=grey70        guibg=bg
-
-hi perlSpecialDollar        gui=BOLD        guifg=white         guibg=black
+hi perlVarNotInMatches      gui=none        guifg=#915555       guibg=bg
+hi perlVarPlain             gui=none        guifg=#74c5c6       guibg=bg
+hi perlVarPlain2            gui=none        guifg=#74c6a8       guibg=bg
+hi perlVarSimpleMember      gui=none        guifg=#c0c090       guibg=bg
+hi perlVarSimpleMemberName  gui=none        guifg=grey70        guibg=bg
+hi perlSpecialDollar        gui=bold        guifg=white         guibg=black
 
 " ----------------------------------------------------------------------------
-" perlCharacter
-" perlConditional
-" perlFiledescRead
-" perlFiledescStatement
-" perlFloat
-" perlFormatField
-" perlFormatName
-" perlFunctionPRef
-" perlHereDoc
-" perlInclude
-" perlList
-" perlMethod
-" perlMisc
-" perlPackageRef
-" perlSpecialAscii
-" perlSpecialDollar
-" perlSpecialStringU
-" perlStatementFiles
-" perlStatementFlow
-" perlStatementIOfunc
-" perlStatementIPC
-" perlStatementList
-" perlStatementMisc
-" perlStatementNetwork
-" perlStatementNumeric
-" perlStatementPackage
-" perlStatementProc
-" perlStatementPword
-" perlStatementRegexp
-" perlStatementScalar
-" perlStatementScope
-" perlStatementSocket
-" perlStatementStorage
-" perlStatementTime
-" perlStatementVector
-" perlStorageClass
-" perlString
-" perlStringUnexpanded
-" perlSubstitutionBracket
-" perlSubstitutionCurly
-" perlSubstitutionDQ
-" :perlSubstitutionHash
-" perlSubstitutionPling
-" perlSubstitutionSQ
-" perlSubstitutionSlash
-" perlTranslationBracket
-" perlTranslationCurly
-" perlTranslationHash
-" perlTranslationSlash
-" perlType
-" perlVarSlash
+" perlCharacter perlConditional perlFiledescRead perlFiledescStatement
+" perlFloat perlFormatField perlFormatName perlFunctionPRef perlHereDoc
+" perlInclude perlList perlMethod perlMisc perlPackageRef perlSpecialAscii
+" perlSpecialDollar perlSpecialStringU perlStatementFiles perlStatementFlow
+" perlStatementIOfunc perlStatementIPC perlStatementList perlStatementMisc
+" perlStatementNetwork perlStatementNumeric perlStatementPackage
+" perlStatementProc perlStatementPword perlStatementRegexp perlStatementScalar
+" perlStatementScope perlStatementSocket perlStatementStorage perlStatementTime
+" perlStatementVector perlStorageClass perlString perlStringUnexpanded
+" perlSubstitutionBracket perlSubstitutionCurly perlSubstitutionDQ
+" perlSubstitutionHash perlSubstitutionPling perlSubstitutionSQ
+" perlSubstitutionSlash perlTranslationBracket perlTranslationCurly
+" perlTranslationHash perlTranslationSlash perlType perlVarSlash
 " ----------------------------------------------------------------------------
-
-"
-" Omni Menu
-"
-
-hi Pmenu                    gui=NONE        guifg=grey10    guibg=grey50
-hi PmenuSel                 gui=NONE        guifg=#abac84    guibg=gray12
-hi PmenuSbar                gui=NONE        guifg=NONE      guibg=grey20
-hi PmenuThumb                gui=NONE        guifg=grey30    guibg=NONE
-
-"
-" Right Margin
-"
-
-hi rightMargin              gui=NONE        guifg=NONE      guibg=#453030
 
 " EOF
