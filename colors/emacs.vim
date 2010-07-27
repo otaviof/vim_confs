@@ -21,7 +21,7 @@ hi Normal                   gui=none            guifg=gray20        guibg=gray95
 hi Comment                  gui=italic          guifg=blue          guibg=gray95
 hi Constant                 gui=none            guifg=darkcyan      guibg=bg
 hi Cursor                   gui=none            guifg=fg            guibg=orange
-hi CursorLine               gui=none            guifg=fg            guibg=gray90
+hi CursorLine               gui=none            guifg=NONE          guibg=gray90
 hi CursorIM                 gui=none            guifg=black         guibg=green
 hi DiffAdd                  gui=none            guifg=fg            guibg=lightblue
 hi DiffChange               gui=none            guifg=fg            guibg=lightmagenta
@@ -32,7 +32,7 @@ hi ErrorMsg                 gui=none            guifg=white         guibg=red
 hi Error                    gui=bold            guifg=white         guibg=red
 hi FoldColumn               gui=none            guifg=darkblue      guibg=grey
 hi Folded                   gui=none            guifg=darkblue      guibg=white
-hi Ignore                   gui=none            guifg=white         guibg=bg
+hi Ignore                   gui=none            guifg=darkslategray guibg=bg
 hi IncSearch                gui=reverse         guifg=fg            guibg=bg
 hi iCursor                  gui=none            guifg=fg            guibg=green
 hi Identifier               gui=none            guifg=darkyellow    guibg=bg
