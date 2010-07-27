@@ -9,7 +9,7 @@ meta:
   author: Cornelius
   email: cornelius.howl@gmail.com
   name: fastgit.vim
-  repository: http://github.com/c9s/fastgit.vim
+  repository: http://github.com/c9s/fastgit.i
   script_id: 2861
   type: plugin
   version: 2.02

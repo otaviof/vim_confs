@@ -1,24 +1,17 @@
-" ---------------------------------------------------------------------------
-"   ~/.vimrc && ~/.gvimrc
-"       Otavio Fernandes <otaviof@gmail.com>
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
+" ~/.vimrc
+" ----------------------------------------------------------------------------
 
-set ai autoread autowrite autowriteall confirm expandtab incsearch joinspaces
-set list nobackup nomodeline ruler showcmd showmatch showmode smartindent
-set smarttab tildeop wildmenu wrap
+set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
+set et ts=4 ts=4 sw=4 sts=4 tw=78
 
-set backspace=indent,eol,start
-set browsedir=current cinoptions=(0 complete+=k
-set guioptions=egmtihvF selectmode=mouse foldmethod=syntax
-set history=50 lines=50 columns=110
-set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:• " eol:¶
-set ts=4 tabstop=4 shiftwidth=4 softtabstop=4 textwidth=78
+set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
+set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
 set vb t_vb= wildignore=*.bak,*.o,*.e,*~
 
 let leader=','
 let mapleader= ','
 let maplocalleader=','
-
 
 filetype on
 filetype plugin on
@@ -28,94 +21,67 @@ if &t_Co > 1
     syntax enable
 endif
 
-if has("gui_running")
-    colorscheme no_quarter
-    set cursorline
-    set guicursor=n-v-c:block-Cursor
-    set guicursor+=i:blinkwait575-iCursor
-    set guicursor+=i:ver100-iCursor
-    set guicursor+=n-v-c:blinkon0-Cursor
-    set guifont=Menlo\ Regular:h13 " Monaco:h12
-    set guitablabel=(%N%M)\ %f
-    set helplang=en
-    set number
-    set laststatus=2
-    set linespace=-1 " -5
-    set mouse=a
-    set mousehide
-    set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
-    set termencoding=utf-8
-    set transparency=5 " 10
-
-    let g:BASH_LoadMenus='no'
-    let g:C_LoadMenus='no'
-    let g:Perl_LoadMenus='no'
-endif
-
 if has("au")
-    let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
-
-    " source the vimrc file after saving it
-    au BufWritePost .*vimrc source $MYVIMRC
+    let tlist_txt_settings='txt;c:content;f:figures;t:tables'
 
     au BufRead,BufNewFile *.txt \
         setlocal ft=txt
     au BufRead,BufNewFile Makefile* \
         set noexpandtab
-    au FileType {xml,xhtml,html,htm,erb} \
-        runtime ftplugin/xml.vim         \
-        :let b:html_mode=1 xml_use_xhtml=1
     au Filetype {java,scala} \
         setlocal omnifunc=javacomplete#Complete
-    au Syntax {cpp,c,idl} \
-        runtime syntax/doxygen.vim
-    au Syntax {xml,xhtml,html,htm,erb} \
-        runtime ftplugin/xml.vim
 
     augroup clojure
-        let clj_highlight_builtins = 1
-        let clj_highlight_contrib = 1
-        let clj_parem_rainbow= 1
-        let clj_want_gorilla = 1
-        let vimclojure#NailgunClient = "~/.vim/bin/ng"
+        au Syntax clojure                              \
+            let clj_highlight_builtins = 1             \
+            let clj_highlight_contrib = 1              \
+            let clj_parem_rainbow= 1                   \
+            let clj_want_gorilla = 1                   \
+            let vimclojure#NailgunClient = "~\/.vim/bin/ng"
+    augroup END
+
+    augroup markup
+        au Syntax {xml,xhtml,html,htm,erb}             \
+            runtime ftplugin/xml.vim                   \
+            let b:html_mode=1                          \
+            let xml_use_xhtml=1                        \
+            set omnifunc=PerlComplete                  \
+            set equalprg=perltidy\ -pbp\ -ce
     augroup END
 
     augroup perl
-        au Filetype {perl,html,mason} \
-            :set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
-
-        let g:Perl_AuthorName='Otavio Fernandes'
-        let g:Perl_AuthorRef='OF'
-        let g:Perl_Company=''
-        let g:Perl_Email='otaviof@gmail.com'
-        let g:def_perl_comp_bfunction=1
-        let g:def_perl_comp_packagen=1
-
-        let perl_extended_vars=1
-        let perl_fold=1
-        let perl_include_POD=1
-        let perl_include_pod=1
-        let perl_no_sync_on_global_var=1
-        let perl_no_sync_on_sub=1
-        let perl_nofold_packages=1
-        let perl_nofold_subs=0
-        let perl_string_as_statement=0
-        let perl_sync_dist=100
-        let perl_want_scope_in_variables=1
+        au FileType perl                               \
+            let g:Perl_AuthorName='Otavio Fernandes'   \
+            let g:Perl_AuthorRef='OF'                  \
+            let g:Perl_Company=''                      \
+            let g:Perl_Email='otaviof@gmail.com'       \
+            let g:def_perl_comp_bfunction=1            \
+            let g:def_perl_comp_packagen=1             \
+            let perl_extended_vars=1                   \
+            let perl_fold=1                            \
+            let perl_include_POD=1                     \
+            let perl_include_pod=1                     \
+            let perl_no_sync_on_global_var=1           \
+            let perl_no_sync_on_sub=1                  \
+            let perl_nofold_packages=1                 \
+            let perl_nofold_subs=0                     \
+            let perl_string_as_statement=0             \
+            let perl_sync_dist=100                     \
+            let perl_want_scope_in_variables=1
     augroup END
 
     augroup python
-        let s:PYDOC_CMD="/usr/bin/pydoc"
-        au FileType python \
+        au FileType python  \
             set omnifunc=pythoncomplete#Complete
-        au BufRead *.py \
-            set smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
+        au BufRead *.py     \
+            set smartindent \
+            set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
     augroup END
 
     augroup ruby
         if !exists("autocommands_ruby_loaded")
             let autocommands_ruby_loaded = 1
-            au BufReadPre *.rb set shiftwidth=2 ts=2 sw=2 sts=2 nu | let IndentStyle = "ruby"
+            au BufReadPre *.rb set sw=2 ts=2 sw=2 sts=2 nu | let IndentStyle = "ruby"
             au BufNewFile *.rb 0r ~/.vim/skeleton.rb | let IndentStyle = "ruby"
         endif
     augroup END
@@ -147,7 +113,7 @@ function! Tidy()
     if &filetype == "perl"
         let tidy = 'perltidy -pbp -ce'
     elseif &filetype == "php"
-        let tidy = 'php_beautifier -s4 --filters "NewLines(after=T_COMMENT:T_DOC_COMMENT,before=if:switch)"'
+        let tidy = 'php_beautifier -s4'
     elseif &filetype == "c"
         let tidy = 'indent -orig -i4 -l78 -fca -lc78 -ts4 -br -cdw -nbad -di8 -bap'
     endif
@@ -230,7 +196,7 @@ inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
 inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
 
 " Spelling checking for pt_BR and en_US
-map <LocalLeader>g :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
+map <LocalLeader>s :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 
 " UTF8 conversion
 nmap <LocalLeader>utf8 !recode -q ISO-8859-1..utf-8
@@ -260,6 +226,11 @@ nnoremap <silent>  <F6> :Tlist<CR>
 nnoremap <silent>  <F5> :TlistUpdate<CR>
 nnoremap <silent> <tab> :bn<CR
 
+" XMLEDIT
+let xml_tag_completion_map = "<C-l>"
+let xml_tag_syntax_prefixes = 'html\|xml'
+let xml_use_xhtml = 1
+
 
 " ----------------------------------------------------------------------------
 " Plugins Options
@@ -274,23 +245,15 @@ let Tlist_Show_One_File=0
 let Tlist_WinWidth=35
 let tlist_perl_settings='perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
 
-" FastGit
-let g:fastgit_default_mapping=1
-let g:fastgit_default_remote='origin'
-let g:fastgit_statusline='a'
-
 " Delimate options
-let delimitMate="(:),[:],{:},<:>"
-let delimitMate_excluded_ft=""
-let delimitMate_expand_cr="\<CR>\<CR>\<Up>"
-let delimitMate_expand_space="\<Space>\<Space>\<Left>"
-let delimitMate_matchpairs="(:),[:],{:},<:>"
-let delimitMate_quotes="\" ' ` *"
-let delimitMate_visual_leader="f"
-
-" Mail.App
-let MailApp_bundle="~/.vim/MailApp.bundle/"
-let MailApp_from="Otavio Fernandes <otaviof@gmail.com>"
+let b:delimitMate_autoclose = 1 " always on!
+let b:delimitMate="(:),[:],{:},<:>"
+let b:delimitMate_excluded_ft=""
+let b:delimitMate_expand_cr="\<CR>\<CR>\<Up>"
+let b:delimitMate_expand_space="\<Space>\<Space>\<Left>"
+let b:delimitMate_matchpairs="(:),[:],{:},<:>"
+let b:delimitMate_quotes="\" ' ` *"
+let b:delimitMate_visual_leader="f"
 
 " Omni Completion colors
 hi Pmenu    ctermfg=black       ctermbg=grey    cterm=NONE
