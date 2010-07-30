@@ -174,7 +174,7 @@ function! PickFromList( name, list, ... )
     return a:list[choice]
 endfunction
 
-noremap <LocalLeader>gs :call GotoSub(expand('<cword>'))<cr>
+noremap <LocalLeader>gm :call GotoSub(expand('<cword>'))<cr>
 
 
 " ----------------------------------------------------------------------------
@@ -246,11 +246,11 @@ let Tlist_WinWidth=35
 let tlist_perl_settings='perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
 
 " Delimate options
-let b:delimitMate_autoclose = 1 " always on!
 let b:delimitMate="(:),[:],{:},<:>"
+let b:delimitMate_autoclose=1
 let b:delimitMate_excluded_ft=""
-let b:delimitMate_expand_cr="\<CR>\<CR>\<Up>"
-let b:delimitMate_expand_space="\<Space>\<Space>\<Left>"
+let b:delimitMate_expand_cr=1
+let b:delimitMate_expand_space=1
 let b:delimitMate_matchpairs="(:),[:],{:},<:>"
 let b:delimitMate_quotes="\" ' ` *"
 let b:delimitMate_visual_leader="f"
