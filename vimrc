@@ -2,13 +2,6 @@
 " ~/.vimrc
 " ----------------------------------------------------------------------------
 
-set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-set et ts=4 ts=4 sw=4 sts=4 tw=78
-
-set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
-set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
-set vb t_vb= wildignore=*.bak,*.o,*.e,*~
-
 let leader=','
 let mapleader= ','
 let maplocalleader=','
@@ -21,71 +14,16 @@ if &t_Co > 1
     syntax enable
 endif
 
-if has("au")
-    let tlist_txt_settings='txt;c:content;f:figures;t:tables'
-
-    au BufRead,BufNewFile *.txt \
-        setlocal ft=txt
-    au BufRead,BufNewFile Makefile* \
-        set noexpandtab
-    au Filetype {java,scala} \
-        setlocal omnifunc=javacomplete#Complete
-
-    augroup clojure
-        au Syntax clojure                              \
-            let clj_highlight_builtins = 1             \
-            let clj_highlight_contrib = 1              \
-            let clj_parem_rainbow= 1                   \
-            let clj_want_gorilla = 1                   \
-            let vimclojure#NailgunClient = "~\/.vim/bin/ng"
-    augroup END
-
-    augroup markup
-        au Syntax {xml,xhtml,html,htm,erb}             \
-            runtime ftplugin/xml.vim                   \
-            let b:html_mode=1                          \
-            let xml_use_xhtml=1                        \
-            set omnifunc=PerlComplete                  \
-            set equalprg=perltidy\ -pbp\ -ce
-    augroup END
-
-    augroup perl
-        au FileType perl                               \
-            let g:Perl_AuthorName='Otavio Fernandes'   \
-            let g:Perl_AuthorRef='OF'                  \
-            let g:Perl_Company=''                      \
-            let g:Perl_Email='otaviof@gmail.com'       \
-            let g:def_perl_comp_bfunction=1            \
-            let g:def_perl_comp_packagen=1             \
-            let perl_extended_vars=1                   \
-            let perl_fold=1                            \
-            let perl_include_POD=1                     \
-            let perl_include_pod=1                     \
-            let perl_no_sync_on_global_var=1           \
-            let perl_no_sync_on_sub=1                  \
-            let perl_nofold_packages=1                 \
-            let perl_nofold_subs=0                     \
-            let perl_string_as_statement=0             \
-            let perl_sync_dist=100                     \
-            let perl_want_scope_in_variables=1
-    augroup END
-
-    augroup python
-        au FileType python  \
-            set omnifunc=pythoncomplete#Complete
-        au BufRead *.py     \
-            set smartindent \
-            set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
-    augroup END
-
-    augroup ruby
-        if !exists("autocommands_ruby_loaded")
-            let autocommands_ruby_loaded = 1
-            au BufReadPre *.rb set sw=2 ts=2 sw=2 sts=2 nu | let IndentStyle = "ruby"
-            au BufNewFile *.rb 0r ~/.vim/skeleton.rb | let IndentStyle = "ruby"
-        endif
-    augroup END
+if has("autocmd")
+    source ~/.vim/augroup.vim
 endif
+
+set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
+set et ts=4 ts=4 sw=4 sts=4 tw=78
+
+set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
+set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
+set vb t_vb= wildignore=*.bak,*.o,*.e,*~
 
 " ----------------------------------------------------------------------------
 " Methods and special maps for them

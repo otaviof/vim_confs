@@ -2,6 +2,10 @@
 " ~/.vimrc
 " ----------------------------------------------------------------------------
 
+if has("autocmd")
+    source ~/.vim/augroup.vim
+endif
+
 if has("gui_macvim")
     macmenu File.Open\ Tab\.\.\. key=<nop>
 
@@ -25,4 +29,14 @@ if has("gui_macvim")
     let g:Perl_LoadMenus='no'
 
     colorscheme no_quarter
+
+    set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
+    set et ts=4 ts=4 sw=4 sts=4 tw=78
+
+    set backspace=indent,eol,start browsedir=current complete+=k
+    set selectmode=mouse
+    set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
+    set vb t_vb= wildignore=*.bak,*.o,*.e,*~
 endif
+
+" EOF
