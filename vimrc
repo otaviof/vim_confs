@@ -45,22 +45,6 @@ endfunction
 
 inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
-""" Tidy-up coding style
-function! Tidy()
-    let current_line = line('.')
-    if &filetype == "perl"
-        let tidy = 'perltidy -pbp -ce'
-    elseif &filetype == "php"
-        let tidy = 'php_beautifier -s4'
-    elseif &filetype == "c"
-        let tidy = 'indent -orig -i4 -l78 -fca -lc78 -ts4 -br -cdw -nbad -di8 -bap'
-    endif
-    execute ":0,$!" . tidy
-    execute ":" . current_line
-endfunction
-
-map <LocalLeader>t :call Tidy()<Cr>
-
 """ Perl Completion Behavior
 fun! PerlCompletionBehavior()
     let behavs = {'perl':[]}
@@ -128,6 +112,9 @@ map <leader>j <Plug>TaskList
 " Perl Deparse
 nnoremap <silent> <LocalLeader>d :.!perl -MO=Deparse 2>/dev/null<cr>
 vnoremap <silent> <LocalLeader>d :!perl -MO=Deparse 2>/dev/null<cr>
+
+" Perl tidy-up coding style
+noremap <Leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
 
 " Java Completion
 inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
