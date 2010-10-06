@@ -143,10 +143,7 @@ function! GitCommit(args)
     endif
 
     " Create COMMIT_EDITMSG file
-    let editor_save = $EDITOR
-    let $EDITOR = ''
     let git_output = s:SystemGit('commit ' . args)
-    let $EDITOR = editor_save
 
     execute printf('%s %sCOMMIT_EDITMSG', g:git_command_edit, git_dir)
     setlocal filetype=git-status bufhidden=wipe
@@ -266,7 +263,7 @@ function! GitDoCommand(args)
 endfunction
 
 function! s:SystemGit(args)
-    return system(g:git_bin . ' ' . a:args)
+    return system('EDITOR="" '. g:git_bin . ' ' . a:args)
 endfunction
 
 " Show vimdiff for merge. (experimental)
