@@ -58,3 +58,8 @@ augroup vim
     autocmd BufWritePost vimrc      so ~/.vimrc
     autocmd BufWritePost gvimrc     so ~/.gvimrc
 augroup END
+
+augroup perl
+    au!
+    au Syntax xml setlocal equalprg=xmlindent\ -i\ 2\ -l\ 78
+augroup END
