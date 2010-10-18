@@ -16,7 +16,8 @@ augroup END
 
 augroup perl
     au!
-    au Syntax perl setlocal omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
+    au Syntax   perl set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
+    au Filetype perl set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
     let g:def_perl_comp_bfunction=1
     let g:def_perl_comp_packagen=1
     let perl_extended_vars=1
