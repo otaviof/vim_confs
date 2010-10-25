@@ -1,12 +1,13 @@
 " Vim syntax file
 "  Language:	Manpageview
 "  Maintainer:	Charles E. Campbell, Jr.
-"  Last Change:	Jan 02, 2008
-"  Version:    	5	ASTRO-ONLY
+"  Last Change:	Aug 12, 2008
+"  Version:    	6	ASTRO-ONLY
 "
 "  History:
 "    2: * Now has conceal support
 "       * complete substitute for distributed <man.vim>
+" ---------------------------------------------------------------------
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
@@ -48,7 +49,7 @@ syn match   manSubSection	".*$"					contained
 syn match   manOptionWord	"\s[+-]\a\+\>"
 
 if has("conceal")
- " setlocal conc=3
+ setlocal cole=3
  syn match manSubTitle		/\(.\b.\)\+/	contains=manSubTitleHide
  syn match manUnderline		/\(_\b.\)\+/	contains=manSubTitleHide
  syn match manSubTitleHide	/.\b/		conceal contained
@@ -65,47 +66,40 @@ norm! 1G
 
 set ts=8
 
-if version >= 508 || !exists("did_man_syn_inits")
-  if version < 508
-    let did_man_syn_inits = 1
-    com! -nargs=+ HiLink hi link <args>
-  else
-    com! -nargs=+ HiLink hi def link <args>
-  endif
+com! -nargs=+ HiLink hi def link <args>
 
-  HiLink manTitle		Title
+HiLink manTitle		Title
 "  HiLink manSubTitle		Statement
-  HiLink manUnderline		Type
-  HiLink manSectionHeading	Statement
-  HiLink manOptionDesc		Constant
+HiLink manUnderline		Type
+HiLink manSectionHeading	Statement
+HiLink manOptionDesc		Constant
 
-  HiLink manReference		PreProc
-  HiLink manSectionTitle	Function
-  HiLink manSectionNumber	Number
-  HiLink manDQString		String
-  HiLink manSQString		String
-  HiLink manBQString		String
-  HiLink manBQSQString		String
-  HiLink manBullet		Special
-  if has("win32") || has("win95") || has("win64") || has("win16")
-   if &shell == "bash"
-    hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
-    hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
-    hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
-   else
-    hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=black    guibg=black
-    hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
-    hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
-   endif
-  else
-   hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
-   hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
-   hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
-  endif
+HiLink manReference		PreProc
+HiLink manSectionTitle	Function
+HiLink manSectionNumber	Number
+HiLink manDQString		String
+HiLink manSQString		String
+HiLink manBQString		String
+HiLink manBQSQString		String
+HiLink manBullet		Special
+if has("win32") || has("win95") || has("win64") || has("win16")
+ if &shell == "bash"
+  hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
+  hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
+  hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
+ else
+  hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=black    guibg=black
+  hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
+  hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
+ endif
+else
+ hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
+ hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
+ hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
+endif
 "  hi link manSubSectionTitle	manSubTitle
 
-  delcommand HiLink
-endif
+delcommand HiLink
 
 let b:current_syntax = "man"
 
