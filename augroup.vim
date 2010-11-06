@@ -3,6 +3,11 @@ augroup clojure
     au Syntax clojure let vimclojure#NailgunClient="~\/.vim/bin/ng"
 augroup END
 
+augroup json
+    au!
+    au BufRead,BufNewFile *.json setfiletype json
+augroup END
+
 augroup jvms
     au!
     au Filetype {java,scala} setlocal omnifunc=javacomplete#Complete
