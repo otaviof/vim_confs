@@ -247,4 +247,13 @@ let b:delimitMate_visual_leader="f"
 hi Pmenu    ctermfg=black       ctermbg=grey    cterm=NONE
 hi PmenuSel ctermfg=darkyellow  ctermbg=black   cterm=inverse
 
+" Extract sub
+"
+" http://blogs.perl.org/users/ovid/2010/11/method-extraction-in-vim.html
+"
+vnoremap <leader>sub :!~/App/bin/extract_sub <cr>
+
+" Thus, when I select code in vim with shift-v, I can type ",sub" and that
+" passes the select code via STDIN to the filter ~/App/bin/extract_sub
+
 " EOF
