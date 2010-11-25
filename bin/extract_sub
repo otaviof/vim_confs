@@ -1,0 +1,44 @@
+#!/usr/bin/env perl
+
+#
+# http://blogs.perl.org/users/ovid/2010/11/method-extraction-in-vim.html
+#
+
+use strict;
+use warnings;
+use PPI;
+use PPIx::EditorTools 0.11;
+
+my $code = do { local $/; <STDIN> };
+chomp($code);
+my $ppi = PPI::Document->new( \$code );
+
+my %is_found
+    = map { $_ => 1 }
+    map { keys %$_ }
+    values %{ PPIx::EditorTools::get_all_variable_declarations($ppi) };
+
+my $vars = $ppi->find(
+    sub {
+        my ( $self, $thingy ) = @_;
+        no warnings 'uninitialized';
+        return $thingy->isa('PPI::Token::Symbol')
+            && not $is_found{ $thingy->content }++;
+    }
+);
+
+my $subname = $ENV{SUBNAME} || 'XXX';
+
+my $unroll_at_underscore = '';
+if ($vars) {
+    $unroll_at_underscore
+        = "    my ( "
+        . ( join ', ' => map { $_->content } @$vars )
+        . " ) = \@_;\n";
+}
+print <<"END";
+sub $subname {
+$unroll_at_underscore
+$code
+}
+END

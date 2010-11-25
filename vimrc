@@ -124,6 +124,9 @@ vnoremap <silent> <LocalLeader>d :!perl -MO=Deparse 2>/dev/null<cr>
 " Perl tidy-up coding style
 noremap <Leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
 
+" Perl extract subroutines
+vnoremap <leader>sub :! ~/.vim/bin/extract_sub <CR>
+
 " JSON tidy-up
 noremap <Leader>jt mz:%!json_xs -f json -t json-pretty<CR>'z:delmarks z<CR>
 
