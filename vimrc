@@ -6,6 +6,9 @@ let leader=','
 let mapleader= ','
 let maplocalleader=','
 
+nnoremap ' `
+nnoremap ` '
+
 filetype on
 filetype plugin on
 filetype indent on
@@ -18,12 +21,17 @@ if has("autocmd")
     source ~/.vim/augroup.vim
 endif
 
-set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
+set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu scs
 set et ts=4 ts=4 sw=4 sts=4 tw=78
 
 set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set hidden title shortmess=atI
 set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
-set vb t_vb= wildignore=*.bak,*.o,*.e,*~
+set vb t_vb= wildmode=list:longest wildignore=*.bak,*.o,*.e,*~ history=1000
+
+runtime macros/matchit.vim
 
 " ----------------------------------------------------------------------------
 " Methods and special maps for them
@@ -130,23 +138,25 @@ map <LocalLeader>s :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 nmap <LocalLeader>utf8 !recode -q ISO-8859-1..utf-8
 
 " Shortcuts for Tabs (Command on OS X)
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> 10g
+if has("gui_mac") || has("gui_macvim")
+    map <D-1> 1gt
+    map <D-2> 2gt
+    map <D-3> 3gt
+    map <D-4> 4gt
+    map <D-5> 5gt
+    map <D-6> 6gt
+    map <D-7> 7gt
+    map <D-8> 8gt
+    map <D-9> 9gt
+    map <D-0> 10g
+endif
 
 " Display margin
 map <LocalLeader>m <ESC>:match rightMargin /.\%>79v/<CR>
 map <LocalLeader>M <ESC>:match rightMargin <CR>
 
 " NERDTree
-map <LocalLeader>n <ESC>:NERDTree<CR>
+map <LocalLeader>n <ESC>:NERDTreeToggle<CR>
 nnoremap <silent> <LocalLeader>f :call FindInNERDTree()<CR> 
 
 " TagList

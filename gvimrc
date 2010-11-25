@@ -1,5 +1,5 @@
 " ----------------------------------------------------------------------------
-" ~/.vimrc
+" ~/.gvimrc
 " ----------------------------------------------------------------------------
 
 if has("autocmd")
@@ -7,8 +7,6 @@ if has("autocmd")
 endif
 
 if has("gui_macvim")
-    macmenu File.Open\ Tab\.\.\. key=<nop>
-
     map <D-T> :CommandT<CR>
 
     set guicursor=n-v-c:block-Cursor
@@ -37,6 +35,10 @@ if has("gui_macvim")
     set selectmode=mouse
     set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
     set vb t_vb= wildignore=*.bak,*.o,*.e,*~
+
+    set invmmta
+
+    macmenu File.Open\ Tab\.\.\. key=<nop>
 endif
 
 " EOF
