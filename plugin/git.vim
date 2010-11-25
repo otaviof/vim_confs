@@ -31,6 +31,7 @@ if !exists('g:git_no_map_default') || !g:git_no_map_default
     nnoremap <Leader>gA :GitAdd <cfile><Enter>
     nnoremap <Leader>gc :GitCommit<Enter>
     nnoremap <Leader>gp :GitPullRebase<Enter>
+    nnoremap <Leader>gP :GitPush<Enter>
 endif
 
 " Ensure b:git_dir exists.
