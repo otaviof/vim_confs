@@ -1,17 +1,8 @@
 #!/usr/bin/env perl
 
 #
-# @file         |FILENAME|
-# @mainpage     |FILENAME|
-#
-# @section      Resumo
-#
-# @author       |AUTHOR| <|EMAIL|>
-# @date         |DATE|
-#
-# @version      $Id:$
-#
-# @TODO         
+# Author:   |AUTHOR| <|EMAIL|>
+#   Date:   |DATE|
 #
 
 use strict;
