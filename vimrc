@@ -172,6 +172,10 @@ let xml_tag_completion_map = "<C-l>"
 let xml_tag_syntax_prefixes = 'html\|xml'
 let xml_use_xhtml = 1
 
+" Narrow Region Plugin
+let g:nrrw_rgn_vert = 1
+let g:nrrw_rgn_nohl = 1
+
 
 " ----------------------------------------------------------------------------
 " Plugins Options
