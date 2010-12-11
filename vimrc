@@ -17,19 +17,11 @@ if &t_Co > 1
     syntax enable
 endif
 
+source ~/.vim/set_globals.vim
+
 if has("autocmd")
     source ~/.vim/augroup.vim
 endif
-
-set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu scs
-set et ts=4 ts=4 sw=4 sts=4 tw=78
-
-set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set hidden title shortmess=atI
-set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
-set vb t_vb= wildmode=list:longest wildignore=*.bak,*.o,*.e,*~ history=1000
 
 runtime macros/matchit.vim
 
@@ -159,8 +151,10 @@ map <LocalLeader>m <ESC>:match rightMargin /.\%>79v/<CR>
 map <LocalLeader>M <ESC>:match rightMargin <CR>
 
 " NERDTree
-map <LocalLeader>n <ESC>:NERDTreeToggle<CR>
-nnoremap <silent> <LocalLeader>f :call FindInNERDTree()<CR> 
+let g:NERDTreeShowBookmarks = 1
+map <LocalLeader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+nnoremap <silent> <LocalLeader>f :call FindInNERDTree()<CR>
+map <leader>b :FuzzyFinderBuffer<CR>
 
 " TagList
 nnoremap <silent>  <F6> :Tlist<CR>
@@ -180,6 +174,20 @@ let g:nrrw_rgn_nohl = 1
 " ----------------------------------------------------------------------------
 " Plugins Options
 " ----------------------------------------------------------------------------
+
+" Perl Options
+let g:def_perl_comp_bfunction=1
+let g:def_perl_comp_packagen=1
+let perl_extended_vars=1
+let perl_fold=1
+let perl_include_pod=1
+let perl_no_sync_on_global_var=1
+let perl_no_sync_on_sub=1
+let perl_nofold_packages=1
+let perl_nofold_subs=0
+let perl_string_as_statement=0
+let perl_sync_dist=100
+let perl_want_scope_in_variables=1
 
 " Tag List Options
 let Tlist_Auto_Highlight_Tag=1

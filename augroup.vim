@@ -10,31 +10,20 @@ augroup END
 
 augroup jvms
     au!
-    au Filetype {java,scala} setlocal omnifunc=javacomplete#Complete
+    au filetype {java,scala} setlocal omnifunc=javacomplete#Complete
 augroup END
 
 augroup markup
     au!
-    au Syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
-    au BufRead,BufNewFile *.html setlocal omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
+    au syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
+    au syntax *html* setlocal omnifunc=htmlcomplete#CompleteTag
+    au syntax *html* source '~/.vim/script/closetag.vim'
 augroup END
 
 augroup perl
     au!
-    au Syntax   perl set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
-    au Filetype perl set omnifunc=PerlComplete equalprg=perltidy\ -pbp\ -ce
-    let g:def_perl_comp_bfunction=1
-    let g:def_perl_comp_packagen=1
-    let perl_extended_vars=1
-    let perl_fold=1
-    let perl_include_pod=1
-    let perl_no_sync_on_global_var=1
-    let perl_no_sync_on_sub=1
-    let perl_nofold_packages=1
-    let perl_nofold_subs=0
-    let perl_string_as_statement=0
-    let perl_sync_dist=100
-    let perl_want_scope_in_variables=1
+    au syntax perl setlocal equalprg=perltidy\ -pbp\ -ce omnifunc=PerlComplete
+    au filetype perl syn include @perlDATA syntax/MojoliciousTemplate.vim
 augroup END
 
 augroup python
@@ -65,7 +54,7 @@ augroup vim
     autocmd BufWritePost gvimrc     so ~/.gvimrc
 augroup END
 
-augroup perl
+augroup xml
     au!
-    au Syntax xml setlocal equalprg=xmlindent\ -i\ 2\ -l\ 78
+    au syntax xml setlocal equalprg=xmlindent\ -i\ 2\ -l\ 78
 augroup END

@@ -2,9 +2,7 @@
 " ~/.gvimrc
 " ----------------------------------------------------------------------------
 
-if has("autocmd")
-    source ~/.vim/augroup.vim
-endif
+source ~/.vim/set_globals.vim
 
 if has("gui_macvim")
     map <D-T> :CommandT<CR>
@@ -18,8 +16,13 @@ if has("gui_macvim")
     set guioptions=egmtihvF
     set guitablabel=(%N%M)\ %f
 
+    let g:git_branch_status_head_current=1
+    let g:git_branch_status_nogit=""
+    let g:git_branch_status_around="[]"
+    let g:git_branch_status_text=" :: "
+
     set cul hlg=en ls=2 lsp=-1 mh mouse=a nu tenc=utf-8 transparency=5
-    set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ \%{GitBranchInfoString()}
+    set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
     set foldmethod=syntax history=50 lines=53 columns=100
 
     let g:BASH_LoadMenus='no'
@@ -28,17 +31,13 @@ if has("gui_macvim")
 
     colorscheme no_quarter
 
-    set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-    set et ts=4 ts=4 sw=4 sts=4 tw=78
-
-    set backspace=indent,eol,start browsedir=current complete+=k
-    set selectmode=mouse
-    set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
-    set vb t_vb= wildignore=*.bak,*.o,*.e,*~
-
     set invmmta
 
     macmenu File.Open\ Tab\.\.\. key=<nop>
+endif
+
+if has("autocmd")
+    source ~/.vim/augroup.vim
 endif
 
 " EOF
