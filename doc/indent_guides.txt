@@ -1,0 +1,158 @@
+*indent_guides.txt*  A plugin for visually displaying indent levels in vim.
+
+                                                                 *indent-guides*
+      ____           __            __     ______       _      __
+     /  _/____  ____/ /___  ____  / /_   / ____/__  __(_)____/ /___  _____
+     / / / __ \/ __  // _ \/ __ \/ __/  / / __ / / / / // __  // _ \/ ___/
+   _/ / / / / / /_/ //  __/ / / / /_   / /_/ // /_/ / // /_/ //  __(__  )
+  /___//_/ /_/\__,_/ \___/_/ /_/\__/   \____/ \__,_/_/ \__,_/ \___/____/
+
+
+Author:      Nate Kane <nathanaelkane AT gmail DOT com>
+Version:     1.0
+Last Change: 12 Dec 2010
+
+==============================================================================
+CONTENTS                                                *indent-guides-contents*
+
+  1. Introduction.............................. |indent-guides-introduction|
+  2. Commands.................................. |indent-guides-commands|
+  3. Options................................... |indent-guides-options|
+  4. Mappings.................................. |indent-guides-mappings|
+  5. About..................................... |indent-guides-about|
+  6. Changelog................................. |indent-guides-changelog|
+  7. License................................... |indent-guides-license|
+
+==============================================================================
+1. INTRODUCTION                                     *indent-guides-introduction*
+
+Indent Guides is a plugin for visually displaying indent levels in vim.
+
+Features:~
+  * Can detect both tab and space indent styles.
+  * Automatically inspects your colorscheme and picks appropriate colors.
+  * Will highlight indent levels with alternating colors.
+
+==============================================================================
+2. COMMANDS                                             *indent-guides-commands*
+
+------------------------------------------------------------------------------
+:IndentGuidesToggle                                        *:IndentGuidesToggle*
+  Toggles the indent guides on and off.
+
+------------------------------------------------------------------------------
+:IndentGuidesEnable                                        *:IndentGuidesEnable*
+  Enables the indent guides for the current buffer and any other buffer upon
+  entering it.
+
+------------------------------------------------------------------------------
+:IndentGuidesDisable                                      *:IndentGuidesDisable*
+  Disables the indent guides for the current buffer and any other buffer upon
+  entering it.
+
+==============================================================================
+3. OPTIONS                                               *indent-guides-options*
+
+------------------------------------------------------------------------------
+                                                 *'indent_guides_indent_levels'*
+Use this option to control how many indent levels to display guides for.
+Default: 30. Values: integer.
+>
+  let g:indent_guides_indent_levels = 30
+<
+
+------------------------------------------------------------------------------
+                                                   *'indent_guides_auto_colors'*
+Use this option to control whether or not the plugin automatically calculates
+the highlight colors. Will use the current colorscheme's background color as a
+base color.
+Default: 1. Values: 0 or 1.
+>
+  let g:indent_guides_auto_colors = 1
+<
+
+If you set this option to 0, be sure to manually define some highlight colors.
+>
+  hi IndentGuidesOdd  guibg=#EEEEEE
+  hi IndentGuidesEven guibg=#CCCCCC
+<
+
+------------------------------------------------------------------------------
+                                          *'indent_guides_color_change_percent'*
+Use this option to control the percent at which the highlight colors will be
+lightened or darkened.
+Default: 0.05. Values: between 0 and 1.
+>
+  let g:indent_guides_color_change_percent = 0.05
+<
+
+==============================================================================
+4. MAPPINGS                                             *indent-guides-mappings*
+
+The default mapping for toggling indent guides is <Leader>ig. You can easily
+map it to other keys. For example:
+>
+  :nmap <Leader>ig :IndentGuidesToggle<CR>
+<
+
+You can also map some other commands that are not mapped by default. For
+example:
+>
+  :nmap <Leader>ie :IndentGuidesEnable<CR>
+  :nmap <Leader>id :IndentGuidesDisable<CR>
+<
+
+==============================================================================
+5. ABOUT                                                   *indent-guides-about*
+
+Why did I build this plugin?~
+  * I believe indent guides make nested code easier to read and understand.
+  * Other editors have them and it's high time vim did.
+  * None of the existing indent guide plugins on the market suited my needs.
+  * I wanted to learn me some VimL.
+
+Links:~
+  * Github:        https://github.com/nathanaelkane/vim-indent-guides
+  * Bugs & Issues: https://github.com/nathanaelkane/vim-indent-guides/issues
+
+Contact:~
+  * Twitter: @nathanaelkane
+  * Email:   <nathanaelkane AT gmail DOT com>
+  * IRC:     nate- on Freenode (I usually idle in the #vim channel)
+
+Bug reports, feedback, suggestions etc are welcomed.
+
+==============================================================================
+6. CHANGELOG                                           *indent-guides-changelog*
+
+1.0~
+  * First public version.
+
+==============================================================================
+7. LICENSE                                               *indent-guides-license*
+
+The MIT Licence
+http://www.opensource.org/licenses/mit-license.php
+
+Copyright (c) 2010 Nate Kane
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+vim:tw=78:ts=2:ft=help:norl:
+
