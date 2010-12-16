@@ -34,6 +34,8 @@ augroup END
 
 augroup ruby
     au!
+    au FileType ruby setlocal omnifunc=rubycomplete#Complete
+    au FileType ruby source ~/.vim/ftplugin/ri.vim
     if !exists("autocommands_ruby_loaded")
         let autocommands_ruby_loaded = 1
         au BufReadPre *.rb setlocal sw=2 ts=2 sw=2 sts=2 nu | let IndentStyle="ruby"
