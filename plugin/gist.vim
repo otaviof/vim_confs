@@ -1,8 +1,8 @@
 "=============================================================================
 " File: gist.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 04-Nov-2010.
-" Version: 4.4
+" Last Change: 13-Dec-2010.
+" Version: 4.6
 " WebPage: http://github.com/mattn/gist-vim
 " License: BSD
 " Usage:
@@ -15,7 +15,7 @@
 "
 "   :Gist -p
 "     post whole text to gist with private.
-"     if you got empty gist list, try :Gist --abandon 
+"     if you got empty gist list, try :Gist --abandon
 "
 "   :Gist -a
 "     post whole text to gist with anonymous.
@@ -86,7 +86,11 @@
 "
 "     let g:gist_browser_command = 'opera %URL% &'
 "
-"     on windows, should work with your setting.
+"     on windows, should work with original setting.
+"
+"   * if you want to show your private gists with ':Gist -l'
+"
+"     let g:gist_show_privates = 1
 "
 " Thanks:
 "   MATSUU Takuto:
@@ -375,12 +379,12 @@ function! s:GistUpdate(user, token, content, gistid, gistnm)
   return res
 endfunction
 
+let s:cookiedir = substitute(expand('<sfile>:p:h'), '[/\\]plugin$', '', '').'/cookies'
 function! s:GistGetPage(url, user, param, opt)
-  let cookiedir = substitute(expand('<sfile>:p:h'), '[/\\]plugin$', '', '').'/cookies'
-  if !isdirectory(cookiedir)
-    call mkdir(cookiedir, 'p')
+  if !isdirectory(s:cookiedir)
+    call mkdir(s:cookiedir, 'p')
   endif
-  let cookiefile = cookiedir.'/github'
+  let cookiefile = s:cookiedir.'/github'
 
   if len(a:url) == 0
     call delete(cookiefile)
@@ -695,10 +699,14 @@ function! Gist(line1, line2, ...)
     elseif arg !~ '^-' && len(gistnm) == 0
       if editpost == 1 || deletepost == 1
         let gistnm = arg
-      elseif len(gistls) > 0
+      elseif len(gistls) > 0 && arg != '^\w\+$'
         let gistls = arg
-      else
+      elseif arg =~ '^\d\+$'
         let gistid = arg
+      else
+        echoerr 'Invalid arguments'
+        unlet args
+        return 0
       endif
     elseif len(arg) > 0
       echoerr 'Invalid arguments'
@@ -720,6 +728,7 @@ function! Gist(line1, line2, ...)
   elseif len(gistid) > 0 && editpost == 0 && deletepost == 0
     call s:GistGet(user, token, gistid, clipboard)
   else
+    let url = ''
     if multibuffer == 1
       let url = s:GistPostBuffers(user, token, private)
     else
@@ -727,11 +736,13 @@ function! Gist(line1, line2, ...)
       if editpost == 1
         let url = s:GistUpdate(user, token, content, gistid, gistnm)
       elseif deletepost == 1
-        let url = s:GistDelete(user, token, gistid)
+        call s:GistDelete(user, token, gistid)
       else
         let url = s:GistPost(user, token, content, private)
       endif
-      if len(url) > 0 && g:gist_open_browser_after_post
+    endif
+    if len(url) > 0
+      if g:gist_open_browser_after_post
         let cmd = substitute(g:gist_browser_command, '%URL%', url, 'g')
         if cmd =~ '^!'
           silent! exec cmd
@@ -739,17 +750,14 @@ function! Gist(line1, line2, ...)
           call system(cmd)
         endif
       endif
-    endif
-    if g:gist_put_url_to_clipboard_after_post == 1
-      if exists('g:gist_clip_command')
-        silent! 1sp
-        silent! put! =url
-        exec 'silent! 1,1w !'.g:gist_clip_command
-        silent! bw!
-      elseif has('unix') && !has('xterm_clipboard')
-        let @" = url
-      else
-        let @+ = url
+      if g:gist_put_url_to_clipboard_after_post == 1
+        if exists('g:gist_clip_command')
+          call system('echo '.url.' | '.g:gist_clip_command)
+        elseif has('unix') && !has('xterm_clipboard')
+          let @" = url
+        else
+          let @+ = url
+        endif
       endif
     endif
   endif
