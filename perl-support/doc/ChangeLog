@@ -1,4 +1,49 @@
 ---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 4.8
+---------------------------------------------------------------------------------------
+- Hotkeys \$x, \@x and \%x renamed (to avoid conflicts when writing references).
+- Bugfix, Regex-Tester: colouring matches shows an error message in a few cases.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 4.7.1
+---------------------------------------------------------------------------------------
+- Bugfixes: insertion of Posix classes from the menu not working properly.
+- Bugfixes, Regex Tester: accented characters can be used.
+- Bugfixes, Regex Tester: embedded Perl code can be used.
+- Bugfixes: local installation looks like a system-wide installation in seldom cases.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 4.7
+---------------------------------------------------------------------------------------
+- Run make (+arguments) from the 'Run' menu; 2 additional hotkeys.
+- Bugfix (Windows): syntax check does not catch error message if a closing
+	brace is missing (thanks to Dave DelGreco for fixing this bug).
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 4.6
+---------------------------------------------------------------------------------------
+- The profilers Devel::SmallProf and Devel::NYTProf can now be used under Windows.
+- New profiler menu.
+- New hotkeys for calling podchecker and the pod2xxx converter.
+- Pathnames can contain blanks.
+- Template completion: behavior of Ctrl-j improved.
+- Template system: new attributes 'indent', 'noindent'
+- Comment alignment improved.
+- Bugfix (Windows). snippet directory unreachable.
+- Minor improvements.
+
+---------------------------------------------------------------------------------------
+  RELEASE NOTES FOR VERSION 4.5
+---------------------------------------------------------------------------------------
+- Profiler NYTProf: menu item and ex-command to start a html-viewer.
+- New conversion: Pod to Pdf (if Pod::Pdf is installed).
+- Perltidy,  v-mode: can be used in non-perl files (for embedded Perl).
+- Bugfix: hotkey \ifu not working.
+- Bugfix: running and starting the debugger causes error if working directory is not
+  the directory of the current file.
+- Bugfix: missing variable Perl_TimestampFormat.
+- Minor improvements.
+
+---------------------------------------------------------------------------------------
   RELEASE NOTES FOR VERSION 4.4
 ---------------------------------------------------------------------------------------
 - Hotkeys are shown in the menus.

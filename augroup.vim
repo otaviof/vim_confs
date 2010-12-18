@@ -17,7 +17,7 @@ augroup markup
     au!
     au syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
     au syntax *html* setlocal omnifunc=htmlcomplete#CompleteTag
-    au syntax *html* source '~/.vim/script/closetag.vim'
+    au syntax *html* source ~/.vim/script/closetag.vim
 augroup END
 
 augroup perl
