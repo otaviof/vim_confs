@@ -1,11 +1,11 @@
 " Author:   Nate Kane <nathanaelkane AT gmail DOT com>
 " Homepage: http://github.com/nathanaelkane/vim-indent-guides
 
-if exists('g:loaded_indent_guides') || &cp || !has('gui_running')
+if exists('g:loaded_indent_guides') || &cp
   finish
 endif
-
 let g:loaded_indent_guides = 1
+call indent_guides#define_default_highlights()
 
 function! s:IndentGuidesToggle()
   call indent_guides#toggle()

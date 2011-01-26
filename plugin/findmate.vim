@@ -43,4 +43,4 @@ else
 endif
 endfunction
 command! -nargs=1 FindMate :call FindMate("<args>")
-map ,, :FindMate 
+map <leader>F :FindMate
