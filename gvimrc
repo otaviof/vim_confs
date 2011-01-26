@@ -7,12 +7,14 @@ source ~/.vim/set_globals.vim
 if has("gui_macvim")
     map <D-T> :CommandT<CR>
 
+    set title
+
     set guicursor=n-v-c:block-Cursor
     set guicursor+=i:blinkwait575-iCursor
     set guicursor+=i:ver100-iCursor
     set guicursor+=n-v-c:blinkon0-Cursor
 
-    set guifont=Menlo\ Regular:h13
+    set guifont=Monaco:h13 lsp=-3
     set guioptions=egmtihvF
     set guitablabel=(%N%M)\ %f
 
@@ -21,7 +23,7 @@ if has("gui_macvim")
     let g:git_branch_status_around="[]"
     let g:git_branch_status_text=" :: "
 
-    set cul hlg=en ls=2 lsp=-1 mh mouse=a nu tenc=utf-8 transparency=5
+    set cul hlg=en ls=2 mh mouse=a nu tenc=utf-8 transparency=5
     set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
     set foldmethod=syntax history=50 lines=53 columns=100
 

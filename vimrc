@@ -6,6 +6,8 @@ let leader=','
 let mapleader= ','
 let maplocalleader=','
 
+set notitle
+
 nnoremap ' `
 nnoremap ` '
 
@@ -201,7 +203,6 @@ let tlist_perl_settings='perl;c:constants;f:formats;l:labels;p:packages;s:subrou
 " Delimate options
 let b:delimitMate="(:),[:],{:},<:>"
 let b:delimitMate_autoclose=1
-let b:delimitMate_excluded_ft=""
 let b:delimitMate_expand_cr=1
 let b:delimitMate_expand_space=1
 let b:delimitMate_matchpairs="(:),[:],{:},<:>"

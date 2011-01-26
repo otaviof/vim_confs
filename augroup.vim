@@ -28,7 +28,8 @@ augroup END
 
 augroup python
     au!
-    au FileType python setlocal omnifunc=pythoncomplete#Complete
+    au FileType python set omnifunc=pythoncomplete#Complete complete+=k~/.vim/syntax/python.vim isk+=.,(
+    au FileType python let python_highlight_all=1
     au BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 augroup END
 
