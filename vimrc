@@ -163,19 +163,13 @@ nnoremap <silent>  <F6> :Tlist<CR>
 nnoremap <silent>  <F5> :TlistUpdate<CR>
 nnoremap <silent> <tab> :bn<CR
 
-" XMLEDIT
-let xml_tag_completion_map = "<C-l>"
-let xml_tag_syntax_prefixes = 'html\|xml'
-let xml_use_xhtml = 1
-
-" Narrow Region Plugin
-let g:nrrw_rgn_vert = 1
-let g:nrrw_rgn_nohl = 1
-
 
 " ----------------------------------------------------------------------------
 " Plugins Options
 " ----------------------------------------------------------------------------
+
+" ACP (Omni Completion)
+let g:acp_enableAtStartup = 1
 
 " Perl Options
 let g:def_perl_comp_bfunction=1
@@ -209,8 +203,13 @@ let b:delimitMate_matchpairs="(:),[:],{:},<:>"
 let b:delimitMate_quotes="\" ' ` *"
 let b:delimitMate_visual_leader="f"
 
-" Omni Completion colors
-hi Pmenu    ctermfg=black       ctermbg=grey    cterm=NONE
-hi PmenuSel ctermfg=darkyellow  ctermbg=black   cterm=inverse
+" XMLEDIT
+let xml_tag_completion_map = "<C-l>"
+let xml_tag_syntax_prefixes = 'html\|xml'
+let xml_use_xhtml = 1
+
+" Narrow Region Plugin
+let g:nrrw_rgn_vert = 1
+let g:nrrw_rgn_nohl = 1
 
 " EOF

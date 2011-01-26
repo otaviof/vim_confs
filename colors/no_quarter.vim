@@ -71,9 +71,9 @@ hi lCursor                  gui=none        guifg=#ffffff       guibg=#8800ff
 "
 
 hi MyTagListFileName        gui=underline   guifg=fg            guibg=bg
-hi Pmenu                    gui=none        guifg=grey10        guibg=grey50
-hi PmenuSbar                gui=none        guifg=fg            guibg=grey20
-hi PmenuSel                 gui=none        guifg=#abac84       guibg=gray12
+hi Pmenu                    gui=none        guifg=grey80        guibg=darkred
+hi PmenuSbar                gui=none        guifg=green         guibg=green
+hi PmenuSel                 gui=bold        guifg=orange        guibg=grey30
 hi PmenuThumb               gui=none        guifg=grey30        guibg=bg
 hi TagListTagName           gui=underline   guifg=fg            guibg=bg
 hi RightMargin              gui=none        guifg=fg            guibg=#453030
