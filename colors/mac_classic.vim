@@ -184,6 +184,7 @@ hi OL1 guifg=#000000 gui=bold
 hi OL2 guifg=#0000A2 gui=bold
 hi OL3 guifg=#007B22 gui=bold
 hi OL4 guifg=#6E79F1 gui=NONE
-" Modelines: {{{1
+
+" Perl: {{{1
 " vim: nowrap fdm=marker
 " }}}

@@ -2,8 +2,8 @@
 " -- Vim's Colorscheme --
 "
 "  Maintainer: Otavio Fernandes <otaviof@gmail.com>
-" Last Change: 2010/07/23 Thu 9h 13
-"     Version: 1.0.9
+" Last Change: 2011/01/22
+"     Version: 1.1.0
 "
 " vim: ts=4
 "
@@ -44,6 +44,7 @@ hi ModeMsg                  gui=bold        guifg=#a0d0ff       guibg=bg
 hi MoreMsg                  gui=none        guifg=lightred      guibg=bg
 hi NonText                  gui=none        guifg=gray30        guibg=bg
 hi OverLength               gui=none        guifg=fg            guibg=gray30
+hi Operator                 gui=none        guifg=#c0c090       guibg=bg
 hi PreProc                  gui=none        guifg=#c090c0       guibg=bg
 hi Question                 gui=bold        guifg=#e8e800       guibg=bg
 hi Search                   gui=none        guifg=bg            guibg=gray60
@@ -86,10 +87,10 @@ hi perlFunctionName         gui=none        guifg=white         guibg=bg
 hi perlIdentifier           gui=none        guifg=gray75        guibg=bg
 hi perlLabel                gui=none        guifg=#c0c090       guibg=bg
 hi perlMatchStartEnd        gui=none        guifg=#c0c090       guibg=bg
-hi perlNumber               gui=none        guifg=#80ac7b       guibg=bg
+hi perlNumber               gui=none        guifg=#5faf5f       guibg=bg
 hi perlOperator             gui=none        guifg=#c0c090       guibg=bg
 hi perlPackageDecl          gui=none        guifg=#80ac7b       guibg=bg
-hi perlQQ                   gui=none        guifg=fg            guibg=bg
+hi perlQQ                   gui=none        guifg=gray65        guibg=bg
 hi perlRepeat               gui=none        guifg=#c0b790       guibg=bg
 hi perlSharpBang            gui=none        guifg=#c0c090       guibg=bg
 hi perlShellCommand         gui=none        guifg=lightred      guibg=bg
@@ -108,10 +109,36 @@ hi perlVarNotInMatches      gui=none        guifg=#915555       guibg=bg
 hi perlVarPlain             gui=none        guifg=#74c5c6       guibg=bg
 hi perlVarPlain2            gui=none        guifg=#74c6a8       guibg=bg
 hi perlVarSimpleMember      gui=none        guifg=#c0c090       guibg=bg
-hi perlVarSimpleMemberName  gui=none        guifg=grey70        guibg=bg
+hi perlVarSimpleMemberName  gui=none        guifg=gray70        guibg=bg
 hi perlSpecialDollar        gui=bold        guifg=white         guibg=black
+hi perlVarBlock             gui=none        guifg=gray70        guibg=bg
 
+"
+" Python
+"
+
+hi pythonDecorator          gui=bold        guifg=#3b3b3b       guibg=bg
+hi pythonDot                gui=NONE        guifg=grey          guibg=bg
+hi pythonOperator           gui=NONE        guifg=#ffdf87       guibg=bg
+hi pythonNumber             gui=none        guifg=#5faf5f       guibg=bg
+hi pythonException          gui=NONE        guifg=#dfaf5f       guibg=bg
+hi pythonRepeat             gui=NONE        guifg=#ffff87       guibg=bg
+hi pythonString             gui=NONE        guifg=#af5f5f       guibg=bg
+
+" -- Python ------------------------------------------------------------------
+" pythonBinError pythonConditional pythonError pythonFunction
+" pythonOctNumber pythonRun pythonUniRawEscapeError pythonBinNumber
+" pythonEscape pythonHexError pythonSpaceError pythonSync
+" pythonUniRawString pythonBuiltinFunc pythonDocTest pythonEscapeError
+" pythonHexNumber pythonPreCondit pythonStatement pythonTodo
+" pythonUniString pythonBuiltinObj pythonDocTest2 pythonExClass
+" pythonIndentError pythonRawEscape pythonStrFormat pythonUniEscape
+" pythonCoding pythonRawString pythonStrFormatting pythonUniEscapeError
+" pythonComment pythonDottedName pythonFloat pythonOctError
+" pythonStrTemplate pythonUniRawEscape
 " ----------------------------------------------------------------------------
+
+" -- Perl --------------------------------------------------------------------
 " perlCharacter perlConditional perlFiledescRead perlFiledescStatement
 " perlFloat perlFormatField perlFormatName perlFunctionPRef perlHereDoc
 " perlInclude perlList perlMethod perlMisc perlPackageRef perlSpecialAscii
