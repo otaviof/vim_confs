@@ -1,12 +1,15 @@
 " ----------------------------------------------------------------------------
-" ~/.vimrc
+" ~/.vimrc (https://github.com/otaviof/vim_confs)
 " ----------------------------------------------------------------------------
 
+let apleader= ','
 let leader=','
-let mapleader= ','
+let localleader=","
+let mapleader=","
 let maplocalleader=','
 
-set notitle
+
+" set notitle
 
 nnoremap ' `
 nnoremap ` '
@@ -26,6 +29,7 @@ if has("autocmd")
 endif
 
 runtime macros/matchit.vim
+
 
 " ----------------------------------------------------------------------------
 " Methods and special maps for them
@@ -48,7 +52,7 @@ endfunction
 inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
 """ Perl Completion Behavior
-fun! PerlCompletionBehavior()
+function! PerlCompletionBehavior()
     let behavs = {'perl':[]}
     call add(behavs.perl, {
         \ 'command' : "\<D-/>",
@@ -98,12 +102,23 @@ function! PickFromList( name, list, ... )
     return a:list[choice]
 endfunction
 
-noremap <LocalLeader>gm :call GotoSub(expand('<cword>'))<cr>
+noremap <Localleader>gm :call GotoSub(expand('<cword>'))<cr>
 
 
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
+
+" Git bindings
+nnoremap ,gd :GitDiff<Enter>
+nnoremap ,gD :GitDiff --cached<Enter>
+nnoremap ,gs :GitStatus<Enter>
+nnoremap ,gl :GitLog<Enter>
+nnoremap ,ga :GitAdd<Enter>
+nnoremap ,gA :GitAdd <cfile><Enter>
+nnoremap ,gc :GitCommit<Enter>
+nnoremap ,gp :GitPullRebase<Enter>
+nnoremap ,gP :GitPush<Enter>
 
 " Open and edit vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -112,27 +127,27 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 map <leader>j <Plug>TaskList
 
 " Perl Deparse
-nnoremap <silent> <LocalLeader>d :.!perl -MO=Deparse 2>/dev/null<cr>
-vnoremap <silent> <LocalLeader>d :!perl -MO=Deparse 2>/dev/null<cr>
+nnoremap <silent> <Localleader>d :.!perl -MO=Deparse 2>/dev/null<cr>
+vnoremap <silent> <Localleader>d :!perl -MO=Deparse 2>/dev/null<cr>
 
 " Perl tidy-up coding style
-noremap <Leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
+noremap <leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
 
 " Perl extract subroutines
 vnoremap <leader>sub :! ~/.vim/bin/extract_sub <CR>
 
 " JSON tidy-up
-noremap <Leader>jt mz:%!json_xs -f json -t json-pretty<CR>'z:delmarks z<CR>
+noremap <leader>jt mz:%!json_xs -f json -t json-pretty<CR>'z:delmarks z<CR>
 
 " Java Completion
 inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
 inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
 
 " Spelling checking for pt_BR and en_US
-map <LocalLeader>s :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
+map <Localleader>s :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
 
 " UTF8 conversion
-nmap <LocalLeader>utf8 !recode -q ISO-8859-1..utf-8
+nmap <Localleader>utf8 !recode -q ISO-8859-1..utf-8
 
 " Shortcuts for Tabs (Command on OS X)
 if has("gui_mac") || has("gui_macvim")
@@ -149,14 +164,13 @@ if has("gui_mac") || has("gui_macvim")
 endif
 
 " Display margin
-map <LocalLeader>m <ESC>:match rightMargin /.\%>79v/<CR>
-map <LocalLeader>M <ESC>:match rightMargin <CR>
+map <Localleader>m <ESC>:match rightMargin /.\%>79v/<CR>
+map <Localleader>M <ESC>:match rightMargin <CR>
 
 " NERDTree
-let g:NERDTreeShowBookmarks = 1
-map <LocalLeader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
-nnoremap <silent> <LocalLeader>f :call FindInNERDTree()<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
+let g:NERDTreeShowBookmarks=1
+map <Localleader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+nnoremap <silent> <Localleader>f :call FindInNERDTree()<CR>
 
 " TagList
 nnoremap <silent>  <F6> :Tlist<CR>
@@ -169,7 +183,7 @@ nnoremap <silent> <tab> :bn<CR
 " ----------------------------------------------------------------------------
 
 " ACP (Omni Completion)
-let g:acp_enableAtStartup = 1
+let g:acp_enableAtStartup=0
 
 " Perl Options
 let g:def_perl_comp_bfunction=1
@@ -204,12 +218,47 @@ let b:delimitMate_quotes="\" ' ` *"
 let b:delimitMate_visual_leader="f"
 
 " XMLEDIT
-let xml_tag_completion_map = "<C-l>"
-let xml_tag_syntax_prefixes = 'html\|xml'
-let xml_use_xhtml = 1
+let xml_tag_completion_map="<C-l>"
+let xml_tag_syntax_prefixes='html\|xml'
+let xml_use_xhtml=1
 
 " Narrow Region Plugin
-let g:nrrw_rgn_vert = 1
-let g:nrrw_rgn_nohl = 1
+let g:nrrw_rgn_vert=1
+let g:nrrw_rgn_nohl=1
+
+" ----------------------------------------------------------------------------
+" NeoComplCache (http://www.vim.org/scripts/script.php?script_id=2620)
+" ----------------------------------------------------------------------------
+
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_enable_camel_case_completion=1
+let g:neocomplcache_enable_underbar_completion=1
+let g:neocomplcache_min_syntax_length=3
+let g:neocomplcache_lock_buffer_name_pattern='\*ku\*'
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns={}
+endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup() 
+inoremap <expr><C-e> neocomplcache#cancel_popup() 
+
+map <leader>N :NeoComplCacheDisable<CR>
 
 " EOF

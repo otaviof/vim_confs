@@ -5,9 +5,10 @@
 source ~/.vim/set_globals.vim
 
 if has("gui_macvim")
-    map <D-T> :CommandT<CR>
-
     set title
+
+    " PeepOpen
+    map <D-T> :PeepOpen<CR>
 
     set guicursor=n-v-c:block-Cursor
     set guicursor+=i:blinkwait575-iCursor
