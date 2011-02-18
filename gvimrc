@@ -2,6 +2,12 @@
 " ~/.gvimrc
 " ----------------------------------------------------------------------------
 
+let apleader= ','
+let leader=','
+let localleader=","
+let mapleader=","
+let maplocalleader=','
+
 source ~/.vim/set_globals.vim
 
 if has("gui_macvim")
