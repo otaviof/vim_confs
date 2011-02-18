@@ -1,6 +1,6 @@
-" ----------------------------------------------------------------------------
+"
 " ~/.vimrc (https://github.com/otaviof/vim_confs)
-" ----------------------------------------------------------------------------
+"
 
 let apleader= ','
 let leader=','
@@ -8,31 +8,31 @@ let localleader=","
 let mapleader=","
 let maplocalleader=','
 
-
-" set notitle
-
 nnoremap ' `
 nnoremap ` '
 
-filetype on
+filetype off
+
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+let &rtp = pathogen#join(&rtp, pathogen#glob_directories(’~/.vim/bundle/*’))
+
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+syntax   enable
 filetype plugin on
 filetype indent on
-
-if &t_Co > 1
-    syntax enable
-endif
-
-source ~/.vim/set_globals.vim
 
 if has("autocmd")
     source ~/.vim/augroup.vim
 endif
+source ~/.vim/set_globals.vim
 
 runtime macros/matchit.vim
 
 
 " ----------------------------------------------------------------------------
-" Methods and special maps for them
+" -- Methods and special maps for them:
 " ----------------------------------------------------------------------------
 
 """ Returns Current Directory
@@ -106,19 +106,8 @@ noremap <Localleader>gm :call GotoSub(expand('<cword>'))<cr>
 
 
 " ----------------------------------------------------------------------------
-" Mappings
+" -- Mappings:
 " ----------------------------------------------------------------------------
-
-" Git bindings
-nnoremap ,gd :GitDiff<Enter>
-nnoremap ,gD :GitDiff --cached<Enter>
-nnoremap ,gs :GitStatus<Enter>
-nnoremap ,gl :GitLog<Enter>
-nnoremap ,ga :GitAdd<Enter>
-nnoremap ,gA :GitAdd <cfile><Enter>
-nnoremap ,gc :GitCommit<Enter>
-nnoremap ,gp :GitPullRebase<Enter>
-nnoremap ,gP :GitPush<Enter>
 
 " Open and edit vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -179,7 +168,7 @@ nnoremap <silent> <tab> :bn<CR
 
 
 " ----------------------------------------------------------------------------
-" Plugins Options
+" -- Plugins Options:
 " ----------------------------------------------------------------------------
 
 " ACP (Omni Completion)
@@ -226,8 +215,24 @@ let xml_use_xhtml=1
 let g:nrrw_rgn_vert=1
 let g:nrrw_rgn_nohl=1
 
+
 " ----------------------------------------------------------------------------
-" NeoComplCache (http://www.vim.org/scripts/script.php?script_id=2620)
+" -- Git bindings:
+" ----------------------------------------------------------------------------
+
+nnoremap ,gd :GitDiff<Enter>
+nnoremap ,gD :GitDiff --cached<Enter>
+nnoremap ,gs :GitStatus<Enter>
+nnoremap ,gl :GitLog<Enter>
+nnoremap ,ga :GitAdd<Enter>
+nnoremap ,gA :GitAdd <cfile><Enter>
+nnoremap ,gc :GitCommit<Enter>
+nnoremap ,gp :GitPullRebase<Enter>
+nnoremap ,gP :GitPush<Enter>
+
+
+" ----------------------------------------------------------------------------
+" -- NeoComplCache (http://www.vim.org/scripts/script.php?script_id=2620):
 " ----------------------------------------------------------------------------
 
 let g:neocomplcache_enable_at_startup=1
