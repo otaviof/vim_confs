@@ -61,9 +61,6 @@ function! PerlCompletionBehavior()
     return behavs
 endf
 
-let g:acp_behavior = {}
-cal extend(g:acp_behavior, PerlCompletionBehavior(), 'keep')
-
 """ Perl function declaration
 function! GotoSub(subname)
     let files  = []
@@ -170,9 +167,6 @@ nnoremap <silent> <tab> :bn<CR
 " -- Plugins Options:
 " ----------------------------------------------------------------------------
 
-" ACP (Omni Completion)
-let g:acp_enableAtStartup=0
-
 " Perl Options
 let g:def_perl_comp_bfunction=1
 let g:def_perl_comp_packagen=1
@@ -209,10 +203,6 @@ let b:delimitMate_visual_leader="f"
 let xml_tag_completion_map="<C-l>"
 let xml_tag_syntax_prefixes='html\|xml'
 let xml_use_xhtml=1
-
-" Narrow Region Plugin
-let g:nrrw_rgn_vert=1
-let g:nrrw_rgn_nohl=1
 
 
 " ----------------------------------------------------------------------------
