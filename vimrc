@@ -14,7 +14,6 @@ nnoremap ` '
 filetype off
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-let &rtp = pathogen#join(&rtp, pathogen#glob_directories(’~/.vim/bundle/*’))
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
