@@ -13,3 +13,6 @@
 [submodule "bundle/vim-git-branch-info"]
 	path = bundle/vim-git-branch-info
 	url = https://github.com/taq/vim-git-branch-info.git
+[submodule "bundle/bash-support.vim"]
+	path = bundle/bash-support.vim
+	url = https://github.com/gregwork/bash-support.vim.git
