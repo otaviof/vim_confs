@@ -32,11 +32,7 @@ if has("gui_macvim")
 
     set cul hlg=en ls=2 mh mouse=a nu tenc=utf-8 transparency=5
     set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
-    set foldmethod=syntax history=50 lines=53 columns=100
-
-    let g:BASH_LoadMenus='no'
-    let g:C_LoadMenus='no'
-    let g:Perl_LoadMenus='no'
+    set foldmethod=syntax history=50 lines=53 columns=125
 
     colorscheme no_quarter
 

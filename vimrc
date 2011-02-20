@@ -3,6 +3,7 @@
 "
 
 let apleader= ','
+
 let leader=','
 let localleader=","
 let mapleader=","
@@ -203,6 +204,11 @@ let b:delimitMate_visual_leader="f"
 let xml_tag_completion_map="<C-l>"
 let xml_tag_syntax_prefixes='html\|xml'
 let xml_use_xhtml=1
+
+" Not loading some menus
+let BASH_LoadMenus='no'
+let C_LoadMenus='no'
+let Perl_LoadMenus='no'
 
 
 " ----------------------------------------------------------------------------

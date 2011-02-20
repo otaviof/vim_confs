@@ -30,6 +30,7 @@ augroup END
 
 augroup perl
     au!
+    au syntax perl let Perl_LoadMenus='yes'
     au syntax perl setlocal equalprg=perltidy\ -pbp\ -ce omnifunc=PerlComplete
     au filetype perl setlocal keywordprg=perldoc\ -T\ -f
     au filetype perl syn include @perlDATA syntax/MojoliciousTemplate.vim
