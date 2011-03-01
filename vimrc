@@ -210,6 +210,8 @@ let BASH_LoadMenus='no'
 let C_LoadMenus='no'
 let Perl_LoadMenus='no'
 
+" FIXME Indent Guide
+let g:indent_guides_hex_color_pattern=""
 
 " ----------------------------------------------------------------------------
 " -- Git bindings:
