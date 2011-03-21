@@ -21,7 +21,7 @@ let colors_name = "no_quarter"
 
 hi Normal                   gui=none        guifg=gray90        guibg=gray12
 
-hi Comment                  gui=none        guifg=#647bcf       guibg=bg
+hi Comment                  gui=none        guifg=#738DF2       guibg=bg
 hi Constant                 gui=none        guifg=#b07050       guibg=bg
 hi Cursor                   gui=none        guifg=NONE          guibg=darkorange
 hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
