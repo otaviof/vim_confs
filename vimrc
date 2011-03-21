@@ -18,8 +18,13 @@ if has("autocmd")
     source ~/.vim/augroup.vim
 endif
 
+set softtabstop=2
+set shiftwidth=2
+set tabstop=8
+set expandtab
+set undolevels=1000
+
 set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-set et ts=2 sw=4 sts=4 tw=78
 
 set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
 set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•

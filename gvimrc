@@ -7,7 +7,6 @@ if has("autocmd")
 endif
 
 set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-set et ts=4 ts=4 sw=4 sts=4 tw=78
 
 set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
 set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
@@ -49,7 +48,6 @@ if has("gui_running")
         colorscheme no_quarter
 
         set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-        set et ts=4 ts=4 sw=4 sts=4 tw=78
 
         set backspace=indent,eol,start browsedir=current complete+=k
         set selectmode=mouse
