@@ -15,6 +15,7 @@ setf man
 colorscheme blackboard
 
 set title foldlevel=999 scrolloff=999
+set columns=120 lines=50
 set cc=0 tw=80 ruler cursorline ls=2 nu nornu
 set transparency=5
 
