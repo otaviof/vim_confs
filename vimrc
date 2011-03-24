@@ -19,8 +19,8 @@ if has("autocmd")
 endif
 
 set ai ar aw awa et is js list nobk noml ru sm smd si sta tildeop wmnu
-set et ts=2 sw=4 sts=4 tw=78
-
+"#set et ts=2 sw=4 sts=4 tw=78
+set et sw=2 ts=8 sts=2
 set backspace=indent,eol,start browsedir=current complete+=k selectmode=mouse
 set listchars=nbsp:¬,tab:»·,extends:»,precedes:«,trail:•
 set vb t_vb= wildignore=*.bak,*.o,*.e,*~
