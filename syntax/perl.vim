@@ -1,12 +1,4 @@
 " Vim syntax file
-"
-" Language:     Perl with MooseX::Declare and Moose keywords
-" Maintainer:   Rafael Kitover <rkitover@cpan.org>
-" Last Change:  2009-09-30
-" Contributors: Denis Pokataev
-"
-" ORIGINAL VERSION:
-"
 " Language:	Perl
 " Maintainer:	Lukas Mai <l.mai@web.de>
 " Last Change:	2008-08-08
@@ -20,10 +12,10 @@
 " The following parameters are available for tuning the
 " perl syntax highlighting, with defaults given:
 "
-" let perl_include_pod=1
+" unlet perl_include_pod
 " unlet perl_no_scope_in_variables
 " unlet perl_no_extended_vars
-" let perl_string_as_statement=1
+" unlet perl_string_as_statement
 " unlet perl_no_sync_on_sub
 " unlet perl_no_sync_on_global_var
 " let perl_sync_dist = 100
@@ -32,66 +24,8 @@
 " let perl_nofold_packages = 1
 " let perl_nofold_subs = 1
 
-" *** MOOSE STUFF ***
-" TODO:
-" fix $foo->Bar->baz(23)->dongs highlighting
-" make the -> for method calls a different color
-" make methods a different color than variables
-
-" set some nice defaults people usually don't set, unless overridden
-if !exists("perl_include_pod")
-  let perl_include_pod=1
-endif
-if !exists("perl_string_as_statement")
-  let perl_string_as_statement=1
-endif
-
-" Moose (and some other common) functions
-syn match perlStatementProc		"\<\%(blessed\|reftype\|confess\|carp\|croak\|class_has\|has\|inner\|is\|mutable\|immutable\|immutable\|super\|requires\)\>"
-
-" Moose typelib stuff
-syn match perlStatementProc		"\<\%(subtype\|coerce\|as\|from\|via\|message\|enum\|class_type\|role_type\|maybe_type\|duck_type\|optimize_as\|type\|where\)\>"
-
-" Test::More, Test::Moose and Test::Exception stuff (except for "is", which is
-" already highlighted.)
-syn match perlStatementProc             "\<\%(plan\|use_ok\|require_ok\|ok\|isnt\|diag\|like\|unlike\|cmp_ok\|is_deeply\|skip\|can_ok\|isa_ok\|pass\|fail\|BAIL_OUT\|meta_ok\|does_ok\|has_attribute_ok\|throws_ok\|dies_ok\|lives_ok\|lives_and\)\>"
-
-syn match perlMethodName +\%(\h\|::\|['"]\)\%(\w\|::\)\+["']\?\_s*\|+ contained nextgroup=perlPossibleComma
-
-syn match perlPossibleComma +\_s*\%(=>\|,\)\?\_s*\|+ contained nextgroup=perlAnonSubOrMethod
-
-syn match perlAnonSubOrMethod +\_s*\%(sub\|method\)\_s*\|+ contained contains=perlFunction nextgroup=perlMethodSignature
-
-syn match perlMethodSignature +\_s*\%((\_[^)]*)\)\?\_s*\|+ nextgroup=perlSubAttributes contained contains=@perlExpr,perlStatementProc
-
-syn match perlFunction +\<\%(class\|role\|extends\|with\)\>\_s*+ nextgroup=perlPackageRef
-
-syn match perlFunction +\<\%(method\|before\|after\|around\|override\|augment\)\>\_s*+ nextgroup=perlMethodName
-
-command -nargs=+ HiLink hi def link <args>
-HiLink perlMethodName Function
-delcommand HiLink
-
-"hilite Moose types
-syn match perlString "\<Any\>\|\<Item\>\|\<Bool\>\|\<Maybe\>\|\<Undef\>\|\<Defined\>\|\<Value\>\|\<Num\>\|\<Int\>\|\<Str\>\|\<ClassName\>\|\<Ref\>\|\<ScalarRef\>\|\<ArrayRef\>\|\<HashRef\>\|\<CodeRef\>\|\<RegexpRef\>\|\<GlobRef\>\|\<FileHandle\>\|\<Object\>\|\<Role\>"
-
-if !exists("perl_no_sync_on_sub")
-  syn sync match perlSync	grouphere NONE "^\s*\<method\>"
-  syn sync match perlSync	grouphere NONE "^\s*\<class\>"
-  syn sync match perlSync	grouphere NONE "^\s*\<role\>"
-endif
-
-if exists("perl_fold")
-  if !exists("perl_nofold_subs")
-    syn region perlSubFold     start="^\z(\s*\)\<class\>.*[^};]$" end="^\z1}\s*\%(#.*\)\=$" transparent fold keepend
-    syn region perlSubFold     start="^\z(\s*\)\<method\>.*[^};]$" end="^\z1}\s*\%(#.*\)\=$" transparent fold keepend
-  endif
-endif
-
-" *** END OF MOOSE STUFF, ORIGINAL FOLLOWS ***
-
 if version < 600
-  echoerr ">=vim-6.0 is required to run perl.vim"
+  echoerr ">=vim-6.0 is required to run perl-mauke.vim"
   finish
 elseif exists("b:current_syntax")
   finish
@@ -99,7 +33,7 @@ endif
 
 " POD starts with ^=<word> and ends with ^=cut
 
-if perl_include_pod
+if exists("perl_include_pod")
   " Include a while extra syntax file
   syn include @Pod syntax/pod.vim
   unlet b:current_syntax
@@ -133,7 +67,7 @@ syn match perlOperator			"\<\%(defined\|undef\|eq\|ne\|[gl][et]\|cmp\|not\|and\|
 syn match perlControl			"\<\%(BEGIN\|CHECK\|INIT\|END\|UNITCHECK\)\>"
 
 syn match perlStatementStorage		"\<\%(my\|our\|local\|state\)\>"
-syn match perlStatementControl		"\<\%(return\|last\|next\|redo\|goto\|break\|new\)\>"
+syn match perlStatementControl		"\<\%(return\|last\|next\|redo\|goto\|break\)\>"
 syn match perlStatementScalar		"\<\%(chom\=p\|chr\|crypt\|r\=index\|lc\%(first\)\=\|length\|ord\|pack\|sprintf\|substr\|uc\%(first\)\=\)\>"
 syn match perlStatementRegexp		"\<\%(pos\|quotemeta\|split\|study\)\>"
 syn match perlStatementNumeric		"\<\%(abs\|atan2\|cos\|exp\|hex\|int\|log\|oct\|rand\|sin\|sqrt\|srand\)\>"
@@ -159,7 +93,7 @@ syn match perlStatementMisc		"\<\%(warn\|formline\|reset\|scalar\|prototype\|loc
 
 syn keyword perlTodo			TODO TBD FIXME XXX contained
 
-syn region perlStatementIndirObjWrap	matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|print\|system\|exec\)\>\s*{" end="}" contains=@perlTop,perlGenericBlock
+syn region perlStatementIndirObjWrap	matchgroup=perlStatementIndirObj start="\<\%(map\|grep\|sort\|print\|system\|exec\)\>\s*{" end="}" contains=@perlTop,perlGenericBlock,perlStatementIndirObjWrap,perlStatementScalar,perlStatementRegexp,perlStatementNumeric,perlStatementList,perlStatementHash,perlStatementFiles,perlStatementTime,perlStatementMisc,perlVarPlain,perlVarPlain2,perlVarNotInMatches,perlVarSlash,perlVarBlock,perlVarBlock2,perlShellCommand,perlFloat,perlNumber,perlStringUnexpanded,perlString,perlQQ,perlArrow,perlGenericBlock
 
 syn match perlLabel      "^\s*\h\w*\s*::\@!\%(\<v\d\+\s*:\)\@<!"
 
@@ -431,7 +365,7 @@ endif
 syn match  perlString "\<\I\i*\%(\s*=>\)\@="
 
 " All other # are comments, except ^#!
-syn match  perlComment		"#.*" contains=perlTodo,@Spell
+syn match  perlComment		"#.*" contains=perlTodo
 syn match  perlSharpBang	"^#!.*"
 
 " Formats
@@ -472,7 +406,7 @@ if exists("perl_fold")
   syn sync fromstart
 else
   " fromstart above seems to set minlines even if perl_fold is not set.
-  syn sync minlines=3000
+  syn sync minlines=0
 endif
 
 
@@ -501,7 +435,7 @@ HiLink perlSubAttributes	PreProc
 HiLink perlSubAttributesCont	perlSubAttributes
 HiLink perlComment		Comment
 HiLink perlTodo			Todo
-if perl_string_as_statement
+if exists("perl_string_as_statement")
   HiLink perlStringStartEnd	perlStatement
 else
   HiLink perlStringStartEnd	perlString
@@ -589,7 +523,7 @@ endif
 if exists("perl_sync_dist")
   execute "syn sync maxlines=" . perl_sync_dist
 else
-  syn sync maxlines=5000
+  syn sync maxlines=100
 endif
 
 syn sync match perlSyncPOD	grouphere perlPOD "^=pod"
@@ -598,3 +532,5 @@ syn sync match perlSyncPOD	grouphere perlPOD "^=item"
 syn sync match perlSyncPOD	grouphere NONE "^=cut"
 
 let b:current_syntax = "perl"
+
+" vim: ts=8
