@@ -16,8 +16,8 @@ augroup markdown
     au!
     au filetype html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     au filetype css setlocal omnifunc=csscomplete#CompleteCSS
-    au filetype xml setlocal omnifunc=xmlcomplete#CompleteTags 
-    au syntax mason setlocal equalprg=perltidy\ -pbp\ -ce omnifunc=PerlComplete
+    au filetype xml setlocal omnifunc=xmlcomplete#CompleteTags
+    au syntax mason setlocal equalprg=perltidy omnifunc=PerlComplete
     au filetype mason setlocal keywordprg=perldoc\ -T\ -f
     au syntax {xml,xhtml,html,htm,erb} runtime ftplugin/xml.vim
     au syntax *html* source ~/.vim/script/closetag.vim
@@ -31,7 +31,7 @@ augroup END
 augroup perl
     au!
     au syntax perl let Perl_LoadMenus='yes'
-    au syntax perl setlocal equalprg=perltidy\ -pbp\ -ce omnifunc=PerlComplete
+    au syntax perl setlocal equalprg=perltidy omnifunc=PerlComplete
     au filetype perl setlocal keywordprg=perldoc\ -T\ -f
     au filetype perl syn include @perlDATA syntax/MojoliciousTemplate.vim
 augroup END
