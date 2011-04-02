@@ -2,10 +2,10 @@
 " -- Vim's Colorscheme --
 "
 "  Maintainer: Otavio Fernandes <otaviof@gmail.com>
-" Last Change: 2011/01/22
-"     Version: 1.1.0
+" Last Change: 2011/03/28
+"     Version: 1.1.2
 "
-" vim: ts=4
+"vim: ts=4,sw=4
 "
 
 set background=dark
@@ -15,17 +15,15 @@ if exists("syntax_on")
 endif
 let colors_name = "no_quarter"
 
+
 "
 " Vim Colors (Default Options)
 "
 
-hi Normal                   gui=none        guifg=gray90        guibg=gray12
+hi Normal                   gui=none        guifg=gray90        guibg=gray15
 
-hi Comment                  gui=none        guifg=#738DF2       guibg=bg
-hi Constant                 gui=none        guifg=#b07050       guibg=bg
-hi Cursor                   gui=none        guifg=NONE          guibg=darkorange
-hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
-hi CursorLine               gui=none        guifg=NONE          guibg=gray20
+hi Comment                  gui=none        guifg=#8B97E4       guibg=bg
+hi Constant                 gui=none        guifg=#D77A7A       guibg=bg
 hi DiffAdd                  gui=none        guifg=#a0d0ff       guibg=#0020a0
 hi DiffChange               gui=none        guifg=#e03870       guibg=#601830
 hi DiffDelete               gui=none        guifg=#a0d0ff       guibg=#0020a0
@@ -35,16 +33,15 @@ hi Error                    gui=bold        guifg=white         guibg=red
 hi ErrorMsg                 gui=bold        guifg=#ffa0ff       guibg=bg
 hi FoldColumn               gui=none        guifg=darkslategray guibg=bg
 hi Folded                   gui=none        guifg=#40f0f0       guibg=#006090
-hi iCursor                  gui=none        guifg=fg            guibg=green
 hi Identifier               gui=none        guifg=#90c0c0       guibg=bg
-hi Ignore                   gui=none        guifg=bg            guibg=bg
+hi Ignore                   gui=none        guifg=gray60        guibg=bg
 hi IncSearch                gui=underline   guifg=#80ffff       guibg=#0060c0
-hi LineNr                   gui=none        guifg=gray30        guibg=gray10
+hi LineNr                   gui=none        guifg=gray45        guibg=gray20
 hi ModeMsg                  gui=bold        guifg=#a0d0ff       guibg=bg
 hi MoreMsg                  gui=none        guifg=lightred      guibg=bg
 hi NonText                  gui=none        guifg=gray30        guibg=bg
-hi OverLength               gui=none        guifg=fg            guibg=gray30
 hi Operator                 gui=none        guifg=#c0c090       guibg=bg
+hi OverLength               gui=none        guifg=fg            guibg=gray30
 hi PreProc                  gui=none        guifg=#c090c0       guibg=bg
 hi Question                 gui=bold        guifg=#e8e800       guibg=bg
 hi Search                   gui=none        guifg=bg            guibg=gray60
@@ -66,6 +63,17 @@ hi WildMenu                 gui=none        guifg=#000000       guibg=#abac84
 hi htmlTagName              gui=none        guifg=grey70        guibg=bg
 hi lCursor                  gui=none        guifg=#ffffff       guibg=#8800ff
 
+
+"
+" Cursor
+"
+
+hi Cursor                   gui=none        guifg=NONE          guibg=darkorange
+hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
+hi CursorLine               gui=none        guifg=NONE          guibg=gray20
+hi iCursor                  gui=none        guifg=fg            guibg=green
+
+
 "
 " Other tools
 "
@@ -77,6 +85,7 @@ hi PmenuSel                 gui=bold        guifg=orange        guibg=grey30
 hi PmenuThumb               gui=none        guifg=grey30        guibg=bg
 hi TagListTagName           gui=underline   guifg=fg            guibg=bg
 hi RightMargin              gui=none        guifg=fg            guibg=#453030
+
 
 "
 " Perl's
@@ -113,31 +122,6 @@ hi perlVarSimpleMemberName  gui=none        guifg=gray70        guibg=bg
 hi perlSpecialDollar        gui=bold        guifg=white         guibg=black
 hi perlVarBlock             gui=none        guifg=gray70        guibg=bg
 
-"
-" Python
-"
-
-hi pythonDecorator          gui=bold        guifg=#3b3b3b       guibg=bg
-hi pythonDot                gui=NONE        guifg=grey          guibg=bg
-hi pythonOperator           gui=NONE        guifg=#ffdf87       guibg=bg
-hi pythonNumber             gui=none        guifg=#5faf5f       guibg=bg
-hi pythonException          gui=NONE        guifg=#dfaf5f       guibg=bg
-hi pythonRepeat             gui=NONE        guifg=#ffff87       guibg=bg
-hi pythonString             gui=NONE        guifg=#af5f5f       guibg=bg
-
-" -- Python ------------------------------------------------------------------
-" pythonBinError pythonConditional pythonError pythonFunction
-" pythonOctNumber pythonRun pythonUniRawEscapeError pythonBinNumber
-" pythonEscape pythonHexError pythonSpaceError pythonSync
-" pythonUniRawString pythonBuiltinFunc pythonDocTest pythonEscapeError
-" pythonHexNumber pythonPreCondit pythonStatement pythonTodo
-" pythonUniString pythonBuiltinObj pythonDocTest2 pythonExClass
-" pythonIndentError pythonRawEscape pythonStrFormat pythonUniEscape
-" pythonCoding pythonRawString pythonStrFormatting pythonUniEscapeError
-" pythonComment pythonDottedName pythonFloat pythonOctError
-" pythonStrTemplate pythonUniRawEscape
-" ----------------------------------------------------------------------------
-
 " -- Perl --------------------------------------------------------------------
 " perlCharacter perlConditional perlFiledescRead perlFiledescStatement
 " perlFloat perlFormatField perlFormatName perlFunctionPRef perlHereDoc
@@ -153,5 +137,34 @@ hi pythonString             gui=NONE        guifg=#af5f5f       guibg=bg
 " perlSubstitutionSlash perlTranslationBracket perlTranslationCurly
 " perlTranslationHash perlTranslationSlash perlType perlVarSlash
 " ----------------------------------------------------------------------------
+
+
+"
+" Python
+"
+
+hi pythonDecorator          gui=NONE        guifg=orangered     guibg=bg
+hi pythonDot                gui=NONE        guifg=grey          guibg=bg
+hi pythonOperator           gui=NONE        guifg=#ffdf87       guibg=bg
+hi pythonException          gui=NONE        guifg=#dfaf5f       guibg=bg
+hi pythonRepeat             gui=NONE        guifg=#B54E52       guibg=bg
+
+hi link pythonString Constant
+hi link pythonNumber Number
+
+
+" -- Python ------------------------------------------------------------------
+" pythonBinError pythonConditional pythonError pythonFunction
+" pythonOctNumber pythonRun pythonUniRawEscapeError pythonBinNumber
+" pythonEscape pythonHexError pythonSpaceError pythonSync
+" pythonUniRawString pythonBuiltinFunc pythonDocTest pythonEscapeError
+" pythonHexNumber pythonPreCondit pythonStatement pythonTodo
+" pythonUniString pythonBuiltinObj pythonDocTest2 pythonExClass
+" pythonIndentError pythonRawEscape pythonStrFormat pythonUniEscape
+" pythonCoding pythonRawString pythonStrFormatting pythonUniEscapeError
+" pythonComment pythonDottedName pythonFloat pythonOctError
+" pythonStrTemplate pythonUniRawEscape
+" ----------------------------------------------------------------------------
+
 
 " EOF

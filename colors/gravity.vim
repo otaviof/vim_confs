@@ -14,52 +14,51 @@ let colors_name = "gravity"
 
 
 " General colors
-hi Normal       guifg=#404040   guibg=#f0f0f0 gui=NONE
-hi NonText      guifg=#f0f0f0   guibg=#f0f0f0 gui=NONE
-hi Cursor       guifg=white     guibg=black   gui=NONE
-hi LineNr       guifg=white     guibg=#c0d0e0 gui=NONE
-hi VertSplit    guifg=#4b5e81   guibg=#4b5e81 gui=NONE
-hi StatusLine   guifg=#ffffff   guibg=#2a3a57 gui=NONE
-hi StatusLineNC guifg=#ffffff   guibg=#4b5e81 gui=NONE
-hi Folded       guifg=#404040   guibg=#dcdcdc gui=NONE
-hi Title        guifg=#101010   guibg=NONE    gui=BOLD
-hi Visual       guifg=white     guibg=#A00000 gui=NONE
-hi SpecialKey   guifg=#808080   guibg=#343434 gui=NONE
-hi WildMenu     guifg=green     guibg=yellow  gui=NONE
-hi PmenuSbar    guifg=black     guibg=white   gui=NONE
-"hi Ignore      guifg=gray      guibg=black   gui=NONE
-hi Error        guifg=NONE      guibg=NONE    gui=undercurl
-hi ErrorMsg     guifg=white     guibg=#FF0000 gui=BOLD
-hi WarningMsg   guifg=white     guibg=#FF0000 gui=BOLD
-hi ModeMsg      guifg=#ff8a00   guibg=#f0f0f0 gui=BOLD
-hi IncSearch    guifg=orangered guibg=white
-hi Directory    guifg=#CB1014
+hi Normal           guifg=#404040     guibg=#f0f0f0     gui=NONE
+hi NonText          guifg=#f0f0f0     guibg=#f0f0f0     gui=NONE
+hi Cursor           guifg=white       guibg=black       gui=NONE
+hi LineNr           guifg=white       guibg=#c0d0e0     gui=NONE
+hi VertSplit        guifg=#4b5e81     guibg=#4b5e81     gui=NONE
+hi StatusLine       guifg=#ffffff     guibg=#2a3a57     gui=NONE
+hi StatusLineNC     guifg=#ffffff     guibg=#4b5e81     gui=NONE
+hi Folded           guifg=#404040     guibg=#dcdcdc     gui=NONE
+hi Title            guifg=#101010     guibg=NONE        gui=BOLD
+hi Visual           guifg=white       guibg=#A00000     gui=NONE
+hi SpecialKey       guifg=#808080     guibg=#343434     gui=NONE
+hi WildMenu         guifg=green       guibg=yellow      gui=NONE
+hi PmenuSbar        guifg=black       guibg=white       gui=NONE
+hi Ignore           guifg=gray        guibg=black       gui=NONE
+hi Error            guifg=NONE        guibg=NONE        gui=undercurl
+hi ErrorMsg         guifg=white       guibg=#FF0000     gui=BOLD
+hi WarningMsg       guifg=white       guibg=#FF0000     gui=BOLD
+hi ModeMsg          guifg=#ff8a00     guibg=#f0f0f0     gui=BOLD
+hi IncSearch        guifg=orangered   guibg=white
+hi Directory        guifg=#CB1014
 
 if version >= 700 " Vim 7.x specific colors
-  hi CursorLine     guifg=NONE        guibg=#c0d0e0     gui=NONE
+  hi CursorLine     guifg=NONE        guibg=#D3DDF5     gui=NONE
   hi CursorColumn   guifg=NONE        guibg=#c0d0e0     gui=NONE
-  hi MatchParen	    guifg=red         guibg=#f0f0f0     gui=BOLD
+  hi MatchParen     guifg=red         guibg=cyan        gui=BOLD
   hi Pmenu          guifg=#f6f3e8     guibg=#444444     gui=NONE
   hi PmenuSel       guifg=#ffffff     guibg=#7d0000     gui=NONE
-  hi Search	    guifg=white	      guibg=orangered   gui=NONE
+  hi Search         guifg=white	      guibg=orangered   gui=NONE
 endif
 
 " Diff highlighting
-hi DiffAdd          guifg=NONE    guibg=#b4de85 gui=NONE
-hi DiffDelete       guifg=#9c9c9c guibg=#7c7c7c gui=NONE
-hi DiffChange       guifg=NONE    guibg=#87c5dc gui=NONE
-hi DiffText         guifg=#ffffff guibg=#a40004 gui=NONE
+hi DiffAdd          guifg=NONE        guibg=#b4de85     gui=NONE
+hi DiffDelete       guifg=#9c9c9c     guibg=#7c7c7c     gui=NONE
+hi DiffChange       guifg=NONE        guibg=#87c5dc     gui=NONE
+hi DiffText         guifg=#ffffff     guibg=#a40004     gui=NONE
 
 " Syntax highlighting
-" TODO 
-hi Comment          guifg=#707070     guibg=NONE        gui=NONE
-hi String           guifg=#c40020     guibg=NONE        gui=NONE
+hi Comment          guifg=gray40      guibg=gray90      gui=NONE
+hi String           guifg= #D03631    guibg=NONE        gui=NONE
 hi Number           guifg=#c40020     guibg=NONE        gui=NONE
 hi Keyword          guifg=#2a9400     guibg=NONE        gui=NONE
 hi PreProc          guifg=#2a9400     guibg=NONE        gui=NONE
 hi Conditional      guifg=#001ac4     guibg=NONE        gui=NONE
 hi Todo             guifg=#8f8f8f     guibg=NONE        gui=NONE
-hi Todo		        guifg=orangered
+hi Todo             guifg=orangered
 hi Constant         guifg=#c40020     guibg=NONE        gui=NONE
 hi Identifier       guifg=#7800c4     guibg=NONE        gui=NONE
 hi Function         guifg=#d8008e     guibg=NONE        gui=NONE
@@ -67,13 +66,6 @@ hi Type             guifg=#00A0A0     guibg=NONE        gui=NONE
 hi Statement        guifg=#001ac4     guibg=NONE        gui=NONE
 hi Special          guifg=#007958     guibg=grey80      gui=NONE
 hi Delimiter        guifg=#000557     guibg=NONE        gui=NONE
-
-hi Operator         guifg=#404040     guibg=NONE        gui=NONE
-hi NonText                  gui=none        guifg=gray30        guibg=bg
-
-hi iCursor                  gui=none        guifg=fg            guibg=green
-hi lCursor                  gui=none        guifg=#ffffff       guibg=#8800ff
-
 
 hi link Character       Constant
 hi link Boolean         Constant
@@ -97,35 +89,34 @@ hi link Debug           Special
 " Perl's
 "
 
-hi perlControl              gui=none        guifg=#0c0c090       guibg=bg
-hi perlFunctionName         gui=none        guifg=gray20        guibg=bg
-hi perlIdentifier           gui=none        guifg=gray40        guibg=bg
+hi perlControl              gui=none        guifg=#0c0c09       guibg=bg
+" hi perlFunctionName         gui=none        guifg=blue          guibg=bg
+hi perlIdentifier           gui=none        guifg=#805280       guibg=bg
 hi perlLabel                gui=none        guifg=#c0c090       guibg=bg
 hi perlMatchStartEnd        gui=none        guifg=#c0c090       guibg=bg
-hi perlNumber               gui=none        guifg=#5faf5f       guibg=bg
-hi perlOperator             gui=none        guifg=#c0c090       guibg=bg
+hi perlNumber               gui=none        guifg=darkgreen     guibg=bg
+hi perlOperator             gui=none        guifg=#D26900       guibg=bg
 hi perlPackageDecl          gui=none        guifg=#80ac7b       guibg=bg
-hi perlQQ                   gui=none        guifg=gray65        guibg=bg
-hi perlRepeat               gui=none        guifg=#c0b790       guibg=bg
-hi perlSharpBang            gui=none        guifg=#c0c090       guibg=bg
+hi perlQQ                   gui=none        guifg=gray10        guibg=gray90
+hi perlRepeat               gui=none        guifg=darkgreen     guibg=bg
+hi perlSharpBang            gui=none        guifg=darkblue      guibg=bg
 hi perlShellCommand         gui=none        guifg=lightred      guibg=bg
-hi perlSpecialBEOM          gui=none        guifg=fg            guibg=bg
 hi perlSpecialMatch         gui=none        guifg=#c864c7       guibg=bg
-hi perlSpecialString        gui=none        guifg=#dc966b       guibg=bg
-hi perlStatement            gui=none        guifg=#c0c090       guibg=bg
-hi perlStatementControl     gui=none        guifg=#dcdb6b       guibg=bg
+hi perlStatement            gui=none        guifg=#805280       guibg=bg
+hi perlStatementControl     gui=none        guifg=green         guibg=bg
 hi perlStatementFiledesc    gui=none        guifg=#a2c090       guibg=bg
 hi perlStatementHash        gui=none        guifg=#c0c090       guibg=bg
-hi perlStatementInclude     gui=none        guifg=#c0c090       guibg=bg
+hi perlStatementInclude     gui=none        guifg=darkyellow    guibg=bg
 hi perlStatementNew         gui=underline   guifg=#c0c090       guibg=bg
 hi perlStatementSub         gui=none        guifg=#c0c090       guibg=bg
-hi perlStringStartEnd       gui=italic      guifg=#dc966b       guibg=bg
+hi perlStringStartEnd       gui=italic      guifg=darkred       guibg=bg
 hi perlVarNotInMatches      gui=none        guifg=#915555       guibg=bg
-hi perlVarPlain             gui=none        guifg=#74c5c6       guibg=bg
-hi perlVarPlain2            gui=none        guifg=#74c6a8       guibg=bg
+hi perlVarPlain             gui=none        guifg=darkslategrey  guibg=bg
+hi perlVarPlain2            gui=none        guifg=darkgreen     guibg=bg
 hi perlVarSimpleMember      gui=none        guifg=#c0c090       guibg=bg
-hi perlVarSimpleMemberName  gui=none        guifg=gray70        guibg=bg
+hi perlVarSimpleMemberName  gui=none        guifg=gray40        guibg=bg
 hi perlSpecialDollar        gui=bold        guifg=white         guibg=black
 hi perlVarBlock             gui=none        guifg=gray70        guibg=bg
+
 
 "vim: sw=4

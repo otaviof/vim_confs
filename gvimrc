@@ -35,6 +35,7 @@ if has("gui_macvim")
     set foldmethod=syntax history=50 lines=53 columns=125
 
     colorscheme no_quarter
+    " colorscheme gravity
 
     set invmmta
 
