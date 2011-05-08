@@ -31,3 +31,9 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/vimshell"]
+	path = bundle/vimshell
+	url = https://github.com/Shougo/vimshell.git
+[submodule "bundle/textile.vim"]
+	path = bundle/textile.vim
+	url = https://github.com/timcharper/textile.vim.git
