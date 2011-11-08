@@ -40,3 +40,9 @@
 [submodule "bundle/SQLUtilities"]
 	path = bundle/SQLUtilities
 	url = https://github.com/vim-scripts/SQLUtilities.git
+[submodule "bundle/vim-align"]
+	path = bundle/vim-align
+	url = https://github.com/tsaleh/vim-align.git
+[submodule "bundles/perlomni.vim"]
+	path = bundles/perlomni.vim
+	url = https://github.com/vim-scripts/perlomni.vim.git
