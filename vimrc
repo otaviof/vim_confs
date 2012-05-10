@@ -9,8 +9,8 @@ let localleader=","
 let mapleader=","
 let maplocalleader=','
 
-nnoremap ' `
-nnoremap ` '
+" nnoremap ' `
+" nnoremap ` '
 
 filetype off
 
@@ -40,16 +40,6 @@ function! CurDir()
     let curdir = substitute( getcwd(), $HOME, "~", "g" )
     return curdir
 endfunction
-
-""" Completing words
-function! Mosh_Tab_Or_Complete()
-    if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-        return "\<C-N>"
-    else
-        return "\<Tab>"
-endfunction
-
-inoremap <D-/> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
 """ Perl Completion Behavior
 function! PerlCompletionBehavior()
@@ -101,33 +91,59 @@ endfunction
 
 noremap <Localleader>gm :call GotoSub(expand('<cword>'))<cr>
 
+""" Toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+
+" map <silent> <D-E> :call ToggleVExplorer()<CR>
+
 
 " ----------------------------------------------------------------------------
 " -- Mappings:
 " ----------------------------------------------------------------------------
 
-" Open and edit vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
+" Alloy's file drawer (Textmate's alike)
+" map <silent><D-E>   :macaction toggleDrawer:<CR>
+" map <silent><D-M-e> :macaction selectInDrawer:<CR>
 
 " TaskList Plugin
 map <leader>j <Plug>TaskList
 
+" Ctrl-P
+let g:ctrlp_map = '<D-T>'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
 " Perl Deparse
-nnoremap <silent> <Localleader>d :.!perl -MO=Deparse 2>/dev/null<cr>
-vnoremap <silent> <Localleader>d :!perl -MO=Deparse 2>/dev/null<cr>
+" nnoremap <silent> <Localleader>d :.!perl -MO=Deparse 2>/dev/null<cr>
+" vnoremap <silent> <Localleader>d :!perl -MO=Deparse 2>/dev/null<cr>
 
 " Perl tidy-up coding style
 noremap <leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
-
-" Perl extract subroutines
-vnoremap <leader>sub :! ~/.vim/bin/extract_sub <CR>
 
 " JSON tidy-up
 noremap <leader>jt mz:%!json_xs -f json -t json-pretty<CR>'z:delmarks z<CR>
 
 " Java Completion
-inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
+" inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+" inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 " Spelling checking for pt_BR and en_US
 map <Localleader>s :runtime ~/.vim/spell/<CR>:set spl=pt,en spell<CR>
@@ -154,44 +170,54 @@ map <Localleader>m <ESC>:match rightMargin /.\%>79v/<CR>
 map <Localleader>M <ESC>:match rightMargin <CR>
 
 " NERDTree
-let g:NERDTreeShowBookmarks=1
-map <Localleader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeShowBookmarks=0
+let NERDChristmasTree=1
+let NERDTreeAutoCenter=1
+let NERDTreeWinPos='right'
+map <Localleader>n :execute 'NERDTreeToggle'<CR>
 nnoremap <silent> <Localleader>f :call FindInNERDTree()<CR>
 
-" TagList
-nnoremap <silent>  <F6> :Tlist<CR>
-nnoremap <silent>  <F5> :TlistUpdate<CR>
-nnoremap <silent> <tab> :bn<CR
+" TagBar
+nmap <F6> :TagbarToggle<CR>
+let g:tagbar_left=1
+let g:tagbar_width=27
+let g:tagbar_compact=1
+let g:tagbar_iconchars=['▸', '▾']
 
 
 " ----------------------------------------------------------------------------
 " -- Plugins Options:
 " ----------------------------------------------------------------------------
 
+" Vim-OrgMode
+let g:org_command_for_emacsclient='/Applications/MacPorts/Emacs.app/Contents//MacOS/bin/emacsclient'
+let g:org_tags_alist='{@home(h) @work(w) @mysql(m)} {easy(e) hard(d)}'
+" let g:org_todo_setup='TODO | DONE'
+
 " Perl Options
 let g:def_perl_comp_bfunction=1
 let g:def_perl_comp_packagen=1
 
 let perl_extended_vars=1
-let perl_fold=1
-let perl_fold_blocks=1
 let perl_include_pod=1
-let perl_no_sync_on_global_var=1
-let perl_no_sync_on_sub=1
 let perl_nofold_packages=1
 let perl_nofold_subs=0
 let perl_string_as_statement=1
-let perl_sync_dist=100
 let perl_want_scope_in_variables=1
+let perl_perltags=0
+
+" Python Options
+let python_highlight_all=1
 
 " Tag List Options
-let Tlist_Auto_Highlight_Tag=1
-let Tlist_Compact_Format=0
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_Process_File_Always=1
-let Tlist_Show_One_File=0
-let Tlist_WinWidth=35
-let tlist_perl_settings='perl;c:constants;f:formats;l:labels;p:packages;s:subroutines;d:subroutines;o:POD'
+let tlist_auto_highlight_tag=1
+let tlist_compact_format=0
+let tlist_ctags_cmd='/usr/bin/ctags'
+let tlist_process_file_always=1
+let tlist_show_one_file=0
+let tlist_winwidth=35
+let tlist_perl_settings='perl;u:use;p:package;r:role;e:extends;c:c+onstant;a:attribute;s:subroutine;l:label'
 
 " Delimate options
 let b:delimitMate="(:),[:],{:},<:>"
@@ -199,8 +225,22 @@ let b:delimitMate_autoclose=1
 let b:delimitMate_expand_cr=1
 let b:delimitMate_expand_space=1
 let b:delimitMate_matchpairs="(:),[:],{:},<:>"
-let b:delimitMate_quotes="\" ' ` *"
+let b:delimitMate_quotes="\" ' `"
 let b:delimitMate_visual_leader="f"
+let delimitMate_nesting_quotes = ['"','`']
+
+" NetRW options
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_fastbrowse = 2
+let g:netrw_keepdir = 0
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_retmap = 1
+let g:netrw_silent = 1
+let g:netrw_special_syntax = 1
+let g:netrw_menu = 1
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " XMLEDIT
 let xml_tag_completion_map="<C-l>"
@@ -214,6 +254,13 @@ let Perl_LoadMenus='no'
 
 " FIXME Indent Guide
 let g:indent_guides_hex_color_pattern=""
+
+" Textile default browser
+let g:TextileBrowser="Google Chrome"
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
 
 " ----------------------------------------------------------------------------
 " -- Git bindings:
@@ -234,6 +281,15 @@ nnoremap ,gP :GitPush<Enter>
 " -- NeoComplCache (http://www.vim.org/scripts/script.php?script_id=2620):
 " ----------------------------------------------------------------------------
 
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
+function! s:check_back_space()"{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+endfunction"}}
+
+inoremap <expr><D-l> neocomplcache#complete_common_string()
+
+let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_camel_case_completion=1
@@ -241,10 +297,18 @@ let g:neocomplcache_enable_underbar_completion=1
 let g:neocomplcache_min_syntax_length=3
 let g:neocomplcache_lock_buffer_name_pattern='\*ku\*'
 
-" Define keyword.
+" define keyword
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" define keyword
 if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns={}
 endif
+
 " let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
@@ -257,12 +321,14 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup() 
 inoremap <expr><C-e> neocomplcache#cancel_popup() 
 
+" easy shortcut to disable it
 map <leader>N :NeoComplCacheDisable<CR>
 
 " EOF

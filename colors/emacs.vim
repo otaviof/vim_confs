@@ -17,7 +17,7 @@ endif
 
 let colors_name = "emacs"
 
-hi Normal             gui=none            guifg=gray15        guibg=gray95
+hi Normal             gui=none            guifg=gray15        guibg=gray85
 hi Comment            gui=italic          guifg=blue          guibg=gray95
 hi Constant           gui=none            guifg=darkcyan      guibg=bg
 hi Cursor             gui=none            guifg=fg            guibg=orange
@@ -46,8 +46,8 @@ hi Search             gui=bold            guifg=fg            guibg=yellow
 hi Special            gui=none            guifg=slateblue     guibg=bg
 hi SpecialKey         gui=bold            guifg=blue          guibg=bg
 hi Statement          gui=none            guifg=brown         guibg=bg
-hi StatusLine         gui=reverse,italic  guifg=gray90        guibg=gray30
-hi StatusLineNC       gui=reverse         guifg=fg            guibg=bg
+hi StatusLine         gui=italic          guifg=gray85        guibg=gray20
+hi StatusLineNC       gui=italic          guifg=fg            guibg=bg
 hi SignColumn         gui=none            guifg=darkyellow    guibg=bg
 hi Title              gui=italic          guifg=darkorange    guibg=bg
 hi Todo               gui=bold            guifg=#ff80d0       guibg=bg

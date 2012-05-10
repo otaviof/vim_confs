@@ -1218,6 +1218,8 @@ if has("gui_macvim")
   macm Window.Select\ Next\ Tab			key=<D-}>
   macm Window.Select\ Previous\ Tab		key=<D-{>
   macm Window.Bring\ All\ To\ Front		action=arrangeInFront:
+  " macm Window.Toggle\ File\ Browser key=<D-E>   action=toggleDrawer:
+  " macm Window.Select\ File\ in\ Browser key=<D-M-e>   action=selectInDrawer:
 
   macm Help.MacVim\ Help			key=<D-?>
   macm Help.MacVim\ Website			action=openWebsite:

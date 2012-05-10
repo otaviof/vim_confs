@@ -10,18 +10,20 @@ let maplocalleader=','
 
 source ~/.vim/set_globals.vim
 
+if has("autocmd")
+    source ~/.vim/augroup.vim
+endif
+
 if has("gui_macvim")
     set title
-
-    " PeepOpen
-    map <D-T> :PeepOpen<CR>
 
     set guicursor=n-v-c:block-Cursor
     set guicursor+=i:blinkwait575-iCursor
     set guicursor+=i:ver100-iCursor
     set guicursor+=n-v-c:blinkon0-Cursor
 
-    set guifont=Monaco:h13 lsp=-3
+    " set guifont=Monaco:h13 lsp=-3
+    set guifont=Monaco\ for\ Powerline:h13 lsp=-3
     set guioptions=egmtihvF
     set guitablabel=(%N%M)\ %f
 
@@ -30,20 +32,20 @@ if has("gui_macvim")
     let g:git_branch_status_around="[]"
     let g:git_branch_status_text=" :: "
 
-    set cul hlg=en ls=2 mh mouse=a nu tenc=utf-8 transparency=5
+    set cul hlg=en ls=2 mh mouse=a nu tenc=utf-8 transparency=10
     set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
-    set foldmethod=syntax history=50 lines=53 columns=125
+    set history=50 lines=53 columns=125
+    set colorcolumn=+1,+2,+3,+4,+5,+6,+7,+8,+9,+10,+11,+12,+13,+14,+15,+16,+17,+18,+19,+20,+21,+22,+23,+24,+25,+26,+27,+28,+29,+30,+31,+32,+33,+34,+35,+36,+37,+38,+39,+40,+41,+42,+43,+44,+45,+46,+47
 
     colorscheme no_quarter
-    " colorscheme gravity
+    " set background=light
+    " colorscheme solarized
 
     set invmmta
 
-    macmenu File.Open\ Tab\.\.\. key=<nop>
-endif
+    macm File.Open\ Tab\.\.\. key=<nop>
 
-if has("autocmd")
-    source ~/.vim/augroup.vim
+    silent! unmenu Plugin.Git\ Info
 endif
 
 " EOF

@@ -410,39 +410,6 @@ if !exists("g:Perl_NoKeyMappings") || ( exists("g:Perl_NoKeyMappings") && g:Perl
   "
 endif
 
-" ----------------------------------------------------------------------------
-"  Generate (possibly exuberant) Ctags style tags for Perl sourcecode.
-"  Controlled by g:Perl_PerlTags, enabled by default.
-" ----------------------------------------------------------------------------
-if has('perl') && exists("g:Perl_PerlTags") && g:Perl_PerlTags == 'enabled'
-
-
-	if ! exists("s:defined_functions")
-		function s:init_tags()
-			perl <<EOF
-			require Perl::Tags;
-			$naive_tagger = Perl::Tags::Naive->new( max_level=>2 );
-			# only go one level down by default
-EOF
-		endfunction
-
-		" let vim do the tempfile cleanup and protection
-		let s:tagsfile = tempname()
-
-		call s:init_tags() " only the first time
-
-		let s:defined_functions = 1
-	endif
-
-	call Perl_do_tags( expand('%'), s:tagsfile )
-
-	augroup perltags
-		au!
-		autocmd BufRead,BufWritePost *.pm,*.pl call Perl_do_tags(expand('%'), s:tagsfile)
-	augroup END
-
-endif
-
 "-------------------------------------------------------------------------------
 " additional mapping : {<CR> always opens a block
 "-------------------------------------------------------------------------------

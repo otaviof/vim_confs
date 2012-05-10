@@ -1,7 +1,11 @@
 " ----------------------------------------------------------------------------
 " ~/.vim/augroup.vim (https://github.com/otaviof/vim_confs)
 " ----------------------------------------------------------------------------
-"
+
+augroup confluencewiki
+    au!
+    au BufRead,BufNewFile *.cow setfiletype confluencewiki
+augroup END
 augroup json
     au!
     au BufRead,BufNewFile *.json setfiletype json
@@ -28,9 +32,14 @@ augroup javascript
     au filetype javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 augroup END
 
+augroup org
+    au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+    au filetype org let g:neocomplcache_enable_at_startup=0
+    au bufenter *.org call org#SetOrgFileType()
+augroup END
+
 augroup perl
     au!
-    au syntax perl let Perl_LoadMenus='yes'
     au syntax perl setlocal equalprg=perltidy omnifunc=PerlComplete
     au filetype perl setlocal keywordprg=perldoc\ -T\ -f
     au filetype perl syn include @perlDATA syntax/MojoliciousTemplate.vim
@@ -38,8 +47,11 @@ augroup END
 
 augroup python
     au!
-    au filetype python set omnifunc=pythoncomplete#Complete complete+=k~/.vim/syntax/python.vim isk+=.,(
+    " au filetype python set omnifunc=pythoncomplete#Complete complete+=k~/.vim/syntax/python.vim isk+=.,(
+    " au filetype python setlocal omnifunc=pysmell#Complete complete+=k~/.vim/syntax/python.vim
     au filetype python let python_highlight_all=1
+    au filetype python let g:neocomplcache_enable_at_startup=0
+    " au filetype python call NeoComplCacheDisable()
     au BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 augroup END
 

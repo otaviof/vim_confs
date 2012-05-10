@@ -16,16 +16,15 @@ colorscheme blackboard
 
 set title foldlevel=999 scrolloff=999
 set columns=120 lines=50
-set cc=0 tw=80 ruler cursorline ls=2 nu nornu
-set transparency=5
+set tw=80 ruler cursorline ls=2 nu
+" set cc=0 nonu
+" set transparency=5
 
 set guifont=Monaco:h13 lsp=-3
 set guioptions=egmtihvF
 set guitablabel=(%N%M)\ %f
 
 runtime! macros/less.vim
-
-map <D-T> :PeepOpen<CR>
 
 syn on
 

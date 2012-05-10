@@ -881,7 +881,10 @@ au BufNewFile,BufRead ipf.conf,ipf6.conf,ipf.rules	setf ipfilter
 au BufNewFile,BufRead *.4gl,*.4gh,*.m4gl	setf fgl
 
 " .INI file for MSDOS
-au BufNewFile,BufRead *.ini			setf dosini
+" au BufNewFile,BufRead *.ini			setf dosini
+
+" INI in general
+au BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc setf ini 
 
 " SysV Inittab
 au BufNewFile,BufRead inittab			setf inittab

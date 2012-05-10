@@ -2,7 +2,7 @@
 
 # Script for using ViM as a PAGER.
 # Based on Bram's less.sh.
-# Version 1.5.7
+# Version 1.4.9
 # git://github.com/rkitover/vimpager.git
 
 # Just pass through if not on a tty
@@ -27,18 +27,8 @@ less_vim() {
 	else
 		# The above doesn't work on msys for some reason, so we use
 		# grep.
-		use_gvim=`grep '^[ \t]*\<let[ \t]\+vimpager_use_gvim[ \t]\+=[ \t]\+1' ~/_vimrc 2>/dev/null | head -1`
-		[ -n "$use_gvim" ] || use_gvim=`grep '^[ \t]*\<let[ \t]\+vimpager_use_gvim[ \t]\+=[ \t]\+1' ~/.vimrc 2>/dev/null | head -1`
-
-		# msys may not be installed with an msys vim, and if we're
-		# not in a real console the native Windows vim will not
-		# work, so we have to use gvim.
-
-		if [ "x$TERM" != "xdumb" -a "x$TERM" != "xcygwin" -a "x$TERM" != "x" ]; then
-			if [ \( ! -x /bin/vim \) -a \( ! -x /usr/bin/vim \) -a \( ! -x /usr/local/bin/vim \) ]; then
-				use_gvim=1
-			fi
-		fi
+		use_gvim=`grep '\<let[ \t]\+vimpager_use_gvim[ \t]\+=[ \t]\+1' ~/_vimrc 2>/dev/null | head -1`
+		[ -n "$use_gvim" ] || use_gvim=`grep '\<let[ \t]\+vimpager_use_gvim[ \t]\+=[ \t]\+1' ~/.vimrc 2>/dev/null | head -1`
 	fi
 
         if [ -n "$use_gvim" ]; then
@@ -87,63 +77,27 @@ less_vim() {
 
 	rm -f gvim.exe.stackdump # for cygwin gvim, which can be part of vim
 
-	vimrc=""
-
-	if [ -n "$VIMPAGER_RC" ]; then
-		vimrc=$VIMPAGER_RC
-	elif [ -f ~/.vimpagerrc ]; then
-		vimrc=~/.vimpagerrc
-	elif [ -f ~/_vimpagerrc ]; then
-		vimrc=~/_vimpagerrc
-	fi
-
 	case $vim_cmd in
 		vim*)
-			if [ -n "$vimrc" ]; then
-				$vim_cmd \
-				--cmd 'let vimpager=1' \
-				-u $vimrc \
-				-c 'set scrolloff=5 | runtime! macros/less.vim | set foldlevel=999' \
-				-c 'nmap <ESC>u :nohlsearch<cr>' \
-				"${@:--}"
-			else
-				$vim_cmd \
-				--cmd 'let vimpager=1' \
-				-c 'set scrolloff=5 | runtime! macros/less.vim | set foldlevel=999' \
-				-c 'nmap <ESC>u :nohlsearch<cr>' \
-				"${@:--}"
-			fi
+			$vim_cmd --noplugin \
+			-c 'set scrolloff=999 | runtime! macros/less.vim | set foldlevel=999 | set mouse=h | set nonu | set nolist' \
+			-c 'nmap <ESC>u :nohlsearch<cr>' \
+			"${@:--}"
 			;;
 		*) # gvim or mvim GUI
-			if [ -f ~/.gvimrc ]; then
-				gvimrc=~/.gvimrc
-			elif [ -f ~/_gvimrc ]; then
-				gvimrc=~/_gvimrc
-			elif [ -n "$cygwin" ]; then
-# this from Corinna at http://cygwin.com/ml/cygwin/2010-08/msg00246.html
-				_sid=$(grep "^$USER:" /etc/passwd | sed -e 's/[^:]*:[^:]*:[^:]*:[^:]*:[^:]*,\(S-1-5-[^:]*\):.*/\1/')
-				_prof=$(cat /proc/registry/HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/Windows\ NT/CurrentVersion/ProfileList/${_sid}/ProfileImagePath)
-				
-				if [ -f "${_prof}/_gvimrc" ]; then
-					gvimrc="${_prof}/_gvimrc"
-				elif [ -f "${_prof}/.gvimrc" ]; then
-					gvimrc="${_prof}/.gvimrc"
-				fi
-
-				unset _sid
-				unset _prof
-			fi
-
-			[ -n "$gvimrc" ] && colors=`grep guifg $gvimrc 2>/dev/null | head -1`
+			colors=`grep guifg ~/.gvimrc 2>/dev/null | head -1`
+			[ -n "$colors" ] || colors=`grep guifg ~/_gvimrc 2>/dev/null | head -1`
 
 			# Check if the user maximized the window in ~/_gvimrc on Win32, if
 			# so restore on startup.
-			if [ -n "$gvimrc" -a \( -n "$cygwin" -o -n "$msys" \) ]; then
-				simalt=`grep simalt $gvimrc 2>/dev/null | head -1`
-
+			if [ -n "$cygwin" -o -n "$msys" ]; then
+				simalt=`grep simalt ~/_gvimrc 2>/dev/null | head -1`
+				[ -n "$simalt" ] || simalt=`grep simalt ~/.gvimrc 2>/dev/null | head -1`
 				if [ -n "$simalt" ]; then
-					restore="simalt ~r"
-				fi
+					case $vim_cmd in
+						gvim*) restore="simalt ~r"
+					esac
+				fi	
 			fi
 
 			if command -v tput > /dev/null; then
@@ -170,26 +124,13 @@ less_vim() {
 				lines=999
 			fi
 
-			if [ -n "$vimrc" ]; then
-				$vim_cmd \
-				--cmd 'let vimpager=1' \
-				-u $vimrc \
-				-c 'set scrolloff=5 | runtime! macros/less.vim | set foldlevel=999 | set nonu' \
-				-c 'nmap <ESC>u :nohlsearch<cr>' \
-				-c "${colors:-echo}" \
-				-c "${restore:-echo}" \
-				-c "set lines=$lines | set columns=$cols" \
-				"${@:--}" &
-			else
-				$vim_cmd \
-				--cmd 'let vimpager=1' \
-				-c 'set scrolloff=5 | runtime! macros/less.vim | set foldlevel=999 | set nonu' \
-				-c 'nmap <ESC>u :nohlsearch<cr>' \
-				-c "${colors:-echo}" \
-				-c "${restore:-echo}" \
-				-c "set lines=$lines | set columns=$cols" \
-				"${@:--}" &
-			fi
+			$vim_cmd --noplugin \
+			-c 'set scrolloff=999 | runtime! macros/less.vim | set foldlevel=999 | set mouse=h | set nonu | set nolist' \
+			-c 'nmap <ESC>u :nohlsearch<cr>' \
+			-c "${colors:-echo}" \
+			-c "${restore:-echo}" \
+			-c "set lines=$lines | set columns=$cols" \
+			"${@:--}" &
 			;;
 	esac
 
@@ -232,38 +173,32 @@ trap "rm -rf /tmp/vimpager_$$" HUP INT QUIT ILL TRAP KILL BUS TERM
 mkdir /tmp/vimpager_$$
 
 filename=${@:-stdin}
-filename=`echo "$filename" | tr '/' '_'`
-filename="/tmp/vimpager_${$}/$filename"
+filename=`echo $filename | tr '/' '_'`
+filename=/tmp/vimpager_${$}/$filename
 
 case "$@" in
-	*.gz) gunzip -c "$@" | sed -e 's/\[[^m]*m//g' -e 's/.//g' > "$filename" ;;
-	*.Z) uncompress -c "$@" | sed -e 's/\[[^m]*m//g' -e 's/.//g' > "$filename" ;;
-	*) sed -e 's/\[[^m]*m//g' -e 's/.//g' "$@" > "$filename" ;;
+	*.gz) gunzip -c "$@" | sed -e 's/\[[^m]*m//g' -e 's/.//g' > $filename ;;
+	*.Z) uncompress -c "$@" | sed -e 's/\[[^m]*m//g' -e 's/.//g' > $filename ;;
+	*) sed -e 's/\[[^m]*m//g' -e 's/.//g' "$@" > $filename ;;
 esac
-
-# if file is zero length, exit immediately
-if [ ! -s "$filename" ]; then
-	exit
-fi
 
 # On cygwin it might be the win32 gvim, but windows paths work for cygwin
 # vim just fine as well.
 if [ -n "$cygwin" ]; then
-	filename=`cygpath -w "$filename"`
+	filename=`cygpath -w $filename`
 fi
 
-less_vim -c "${extra_cmd:-echo}" "$filename" </dev/tty
+less_vim -c "${extra_cmd:-echo}" $filename </dev/tty
 
 # terminal vim on OSX can screw up the terminal
-# (but doesn't anymore for some reason...)
-#if [ -n "$osx" ]; then
-#	case $vim_cmd in
-#		vim*)
-#			reset
-#			clear
-#			;;
-#	esac
-#fi
+if [ -n "$osx" ]; then
+	case $vim_cmd in
+		vim*)
+			# reset
+			# clear
+			;;
+	esac
+fi
 
 # Give gvim/mvim time to open the file.
 # On Cygwin we must also wait for the process to exit before the file can
@@ -272,7 +207,6 @@ less_vim -c "${extra_cmd:-echo}" "$filename" </dev/tty
 	while [ -d /tmp/vimpager_$$ ]; do
 		sleep 3
 		rm -rf /tmp/vimpager_$$ 2>/dev/null
-		rm -f gvim.exe.stackdump 2>/dev/null
 	done
 ) &
 
@@ -286,6 +220,5 @@ less_vim -c "${extra_cmd:-echo}" "$filename" </dev/tty
 # Ivan S. Freitas <ivansichfreitas@gmail.com>
 # Wout Mertens (Solaris compatibility, less processes)
 # Jacobo de Vera (add -X option for faster startup)
-# Damien Pollet <damien.pollet@gmail.com>
 
 # vim:noet ts=8 sts=8 sw=8:

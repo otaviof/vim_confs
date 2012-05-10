@@ -115,5 +115,15 @@ highlight Cream_ShowMarksHL ctermfg=blue ctermbg=lightblue cterm=bold guifg=Blac
 " adjusted:
 highlight BadWord ctermfg=black ctermbg=lightblue gui=NONE guifg=#ff9999 guibg=#003333
 "+++
-
-
+"
+" Org-Mode
+"
+hi Org_Property_Value     guifg=pink
+hi Org_Tag                guifg=lightgreen
+hi Org_Drawer             guifg=pink
+hi Org_Date               gui=underline cterm=underline ctermfg=13 guifg=magenta
+hi Org_Star               guifg=#444444
+hi Org_Table              guifg=#888888 guibg=bg
+hi Org_Block              guifg=#555555
+hi Org_Src_Block          guifg=gray80
+hi Org_Config_Line        guifg=gray95

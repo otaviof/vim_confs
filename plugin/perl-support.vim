@@ -152,7 +152,7 @@ endif
 call Perl_SetGlobalVariable( 'Perl_CodeSnippets', s:Perl_CodeSnippets )
 "
 "
-call Perl_SetGlobalVariable( 'Perl_PerlTags', 'enabled' )
+" call Perl_SetGlobalVariable( 'Perl_PerlTags', 'enabled' )
 "
 "  Key word completion is enabled by the filetype plugin 'perl.vim'
 "  g:Perl_Dictionary_File  must be global

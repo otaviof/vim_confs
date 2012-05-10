@@ -2,8 +2,8 @@
 " -- Vim's Colorscheme --
 "
 "  Maintainer: Otavio Fernandes <otaviof@gmail.com>
-" Last Change: 2011/03/28
-"     Version: 1.1.2
+" Last Change: 2012/01/29
+"     Version: 1.2
 "
 "vim: ts=4,sw=4
 "
@@ -20,7 +20,7 @@ let colors_name = "no_quarter"
 " Vim Colors (Default Options)
 "
 
-hi Normal                   gui=none        guifg=gray90        guibg=gray15
+hi Normal                   gui=none        guifg=gray95        guibg=#151515
 
 hi Comment                  gui=none        guifg=#8B97E4       guibg=bg
 hi Constant                 gui=none        guifg=#D77A7A       guibg=bg
@@ -49,8 +49,8 @@ hi SignColumn               gui=none        guifg=darkyellow    guibg=bg
 hi Special                  gui=none        guifg=#c090c0       guibg=bg
 hi SpecialKey               gui=none        guifg=darkslategray guibg=bg
 hi Statement                gui=none        guifg=#c0c090       guibg=bg
-hi StatusLine               gui=italic      guifg=#c0c090       guibg=gray30
-hi StatusLineNC             gui=none        guifg=gray60        guibg=gray20
+hi StatusLine               gui=underline   guifg=white         guibg=orangered3
+hi StatusLineNC             gui=none        guifg=gray70        guibg=gray35
 hi Title                    gui=none        guifg=darkyellow    guibg=bg
 hi Todo                     gui=bold        guifg=#ff80d0       guibg=bg
 hi Type                     gui=none        guifg=#60f0a8       guibg=bg
@@ -60,15 +60,16 @@ hi Visual                   gui=none        guifg=#b0ffb0       guibg=#008000
 hi VisualNOS                gui=none        guifg=#ffe8c8       guibg=#c06800
 hi WarningMsg               gui=bold        guifg=#ffa0ff       guibg=bg
 hi WildMenu                 gui=none        guifg=#000000       guibg=#abac84
-hi htmlTagName              gui=none        guifg=grey70        guibg=bg
+hi htmlTagName              gui=none        guifg=gray70        guibg=bg
 hi lCursor                  gui=none        guifg=#ffffff       guibg=#8800ff
 
+hi ColorColumn              gui=none                            guibg=gray5
 
 "
 " Cursor
 "
 
-hi Cursor                   gui=none        guifg=NONE          guibg=darkorange
+hi Cursor                   gui=none        guifg=NONE          guibg=orangered1
 hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
 hi CursorLine               gui=none        guifg=NONE          guibg=gray20
 hi iCursor                  gui=none        guifg=fg            guibg=green
@@ -121,6 +122,7 @@ hi perlVarSimpleMember      gui=none        guifg=#c0c090       guibg=bg
 hi perlVarSimpleMemberName  gui=none        guifg=gray70        guibg=bg
 hi perlSpecialDollar        gui=bold        guifg=white         guibg=black
 hi perlVarBlock             gui=none        guifg=gray70        guibg=bg
+hi perlVarBlock2            gui=none        guifg=gray70        guibg=bg
 
 " -- Perl --------------------------------------------------------------------
 " perlCharacter perlConditional perlFiledescRead perlFiledescStatement
@@ -143,15 +145,18 @@ hi perlVarBlock             gui=none        guifg=gray70        guibg=bg
 " Python
 "
 
+hi pythonBuiltinFunc        gui=NONE        guifg=grey60        guibg=bg
+hi pythonBuiltinObj         gui=NONE        guifg=lightgreen    guibg=bg
 hi pythonDecorator          gui=NONE        guifg=orangered     guibg=bg
 hi pythonDot                gui=NONE        guifg=grey          guibg=bg
-hi pythonOperator           gui=NONE        guifg=#ffdf87       guibg=bg
 hi pythonException          gui=NONE        guifg=#dfaf5f       guibg=bg
-hi pythonRepeat             gui=NONE        guifg=#B54E52       guibg=bg
+hi pythonFunction           gui=NONE        guifg=#AFCBAE       guibg=bg
+hi pythonOperator           gui=NONE        guifg=#ffdf87       guibg=bg
+hi pythonRepeat             gui=NONE        guifg=orangered     guibg=bg
 
-hi link pythonString Constant
-hi link pythonNumber Number
-
+hi link pythonString        Constant
+hi link pythonNumber        Number
+hi link pythonStatement     Statement
 
 " -- Python ------------------------------------------------------------------
 " pythonBinError pythonConditional pythonError pythonFunction
@@ -166,5 +171,17 @@ hi link pythonNumber Number
 " pythonStrTemplate pythonUniRawEscape
 " ----------------------------------------------------------------------------
 
+"
+" Org-Mode
+"
+hi Org_Property_Value     ctermfg=13 guifg=pink
+hi Org_Tag                ctermfg=9  guifg=lightgreen
+hi Org_Drawer             ctermfg=13 guifg=pink
+hi Org_Date               gui=underline cterm=underline ctermfg=13 guifg=magenta
+hi Org_Star               ctermfg=8 guifg=#444444
+hi Org_Table              ctermfg=13 guifg=#888888 guibg=bg
+hi Org_Block              ctermfg=13 guifg=#555555
+hi Org_Src_Block          ctermfg=13 guifg=gray80
+hi Org_Config_Line        ctermfg=13 guifg=darkgray
 
 " EOF
