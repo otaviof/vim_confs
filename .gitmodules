@@ -58,3 +58,12 @@
 [submodule "bundle/sudo"]
 	path = bundle/sudo
 	url = https://github.com/vim-scripts/sudo.vim.git
+[submodule "bundle/SQLUtilities"]
+	path = bundle/SQLUtilities
+	url = https://github.com/vim-scripts/SQLUtilities.git
+[submodule "bundle/Align"]
+	path = bundle/Align
+	url = https://github.com/vim-scripts/Align.git
+[submodule "bundle/vimproc"]
+	path = bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
