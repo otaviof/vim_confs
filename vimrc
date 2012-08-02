@@ -2,22 +2,19 @@
 " ~/.vimrc (https://github.com/otaviof/vim_confs)
 "
 
-let apleader= ','
-
-let leader=','
-let localleader=","
-let mapleader=","
-let maplocalleader=','
-
-" nnoremap ' `
-" nnoremap ` '
-
 filetype off
+set nocompatible
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+
+let apleader= ','
+let leader=','
+let localleader=","
+let mapleader=","
+let maplocalleader=','
 
 syntax   enable
 filetype plugin on
@@ -30,6 +27,8 @@ source ~/.vim/set_globals.vim
 
 runtime macros/matchit.vim
 
+set nobackup
+set noswapfile
 
 " ----------------------------------------------------------------------------
 " -- Methods and special maps for them:
@@ -118,6 +117,9 @@ endfunction
 " -- Mappings:
 " ----------------------------------------------------------------------------
 
+" no macro recorder
+nnoremap q <NOP>
+
 " Alloy's file drawer (Textmate's alike)
 " map <silent><D-E>   :macaction toggleDrawer:<CR>
 " map <silent><D-M-e> :macaction selectInDrawer:<CR>
@@ -181,6 +183,7 @@ nnoremap <silent> <Localleader>f :call FindInNERDTree()<CR>
 " TagBar
 nmap <F6> :TagbarToggle<CR>
 let g:tagbar_left=1
+let g:tagbar_expand=1
 let g:tagbar_width=27
 let g:tagbar_compact=1
 let g:tagbar_iconchars=['▸', '▾']
@@ -260,6 +263,7 @@ let g:TextileBrowser="Google Chrome"
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'solarizedLightLC'
 
 
 " ----------------------------------------------------------------------------
@@ -330,5 +334,21 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 " easy shortcut to disable it
 map <leader>N :NeoComplCacheDisable<CR>
+
+" Solarized
+" let g:solarized_termcolors = 256
+let g:solarized_termtrans = 1
+let g:solarized_degrade = 0
+let g:solarized_bold =   1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
+let g:solarized_contrast = "high"
+" let g:solarized_visibility = "high"
+call togglebg#map("<F2>")
+
+" Key for run python code
+let g:pymode_run_key = '<leader>r'
+let g:pymode_folding = 0
+let g:pymode_run = 1
 
 " EOF

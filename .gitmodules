@@ -31,9 +31,6 @@
 [submodule "bundle/utl-vim"]
 	path = bundle/utl-vim
 	url = https://github.com/vim-scripts/utl.vim.git
-[submodule "bundle/VimOrganizer"]
-	path = bundle/VimOrganizer
-	url = https://github.com/hsitz/VimOrganizer
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
@@ -43,9 +40,6 @@
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "bundle/vim-ipython"]
-	path = bundle/vim-ipython
-	url = https://github.com/ivanov/vim-ipython.git
 [submodule "bundle/vim-porwerline"]
 	path = bundle/vim-porwerline
 	url = https://github.com/Lokaltog/vim-powerline.git
@@ -67,3 +61,12 @@
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
+[submodule "bundle/evervim"]
+	path = bundle/evervim
+	url = https://github.com/kakkyz81/evervim.git
+[submodule "bundle/VOoM"]
+	path = bundle/VOoM
+	url = https://github.com/vim-scripts/VOoM.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = https://github.com/klen/python-mode.git
