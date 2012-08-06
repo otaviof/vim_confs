@@ -55,18 +55,9 @@
 [submodule "bundle/SQLUtilities"]
 	path = bundle/SQLUtilities
 	url = https://github.com/vim-scripts/SQLUtilities.git
-[submodule "bundle/Align"]
-	path = bundle/Align
-	url = https://github.com/vim-scripts/Align.git
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
-[submodule "bundle/evervim"]
-	path = bundle/evervim
-	url = https://github.com/kakkyz81/evervim.git
-[submodule "bundle/VOoM"]
-	path = bundle/VOoM
-	url = https://github.com/vim-scripts/VOoM.git
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = https://github.com/klen/python-mode.git
