@@ -349,6 +349,8 @@ call togglebg#map("<F2>")
 " Key for run python code
 let g:pymode_run_key = '<leader>r'
 let g:pymode_folding = 0
-let g:pymode_run = 1
+let g:pymode_run = 0
+let g:pymode_rope = 0
+let g:pymode_virtualenv = 0
 
 " EOF
