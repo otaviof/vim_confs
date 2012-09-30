@@ -61,3 +61,6 @@
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = https://github.com/klen/python-mode.git
+[submodule "bundle/puppet-syntax-vim"]
+	path = bundle/puppet-syntax-vim
+	url = https://github.com/puppetlabs/puppet-syntax-vim.git
