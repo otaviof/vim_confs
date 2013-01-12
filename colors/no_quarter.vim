@@ -69,7 +69,7 @@ hi ColorColumn              gui=none                            guibg=gray5
 " Cursor
 "
 
-hi Cursor                   gui=none        guifg=NONE          guibg=orangered1
+hi Cursor                   gui=none        guifg=fg            guibg=orangered1
 hi CursorIM                 gui=none        guifg=NONE          guibg=#8800ff
 hi CursorLine               gui=none        guifg=NONE          guibg=gray20
 hi iCursor                  gui=none        guifg=fg            guibg=green
