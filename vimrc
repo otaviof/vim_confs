@@ -117,8 +117,14 @@ endfunction
 " -- Mappings:
 " ----------------------------------------------------------------------------
 
+" yank (copy) full path of file
+nmap <leader>cp :let @" = expand("%")
+
 " no macro recorder
 nnoremap q <NOP>
+
+" send paste (p) register to blackhole (_)
+vnoremap <leader>p "_dP
 
 " Alloy's file drawer (Textmate's alike)
 " map <silent><D-E>   :macaction toggleDrawer:<CR>
@@ -263,7 +269,7 @@ let g:TextileBrowser="Google Chrome"
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'solarizedLightLC'
+let g:Powerline_colorscheme = 'zenburn'
 
 
 " ----------------------------------------------------------------------------
@@ -334,17 +340,6 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 " easy shortcut to disable it
 map <leader>N :NeoComplCacheDisable<CR>
-
-" Solarized
-" let g:solarized_termcolors = 256
-let g:solarized_termtrans = 1
-let g:solarized_degrade = 0
-let g:solarized_bold =   1
-let g:solarized_underline = 1
-let g:solarized_italic = 1
-let g:solarized_contrast = "high"
-" let g:solarized_visibility = "high"
-call togglebg#map("<F2>")
 
 " Key for run python code
 let g:pymode_run_key = '<leader>r'
