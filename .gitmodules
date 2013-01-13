@@ -64,3 +64,6 @@
 [submodule "bundle/ipqtmacvim"]
 	path = bundle/ipqtmacvim
 	url = https://github.com/jkitzes/ipyqtmacvim.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
