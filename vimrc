@@ -4,11 +4,16 @@
 
 filetype off
 set nocompatible
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set nobackup
+set noswapfile
+set laststatus=2
 
 source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+" call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 
 let apleader= ','
 let leader=','
@@ -19,6 +24,7 @@ let maplocalleader=','
 syntax   enable
 filetype plugin on
 filetype indent on
+set t_Co=256
 
 if has("autocmd")
     source ~/.vim/augroup.vim
@@ -26,9 +32,6 @@ endif
 source ~/.vim/set_globals.vim
 
 runtime macros/matchit.vim
-
-set nobackup
-set noswapfile
 
 " ----------------------------------------------------------------------------
 " -- Methods and special maps for them:
@@ -269,13 +272,14 @@ let g:TextileBrowser="Google Chrome"
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'zenburn'
+call togglebg#map("<F2>")
 
 " Key for run python code
 let g:pymode_folding = 0
 let g:pymode_run = 0
 let g:pymode_rope_vim_completion=1
 let g:pymode_rope_extended_complete=1
+let g:pymode_lint_ignore = "E501,W404,W802"
 
 
 " ----------------------------------------------------------------------------
@@ -283,7 +287,7 @@ let g:pymode_rope_extended_complete=1
 " ----------------------------------------------------------------------------
 
 " Disable AutoComplPop. Comment out this line if AutoComplPop is not installed.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 1
 " Launches neocomplcache automatically on vim startup.
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
@@ -311,8 +315,8 @@ endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+" imap <C-k> <Plug>(neocomplcache_snippets_expand)
+" smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
@@ -330,6 +334,12 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " not showing scratch preview
 "   http://stackoverflow.com/questions/13611198/vim-neocomplcache-disable-usage-prompt
 set completeopt-=preview
+
+" OnSyntaxChange: disabling AutoComplPop for comments
+"   http://stackoverflow.com/questions/10723499/how-to-disable-autocomplpop-completions-in-comments
+call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
+autocmd User SyntaxCommentEnterI silent! AcpLock
+autocmd User SyntaxCommentLeaveI silent! AcpUnlock
 
 
 " ----------------------------------------------------------------------------

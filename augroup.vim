@@ -78,6 +78,11 @@ augroup xml
     au syntax xml setlocal equalprg=xmlindent\ -i\ 2\ -l\ 78
 augroup END
 
+augroup help
+    au!
+    au syntax help setlocal nu
+augroup END
+
 "
 " NeoComplCache
 "

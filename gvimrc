@@ -34,8 +34,8 @@ if has("gui_macvim")
     let g:git_branch_status_around="[]"
     let g:git_branch_status_text=" :: "
 
-    set cul hlg=en ls=3 mh mouse=a nu tenc=utf-8 transparency=8
-    set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
+    set cul hlg=en ls=3 mh mouse=a nu tenc=utf-8 transparency=10
+    " set statusline=\-\-\ \%t\ %<%=\ \(\%F\)\ [%1*%M%*%n%R%H]\ \%l/%L:%c\%{GitBranchInfoString()}\ \-\-
     set history=50 lines=53 columns=130
     set colorcolumn=+1,+2,+3,+4,+5,+6,+7,+8,+9,+10,+11,+12,+13,+14,+15,+16,+17,+18,+19,+20,+21,+22,+23,+24,+25,+26,+27,+28,+29,+30,+31,+32,+33,+34,+35,+36,+37,+38,+39,+40,+41,+42,+43,+44,+45,+46,+47
 
@@ -55,9 +55,10 @@ if has("gui_macvim")
     let g:solarized_contrast = "normal"
     let g:solarized_visibility = "normal"
 
-    " colorscheme no_quarter
-    colorscheme solarized
-    call togglebg#map("<F2>")
+    " let g:Powerline_colorscheme = 'solarized256'
+    let g:Powerline_colorscheme = 'zenburn'
+    colorscheme no_quarter
+    " colorscheme solarized
 
     set invmmta
 
@@ -65,5 +66,7 @@ if has("gui_macvim")
 
     silent! unmenu Plugin.Git\ Info
 endif
+
+set laststatus=2
 
 " EOF
