@@ -76,3 +76,6 @@
 [submodule "bundle/vim-detailed"]
 	path = bundle/vim-detailed
 	url = https://github.com/rking/vim-detailed.git
+[submodule "bundle/python-syntax"]
+	path = bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git
