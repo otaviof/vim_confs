@@ -2,18 +2,20 @@
 " ~/.vimrc (https://github.com/otaviof/vim_confs)
 "
 
-filetype off
 set nocompatible
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set nobackup
 set noswapfile
-set laststatus=2
 
-source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+" Pathogen load
+filetype off
+
+call pathogen#infect()
 call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
-call pathogen#incubate()
+
+filetype plugin indent on
+syntax on
 
 let apleader= ','
 let leader=','
@@ -279,7 +281,10 @@ let g:pymode_folding = 0
 let g:pymode_run = 0
 let g:pymode_rope_vim_completion=1
 let g:pymode_rope_extended_complete=1
-let g:pymode_lint_ignore = "E501,W404,W802"
+let g:pymode_lint_ignore = "E501,W404,W802,W0401,W0404"
+let g:pymode_rope_vim_completion = 1
+let g:pymode_rope_guess_project = 1
+let g:pymode_rope_always_show_complete_menu = 0
 
 
 " ----------------------------------------------------------------------------

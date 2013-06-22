@@ -1,5 +1,17 @@
 let vimpager_use_gvim = 1
-let vimpager_disable_x11 = 1
-let vimpager_scrolloff = 0
-set nolist
+let vimpager_passthrough = 1
 
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+
+if exists("vimpager")
+    if exists("vimpager_ptree") && vimpager_ptree[-2] == 'wman'
+        set ft=man
+    endif
+endif
+
+set background=light
+colorscheme emacs
+set statusline=""
+set nu
+
+" EOF

@@ -59,6 +59,14 @@ augroup ruby
     endif
 augroup END
 
+augroup puppet
+    au!
+    au filetype puppet source ~/.vim/ftplugin/ri.vim
+    let autocommands_ruby_loaded = 1
+    au BufReadPre *.rb setlocal sw=2 ts=2 sw=2 sts=2 nu | let IndentStyle="ruby"
+    au BufNewFile *.rb 0r ~/.vim/skeleton.rb | let IndentStyle = "ruby"
+augroup END
+
 augroup text
     au!
     au BufRead,BufNewFile *.txt setlocal ft=txt
