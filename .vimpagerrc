@@ -9,9 +9,6 @@ if exists("vimpager")
     endif
 endif
 
-set background=light
-colorscheme emacs
-set statusline=""
 set nu
 
 " EOF

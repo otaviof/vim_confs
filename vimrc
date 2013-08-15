@@ -8,25 +8,21 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 set nobackup
 set noswapfile
 
-" Pathogen load
-filetype off
-
-call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
-syntax on
-
 let apleader= ','
 let leader=','
 let localleader=","
 let mapleader=","
 let maplocalleader=','
 
-syntax   enable
+" Pathogen load
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+syntax on
 filetype plugin on
 filetype indent on
-set t_Co=256
 
 if has("autocmd")
     source ~/.vim/augroup.vim
@@ -34,6 +30,7 @@ endif
 source ~/.vim/set_globals.vim
 
 runtime macros/matchit.vim
+
 
 " ----------------------------------------------------------------------------
 " -- Methods and special maps for them:
@@ -80,7 +77,7 @@ function! PickFromList( name, list, ... )
     if 1 == len(a:list) && !forcelist
         let choice = 0
     else
-        let lines = [ 'Choose a '. a:name . ':' ]
+        let lines = [ 'Choose a ' . a:name . ':' ]
             \ + map(range(1, len(a:list)), 'v:val .": ". a:list[v:val - 1]')
         let choice  = inputlist(lines)
         if choice > 0 && choice <= len(a:list)
@@ -148,9 +145,6 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " nnoremap <silent> <Localleader>d :.!perl -MO=Deparse 2>/dev/null<cr>
 " vnoremap <silent> <Localleader>d :!perl -MO=Deparse 2>/dev/null<cr>
 
-" Perl tidy-up coding style
-noremap <leader>t mz:%!perltidy -q<CR>'z:delmarks z<CR>
-
 " JSON tidy-up
 noremap <leader>jt mz:%!json_xs -f json -t json-pretty<CR>'z:delmarks z<CR>
 
@@ -188,8 +182,10 @@ let NERDTreeShowBookmarks=0
 let NERDChristmasTree=1
 let NERDTreeAutoCenter=1
 let NERDTreeWinPos='right'
+let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
 map <Localleader>n :execute 'NERDTreeToggle'<CR>
-nnoremap <silent> <Localleader>f :call FindInNERDTree()<CR>
+nnoremap <Localleader>f :execute 'NERDTreeFind'<CR>
+nnoremap <Localleader>N :execute 'NERDTreeFind'<CR>
 
 " TagBar
 nmap <F6> :TagbarToggle<CR>
@@ -203,11 +199,6 @@ let g:tagbar_iconchars = ['▸', '▾']
 " ----------------------------------------------------------------------------
 " -- Plugins Options:
 " ----------------------------------------------------------------------------
-
-" Vim-OrgMode
-let g:org_command_for_emacsclient='/Applications/MacPorts/Emacs.app/Contents//MacOS/bin/emacsclient'
-let g:org_tags_alist='{@home(h) @work(w) @mysql(m)} {easy(e) hard(d)}'
-" let g:org_todo_setup='TODO | DONE'
 
 " Perl Options
 let g:def_perl_comp_bfunction=1
@@ -272,10 +263,6 @@ let g:indent_guides_hex_color_pattern=""
 " Textile default browser
 let g:TextileBrowser="Google Chrome"
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
-call togglebg#map("<F2>")
-
 " Key for run python code
 let g:pymode_folding = 0
 let g:pymode_run = 0
@@ -285,6 +272,35 @@ let g:pymode_lint_ignore = "E501,W404,W802,W0401,W0404"
 let g:pymode_rope_vim_completion = 1
 let g:pymode_rope_guess_project = 1
 let g:pymode_rope_always_show_complete_menu = 0
+
+" tagbar for Golang
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 
 " ----------------------------------------------------------------------------
@@ -345,6 +361,29 @@ set completeopt-=preview
 call OnSyntaxChange#Install('Comment', '^Comment$', 0, 'i')
 autocmd User SyntaxCommentEnterI silent! AcpLock
 autocmd User SyntaxCommentLeaveI silent! AcpUnlock
+
+" Plum colorscheme
+let g:plum_cursorline_highlight_only_linenr = 0
+let g:plum_set_bg_at_start = 0
+
+" Airline
+let g:airline_enable_branch = 1
+let g:airline_powerline_fonts = 0
+let g:airline_detect_modified = 1
+let g:airline_enable_syntastic = 0
+let g:airline_branch_prefix = '⭠ '
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '≫'
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_paste_symbol = 'Þ'
+let g:airline_readonly_symbol = '⭤'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '≪'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_detect_whitespace = 0
 
 
 " ----------------------------------------------------------------------------
