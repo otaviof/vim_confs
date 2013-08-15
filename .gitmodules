@@ -4,9 +4,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/vim-git-branch-info"]
-	path = bundle/vim-git-branch-info
-	url = https://github.com/taq/vim-git-branch-info.git
 [submodule "bundle/bash-support.vim"]
 	path = bundle/bash-support.vim
 	url = https://github.com/gregwork/bash-support.vim.git
@@ -37,9 +34,6 @@
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "bundle/vim-porwerline"]
-	path = bundle/vim-porwerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git
@@ -49,9 +43,6 @@
 [submodule "bundle/sudo"]
 	path = bundle/sudo
 	url = https://github.com/vim-scripts/sudo.vim.git
-[submodule "bundle/SQLUtilities"]
-	path = bundle/SQLUtilities
-	url = https://github.com/vim-scripts/SQLUtilities.git
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
@@ -79,3 +70,21 @@
 [submodule "bundle/python-syntax"]
 	path = bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+[submodule "bundle/plum"]
+	path = bundle/plum
+	url = https://github.com/gcmt/plum.vim.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-ipython"]
+	path = bundle/vim-ipython
+	url = https://github.com/ivanov/vim-ipython.git
+[submodule "bundle/vim-golang"]
+	path = bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "bundle/vim-gocode"]
+	path = bundle/vim-gocode
+	url = https://github.com/Blackrush/vim-gocode.git
