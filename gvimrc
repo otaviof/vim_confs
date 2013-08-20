@@ -60,7 +60,6 @@ if has("gui_macvim")
     "
     "" Solarized
     let g:solarized_degrade = 0
-    let g:airline_theme = 'solarized'
     let g:solarized_termcolors = 256
     let g:solarized_termtrans = 1
     let g:solarized_bold = 1
@@ -68,6 +67,7 @@ if has("gui_macvim")
     let g:solarized_italic = 1
     let g:solarized_contrast = 'normal'
     let g:solarized_visibility = 'normal'
+    let g:airline_theme = 'solarized'
     colorscheme solarized
     "
     "" Plum
