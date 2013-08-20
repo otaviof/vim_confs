@@ -91,3 +91,6 @@
 [submodule "bundle/vim-godef"]
 	path = bundle/vim-godef
 	url = https://github.com/otaviof/vim-godef.git
+[submodule "bundle/vim-gocode"]
+	path = bundle/vim-gocode
+	url = https://github.com/otaviof/vim-gocode.git
